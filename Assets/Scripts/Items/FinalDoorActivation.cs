@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FinalDoorActivation : MonoBehaviour
 {
-    public GameObject finalDoor;
+    [SerializeField] Animator animator;
     private bool doorDeactivated;
 
     private void Update()
@@ -12,7 +12,7 @@ public class FinalDoorActivation : MonoBehaviour
         if (GeneratorCounter.Instance != null &&
             GeneratorCounter.Instance.FixedCount >= GeneratorCounter.Instance.totalGens)
         {
-            finalDoor.SetActive(false);
+            animator.SetBool("isOpen", true);
             doorDeactivated = true;
         }
     }

@@ -10,7 +10,7 @@ public class PanelLogic : MonoBehaviour
 
     [Header("Base Settings")]
     public GameObject playerCursor;
-    public GameObject escapebayDoor;
+    [SerializeField] Animator animator;
     public float repairSpeed = 0.5f;
     
 
@@ -55,7 +55,7 @@ public class PanelLogic : MonoBehaviour
                     repairPercentage.value = repairPercentage.maxValue;
                     isPanelFixed = true;
 
-                    escapebayDoor.SetActive(false);
+                    animator.SetBool("isOpen", true);
 
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;

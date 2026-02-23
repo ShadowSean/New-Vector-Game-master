@@ -34,7 +34,7 @@ public class RaycastPickup : MonoBehaviour
 
 
     pickupItem currentPickup;
-    Door currentDoor;
+    
     KeyCard currentKeyCard;
 
     private void Start()
@@ -62,7 +62,7 @@ public class RaycastPickup : MonoBehaviour
             hitSomething = true;
             intIcon.SetActive(true);
             currentPickup = hit.collider.GetComponent<pickupItem>();
-            currentDoor = hit.collider.GetComponentInParent<Door>();
+            
             currentKeyCard = hit.collider.GetComponent<KeyCard>();
             
 
@@ -75,22 +75,14 @@ public class RaycastPickup : MonoBehaviour
                     PickUp(currentPickup);
                 }
             }
-            else if (currentDoor != null)
-            {
-                currentDoor.ShowInteractPromt(true);
-                if (Input.GetKeyDown(pickupKey))
-                {
-                    currentDoor.Interact();
-                    
-                }
-            }
+          
             else if (currentKeyCard != null)
             {
-                currentKeyCard.ShowInteractPromt(true);
+                
                 if (Input.GetKeyDown(pickupKey))
                 {
                     currentKeyCard.Interact();
-                    currentKeyCard.ShowInteractPromt(false);
+                    
                     currentKeyCard = null;
                 }
             }
@@ -99,14 +91,10 @@ public class RaycastPickup : MonoBehaviour
         if (!hitSomething)
         {
             intIcon.SetActive(false);
-            if (currentDoor != null)
-            {
-                currentDoor.ShowInteractPromt(false);
-                currentDoor = null;
-            }
+            
             if (currentKeyCard != null)
             {
-                currentKeyCard.ShowInteractPromt(false);
+                
                 currentKeyCard = null;
             }
             
