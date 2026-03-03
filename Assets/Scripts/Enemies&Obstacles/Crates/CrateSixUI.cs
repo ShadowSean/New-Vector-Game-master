@@ -12,6 +12,8 @@ public class CrateSixUI : MonoBehaviour
     private FPController cameraMovement;
     public GameObject itemRotation;
 
+
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

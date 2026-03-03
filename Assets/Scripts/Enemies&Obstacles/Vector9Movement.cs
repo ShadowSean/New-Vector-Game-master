@@ -9,7 +9,11 @@ public class Vector9Movement : MonoBehaviour
     [SerializeField] private Transform playerPosition;
     public Transform[] patrolAreas;
     public float chaseDistance;
-    public CanvasGroup gameOverCanvas;    
+    public CanvasGroup gameOverCanvas;
+    
+
+    [SerializeField] Transform defaultSpawn;
+
     public float fadeDuration = 2f;
 
     public GameObject scope;
@@ -54,6 +58,8 @@ public class Vector9Movement : MonoBehaviour
     float defaultChaseSpeed;
     float defaultAngularSpeed;
     float defaultAccel;
+
+    public bool gameOverRunning;
 
     //[SerializeField]private Collider triggerCollider;
     //[SerializeField]private Collider solidCollider;
@@ -250,7 +256,7 @@ public class Vector9Movement : MonoBehaviour
     private IEnumerator GameOverSequence()
     {
         yield return new WaitForSeconds(2.5f);
-
+        
         float t = 0f;
         while (t < fadeDuration)
         {
@@ -259,15 +265,38 @@ public class Vector9Movement : MonoBehaviour
                 gameOverCanvas.alpha = Mathf.Lerp(0, 1, t / fadeDuration);
             yield return null;
         }
-        print("bye");
+       
         yield return new WaitForSeconds(3f);
-        print("Hi");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+        ReloadOnDeath.instance.ReloadCurrentSceneCheckpoint();
+        
+        
+
         yield break;
     }
 
+    
+
+    //public void ResetGameOverUI()
+    //{
+    //    gameOverRunning = false;
+    //    if (gameOverCanvas != null)
+    //    {
+    //        gameOverCanvas.alpha = 0f;
+    //        gameOverCanvas.blocksRaycasts = false;
+    //        gameOverCanvas.interactable = false;
+    //        gameOverCanvas.gameObject.SetActive(false);
+    //    }
+    //}
+
     public void StartFade()
     {
+        if (gameOverRunning)
+        {
+            return;
+        }
+
+        gameOverRunning = true; 
         StartCoroutine(GameOverSequence());
     }
 

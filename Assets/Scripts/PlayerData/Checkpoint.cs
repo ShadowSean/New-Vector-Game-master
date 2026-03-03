@@ -8,6 +8,9 @@ public class Checkpoint : MonoBehaviour
 
     [SerializeField] GameHandler gameHandler;
 
+
+    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

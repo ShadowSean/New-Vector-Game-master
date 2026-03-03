@@ -39,8 +39,11 @@ public class ItemSwitcher : MonoBehaviour
     public bool hasFlamethrower;
     bool hasBattery;
     GameObject batteryPrefab;
-    
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
     private void Start()
     {
         batteryBehaviour = flashlight_player.GetComponentInChildren<LightBehaviour>();

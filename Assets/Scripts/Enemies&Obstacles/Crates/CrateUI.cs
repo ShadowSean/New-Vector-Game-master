@@ -5,7 +5,7 @@ public class CrateUI : MonoBehaviour
 {
     public GameObject crateui, equipIcon,playerCursor;
 
-
+   
 
     public static bool partsCollected;
     
@@ -15,6 +15,12 @@ public class CrateUI : MonoBehaviour
     bool itemEquipped;
 
     private FPController cameraMovement;
+
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     private void OnTriggerEnter(Collider other)
     {

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.AI;
 
+
 public class PlayerCollisionHandler : MonoBehaviour
 {
     [Header("Game Over Settings")]
@@ -51,7 +52,7 @@ public class PlayerCollisionHandler : MonoBehaviour
                 Animator jumpScare = Vector9.GetComponent<Animator>();
                 jumpScare.speed = 1f;
                 jumpScare.SetTrigger("Scare");
-      
+                //StartCoroutine(FalseCamera());
             }
             Vector9.GetComponent<NavMeshAgent>().isStopped = true;
 
@@ -67,5 +68,15 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
     }
 
-    
+    //IEnumerator FalseCamera()
+    //{
+    //    Animator jumpScare = Vector9.GetComponent<Animator>();
+    //    yield return new WaitForSeconds(5f);
+    //    jumpScare.SetTrigger("Walk");
+    //    Vector9.GetComponent<NavMeshAgent>().isStopped = false;
+    //    cameraObj.SetActive(false);
+    //    MainCanvas.SetActive(true);
+    //}
+
+
 }

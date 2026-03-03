@@ -13,6 +13,8 @@ public class CrateFourUI : MonoBehaviour
 
     private FPController cameraMovement;
 
+
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

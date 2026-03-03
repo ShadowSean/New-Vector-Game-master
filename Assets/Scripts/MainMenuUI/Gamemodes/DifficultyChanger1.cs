@@ -24,4 +24,19 @@ public class DifficultyChanger1 : MonoBehaviour
     {
         selectDiffculty = Difficulty.Insane;
     }
+
+    public void DeleteSave(string key)
+    {
+        if (!PlayerPrefs.HasKey("SaveSlot"))
+        {
+            Debug.Log("Save Slot does not exist");
+            return;
+        }
+
+        PlayerPrefs.DeleteKey("SaveSlot");
+        Debug.Log(key + "save has been deleted");
+
+
+
+    }
 }
