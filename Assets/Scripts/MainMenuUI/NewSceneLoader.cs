@@ -24,6 +24,39 @@ public class NewSceneLoader : MonoBehaviour
     [Header("MainGame")]
     public string mainGameSceneName;
 
+    [Header("Lore Loading")]
+    public GameObject firstText;
+    public GameObject secondText;
+    public GameObject thirdText;
+    public GameObject fourthText;
+    public GameObject fifthText;
+    public GameObject sixthText;
+    public GameObject seventhText;
+    public GameObject continueText;
+    public Camera gamemodeCamera;
+    public Camera spaceCamera;
+    public GameObject loreHandler;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(MainGameLoad());
+        }
+    }
+
+    IEnumerator MainGameLoad()
+    {
+        yield return StartCoroutine(Fade(0, 1));
+
+        SceneManager.LoadScene(mainGameSceneName);
+    }
+
+    public void SkipLoreScene()
+    {
+        SceneManager.LoadScene(mainGameSceneName);
+    }
+
     public void StartNewGame()
     {
         
@@ -37,6 +70,7 @@ public class NewSceneLoader : MonoBehaviour
         mainMenu.SetActive(false);
 
         shipLoadingScreen.SetActive(true);
+        
         yield return StartCoroutine(Fade(1, 0));
         for (int i = 0; i < tipTexts.Length; i++)
         {
@@ -69,16 +103,50 @@ public class NewSceneLoader : MonoBehaviour
         }
 
         yield return StartCoroutine(Fade(0, 1));
-
+        gamemodeCamera.gameObject.SetActive(false);
+        spaceCamera.gameObject.SetActive(true);
         shipLoadingScreen.SetActive(false);
         finalLoadingScreen.SetActive(true);
         yield return StartCoroutine(Fade(1, 0));
 
-        yield return new WaitForSeconds(5f);
-        yield return StartCoroutine(Fade(0, 1));
+        firstText.SetActive(true);
+        loreHandler.SetActive(true);
+        yield return new WaitForSeconds(15f);
+        firstText.SetActive(false);
 
-        SceneManager.LoadScene(mainGameSceneName);
+        secondText.SetActive(true);
+        yield return new WaitForSeconds(15f);
+        secondText.SetActive(false);
+
+        thirdText.SetActive(true);
+        yield return new WaitForSeconds(15f);
+        thirdText.SetActive(false);
+
+        fourthText.SetActive(true);
+        yield return new WaitForSeconds(15f);
+        fourthText.SetActive(false);
+
+        fifthText.SetActive(true);
+        yield return new WaitForSeconds(15f);
+        fifthText.SetActive(false);
+
+        sixthText.SetActive(true);
+        yield return new WaitForSeconds(15f);
+        sixthText.SetActive(false);
+
+        seventhText.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        
+        continueText.SetActive(true);
+
+
+      
+
+        
+        
     }
+
+
 
     IEnumerator Fade(float start, float end)
     {

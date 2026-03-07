@@ -17,10 +17,7 @@ public class CrateUI : MonoBehaviour
     private FPController cameraMovement;
 
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {

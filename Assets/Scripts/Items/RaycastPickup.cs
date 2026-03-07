@@ -1,6 +1,7 @@
 using System.Collections;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RaycastPickup : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class RaycastPickup : MonoBehaviour
     public KeyCode pickupKey = KeyCode.E;
 
     public Camera playerCamera;
-    public GameObject scope;
+    public Camera mapCam;
+    [SerializeField] GameObject scope;
     public ItemSwitcher itemSwitcher;
-    public GameObject minimap;
-    public GameObject minimapText;
+    public GameObject map;
+    public GameObject mapUI;
     public GameObject intIcon;
+    [SerializeField] Light flashlightSource;
 
     private FPController playerMovement;
     private Animator anim;
@@ -108,14 +111,39 @@ public class RaycastPickup : MonoBehaviour
         if (hasMinimap && Input.GetKeyDown(minimapKey))
         {
             minimapOpen = !minimapOpen;
-            
-            minimap.SetActive(minimapOpen);
 
-            if (scope != null)
+            map.SetActive(minimapOpen);
+            mapUI.SetActive(minimapOpen);
+            flashlightSource.enabled = !minimapOpen;
+            scope.SetActive(!minimapOpen);
+
+            if (playerMovement != null)
             {
-                scope.SetActive(!minimapOpen);
+                if (minimapOpen)
+                {
+                    
+                    mapCam.gameObject.SetActive(true);
+                    playerMovement.canMove = false;
+                    anim.enabled = false;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+                else
+                {
+                    
+                    mapCam.gameObject.SetActive(false);
+                    playerMovement.canMove = true;
+                    anim.enabled = true;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+                
             }
+            
+
+            
         }
+
 
 
     }
@@ -184,7 +212,6 @@ public class RaycastPickup : MonoBehaviour
                     break;
                 case ItemType.Map:
                     hasMinimap = true;
-                    StartCoroutine(MapTutorial());
                     break;
             }
         }
@@ -192,15 +219,5 @@ public class RaycastPickup : MonoBehaviour
         currentPickup.gameObject.SetActive(false);
     }
 
-    IEnumerator MapTutorial()
-    {
-        playerMovement.canMove = false;
-        anim.enabled = false;
-        minimap.SetActive(true);
-        minimapText.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        minimapText.SetActive(false);
-        playerMovement.canMove = true;
-        anim.enabled = true;
-    }
+    
 }
