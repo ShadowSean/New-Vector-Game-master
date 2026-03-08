@@ -23,15 +23,22 @@ public class RaycastPickup : MonoBehaviour
     private LightBehaviour lightBehaviour;
     private TaserRodAttack taserValues;
 
+    public GameObject flashlightUpgradeUI;
+    public GameObject taserrodUpgradeUI;
+
     
     public AudioSource audioSource;
     public AudioClip pickupSound;
 
     private bool hasMinimap = false;
     private bool minimapOpen = false;
+
     public static bool canUpgradeFlash;
     public static bool canUpgradeTaser;
     public KeyCode minimapKey = KeyCode.M;
+
+    public float minimapCD = 30f;
+    private bool canOpenMap = true;
 
 
 
@@ -108,10 +115,10 @@ public class RaycastPickup : MonoBehaviour
         }
 
         
-        if (hasMinimap && Input.GetKeyDown(minimapKey))
+        if (hasMinimap && Input.GetKeyDown(minimapKey) && canOpenMap)
         {
             minimapOpen = !minimapOpen;
-
+            
             map.SetActive(minimapOpen);
             mapUI.SetActive(minimapOpen);
             flashlightSource.enabled = !minimapOpen;
@@ -130,7 +137,7 @@ public class RaycastPickup : MonoBehaviour
                 }
                 else
                 {
-                    
+                    StartCoroutine(MiniMapCooldown());
                     mapCam.gameObject.SetActive(false);
                     playerMovement.canMove = true;
                     anim.enabled = true;
@@ -148,6 +155,13 @@ public class RaycastPickup : MonoBehaviour
 
     }
 
+    IEnumerator MiniMapCooldown()
+    {
+        canOpenMap = false;
+        yield return new WaitForSeconds(minimapCD);
+        canOpenMap = true;
+    }
+
     void FlashlightUpgrade()
     {
         canUpgradeFlash = true;
@@ -158,11 +172,26 @@ public class RaycastPickup : MonoBehaviour
             Debug.LogWarning("No LightBehaviour found under the player. Upgrade not applied.");
             return;
         }
+        StartCoroutine(FlashlightUpgradeRoutine());
 
         lightBehaviour.drainRate = 300;
         Debug.Log("Flashlight upgrade applied: drainRate = " + lightBehaviour.drainRate);
     
 
+    }
+
+    IEnumerator FlashlightUpgradeRoutine()
+    {
+        flashlightUpgradeUI.SetActive(true);
+        yield return new WaitForSeconds(5);
+        flashlightUpgradeUI.SetActive(false);
+    }
+
+    IEnumerator TaserRodUpgradeRoutine()
+    {
+        taserrodUpgradeUI.SetActive(true);
+        yield return new WaitForSeconds(5);
+        taserrodUpgradeUI.SetActive(false);
     }
 
 
@@ -174,6 +203,8 @@ public class RaycastPickup : MonoBehaviour
         {
             taserValues = GetComponentInChildren<TaserRodAttack>(true);
         }
+
+       StartCoroutine(TaserRodUpgradeRoutine());
 
         taserValues.cooldown = 2.5f;
         taserValues.stunRange = 25f;
