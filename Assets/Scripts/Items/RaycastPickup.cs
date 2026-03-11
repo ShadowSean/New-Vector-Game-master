@@ -2,12 +2,13 @@ using System.Collections;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class RaycastPickup : MonoBehaviour
 {
     public float pickupRange = 3f;
     public LayerMask interactLayer;
-    public KeyCode pickupKey = KeyCode.E;
+    
 
     public Camera playerCamera;
     public Camera mapCam;
@@ -35,7 +36,7 @@ public class RaycastPickup : MonoBehaviour
 
     public static bool canUpgradeFlash;
     public static bool canUpgradeTaser;
-    public KeyCode minimapKey = KeyCode.M;
+    
 
     public float minimapCD = 30f;
     private bool canOpenMap = true;
@@ -46,6 +47,28 @@ public class RaycastPickup : MonoBehaviour
     pickupItem currentPickup;
     
     KeyCard currentKeyCard;
+
+    private PlayerInput playerInput;
+
+    private InputAction equipAction;
+    private InputAction minimapAction;
+
+    
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+        if (playerInput != null)
+        {
+            equipAction = playerInput.actions["Equip Items"];
+            minimapAction = playerInput.actions["MapToggle"];
+        }
+
+        else
+        {
+            Debug.LogWarning("RaycastPickup: Player input not found.");
+        }
+    }
 
     private void Start()
     {
@@ -80,7 +103,7 @@ public class RaycastPickup : MonoBehaviour
             {
                
 
-                if (Input.GetKeyDown(pickupKey))
+                if (equipAction != null && equipAction.WasPressedThisFrame())
                 {
                     PickUp(currentPickup);
                 }
@@ -89,7 +112,7 @@ public class RaycastPickup : MonoBehaviour
             else if (currentKeyCard != null)
             {
                 
-                if (Input.GetKeyDown(pickupKey))
+                if (equipAction != null && equipAction.WasPressedThisFrame())
                 {
                     currentKeyCard.Interact();
                     
@@ -115,7 +138,7 @@ public class RaycastPickup : MonoBehaviour
         }
 
         
-        if (hasMinimap && Input.GetKeyDown(minimapKey) && canOpenMap)
+        if (hasMinimap && minimapAction != null && minimapAction.WasPressedThisFrame() && canOpenMap)
         {
             minimapOpen = !minimapOpen;
             
@@ -123,6 +146,8 @@ public class RaycastPickup : MonoBehaviour
             mapUI.SetActive(minimapOpen);
             flashlightSource.enabled = !minimapOpen;
             scope.SetActive(!minimapOpen);
+
+            
 
             if (playerMovement != null)
             {

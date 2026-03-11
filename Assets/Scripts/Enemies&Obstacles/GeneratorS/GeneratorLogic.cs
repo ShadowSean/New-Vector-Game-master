@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class GeneratorLogic : MonoBehaviour
 {
@@ -32,7 +33,21 @@ public class GeneratorLogic : MonoBehaviour
     public FasterGen fastRepairSpeed;
 
     private FPController movement;
-    
+
+
+    private PlayerInput playerInput;
+    private InputAction clickAction;
+
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            clickAction = playerInput.actions["Weapon Use"];
+        }
+    }
 
     private void Start()
     {
@@ -56,7 +71,7 @@ public class GeneratorLogic : MonoBehaviour
             UpdateRepairSpeedtext();
             if (CrateUI.partsCollected && !isFixed)
             {
-                if (Input.GetMouseButton(0))
+                if (clickAction != null && clickAction.IsPressed())
                 {
                     if (movement != null)
                     {
@@ -131,7 +146,7 @@ public class GeneratorLogic : MonoBehaviour
             }
             else if (!CrateUI.partsCollected)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (clickAction != null && clickAction.WasPressedThisFrame())
                 {
                     StartCoroutine(ShowPartsMessage());
                 }

@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using TMPro;
+using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class GeneratorFive : MonoBehaviour
 {
@@ -38,6 +40,19 @@ public class GeneratorFive : MonoBehaviour
     public float hearRadius = 25f;
     public float searchRadius = 6f;
 
+    private PlayerInput playerInput;
+    private InputAction clickAction;
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            clickAction = playerInput.actions["Weapon Use"];
+        }
+    }
+
 
     private void Start()
     {
@@ -61,7 +76,7 @@ public class GeneratorFive : MonoBehaviour
             UpdateRepairSpeedtext();
             if (CrateFiveUI.partsCollectedFive && !isFifthFixed)
             {
-                if (Input.GetMouseButton(0))
+                if (clickAction != null && clickAction.IsPressed())
                 {
                     if (movement != null)
                     {
@@ -136,7 +151,7 @@ public class GeneratorFive : MonoBehaviour
             }
             else if (!CrateFiveUI.partsCollectedFive)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (clickAction != null && clickAction.WasPressedThisFrame())
                 {
                     StartCoroutine(ShowPartsMessageFive());
                 }

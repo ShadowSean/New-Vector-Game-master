@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class TaserRodAttack : MonoBehaviour
 {
@@ -14,7 +15,20 @@ public class TaserRodAttack : MonoBehaviour
     public AudioSource tasersound;
     public AudioClip taserclip;
 
-    
+    private PlayerInput playerInput;
+    private InputAction clickAction;
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            clickAction = playerInput.actions["Weapon Use"];
+        }
+    }
+
+
 
     void Start()
     {
@@ -25,7 +39,7 @@ public class TaserRodAttack : MonoBehaviour
     void Update()
     {
         // Only stun when pressing LMB AND cooldown ready
-        if (Input.GetMouseButtonDown(0) && canStun)
+        if (clickAction != null && clickAction.WasPressedThisFrame() && canStun)
         {
             TryStunEnemy();
         }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class Flamethrower : MonoBehaviour
 {
@@ -20,9 +21,24 @@ public class Flamethrower : MonoBehaviour
     public ParticleSystem muzzleParticles;
     public ParticleSystem zoneParticles;
 
+
+    private PlayerInput playerInput;
+    private InputAction clickAction;
+
+
     
 
     Camera playerCam;
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            clickAction = playerInput.actions["Weapon Use"];
+        }
+    }
 
     private void Start()
     {
@@ -51,7 +67,7 @@ public class Flamethrower : MonoBehaviour
     void Update()
     {
         // Only slow when pressing LMB AND cooldown ready
-        if (Input.GetMouseButtonDown(0) && canSlow)
+        if (clickAction != null && clickAction.WasPressedThisFrame() && canSlow)
         {
             ActivateFlamethrower();
         }

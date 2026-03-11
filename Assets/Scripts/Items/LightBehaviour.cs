@@ -43,7 +43,19 @@ public class LightBehaviour : MonoBehaviour
 
         
     }
-   
+
+    public void ToggleFlashlight()
+    {
+        if (newFlashlight == null) return;
+
+        newFlashlight.enabled = !newFlashlight.enabled;
+    }
+
+    public bool IsFlashlightOn()
+    {
+        if (newFlashlight == null) return false;
+        return newFlashlight.enabled;
+    }
 
     public void ReplaceBatteryFull()
     {

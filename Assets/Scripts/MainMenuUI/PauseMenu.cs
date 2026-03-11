@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -16,6 +17,24 @@ public class PauseMenu : MonoBehaviour
 
     private FPController movementAndRotation;
 
+    private PlayerInput playerInput;
+
+    private InputAction menuToggleAction;
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            menuToggleAction = playerInput.actions["Menu Toggle"];
+        }
+        else
+        {
+            Debug.LogWarning("PauseMenu: No player input was detected.");
+        }
+    }
+
 
     private void Start()
     {
@@ -25,7 +44,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (menuToggleAction != null && menuToggleAction.WasPressedThisFrame())
         {
             if (gameisPaused)
             {

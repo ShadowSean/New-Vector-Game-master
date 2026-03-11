@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CrateSixUI : MonoBehaviour
 {
@@ -12,8 +13,21 @@ public class CrateSixUI : MonoBehaviour
     private FPController cameraMovement;
     public GameObject itemRotation;
 
+    private PlayerInput playerInput;
+    private InputAction clickAction;
 
-    
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            clickAction = playerInput.actions["Weapon Use"];
+        }
+    }
+
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -21,8 +35,7 @@ public class CrateSixUI : MonoBehaviour
             cameraMovement = other.GetComponent<FPController>();
             if (cameraMovement != null)
             {
-                cameraMovement.lookXLimit = 0;
-                cameraMovement.LookSpeed = 0;
+                cameraMovement.DisableLook();
             }
             inRange = true;
             playerCursor.SetActive(false);
@@ -38,12 +51,11 @@ public class CrateSixUI : MonoBehaviour
     {
         if (inRange && other.CompareTag("Player"))
         {
-            if (Input.GetMouseButtonDown(0) && !itemEquipped)
+            if (clickAction != null && clickAction.WasPressedThisFrame() && !itemEquipped)
             {
                 if (cameraMovement != null)
                 {
-                    cameraMovement.lookXLimit = 40;
-                    cameraMovement.LookSpeed = 5;
+                    cameraMovement.RestoreLook();
                 }
                 playerCursor.SetActive(true);
                 Cursor.lockState = CursorLockMode.Locked;
@@ -63,8 +75,7 @@ public class CrateSixUI : MonoBehaviour
         {
             if (cameraMovement != null)
             {
-                cameraMovement.lookXLimit = 45;
-                cameraMovement.LookSpeed = 5;
+                cameraMovement.RestoreLook();
             }
             inRange = false;
             crateui.SetActive(false);

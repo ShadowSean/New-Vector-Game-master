@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ItemSwitcher : MonoBehaviour
 {
@@ -40,9 +41,40 @@ public class ItemSwitcher : MonoBehaviour
     bool hasBattery;
     GameObject batteryPrefab;
 
+    private PlayerInput playerInput;
+    private InputAction slot1Action;
+    private InputAction slot2Action;
+    private InputAction slot3Action;
+    private InputAction reloadBatteryAction;
+    private InputAction flashlightToggleAction;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            Debug.Log("Found PlayerInput on: " + playerInput.gameObject.name);
+            Debug.Log("Current action map: " + playerInput.currentActionMap?.name);
+
+            slot1Action = playerInput.actions["Weapon Slot 1"];
+            slot2Action = playerInput.actions["Weapon Slot 2"];
+            slot3Action = playerInput.actions["Weapon Slot 3"];
+            reloadBatteryAction = playerInput.actions["Recharge Battery"];
+            flashlightToggleAction = playerInput.currentActionMap.FindAction("Flashlight Toggle");
+
+            Debug.Log("slot1Action null? " + (slot1Action == null));
+            Debug.Log("slot2Action null? " + (slot2Action == null));
+            Debug.Log("slot3Action null? " + (slot3Action == null));
+            Debug.Log("reloadBatteryAction null? " + (reloadBatteryAction == null));
+            Debug.Log("flashlightToggleAction null? " + (flashlightToggleAction == null));
+        }
+
+        else
+        {
+            Debug.LogWarning("Itemswitcher: Player input has not been found.");
+        }
     }
     private void Start()
     {
@@ -57,7 +89,7 @@ public class ItemSwitcher : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && hasFlashlight)
+        if (slot1Action != null && slot1Action.WasPressedThisFrame() && hasFlashlight)
         {
             flashlight_player.SetActive(true);
             animator.SetTrigger("Take Out");
@@ -65,7 +97,7 @@ public class ItemSwitcher : MonoBehaviour
             EquipItem(1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && hasTaser)
+        if (slot2Action != null && slot2Action.WasPressedThisFrame() && hasTaser)
         {
 
             animator.SetTrigger("Hide");
@@ -74,12 +106,12 @@ public class ItemSwitcher : MonoBehaviour
             EquipItem(2);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && hasFlamethrower)
+        if (slot3Action != null && slot3Action.WasPressedThisFrame() && hasFlamethrower)
         {
             EquipItem(3);
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && hasFlashlight && hasBattery)
+        if (reloadBatteryAction != null && reloadBatteryAction.WasPressedThisFrame() && hasFlashlight && hasBattery)
         {
             if (batteryBehaviour != null)
             {
@@ -109,18 +141,33 @@ public class ItemSwitcher : MonoBehaviour
             batteryPrefab = null;
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (flashlightToggleAction != null && flashlightToggleAction.WasPressedThisFrame())
         {
             //Only happens when flashlight is equipped
             if (currentItemIndex != 1) return;
 
-            //Turn flashlight anim on
-            bool isAnimating = animator.GetBool("On");
-            
-            animator.SetBool("On", !isAnimating);
+            if (batteryBehaviour != null)
+            {
+                batteryBehaviour.ToggleFlashlight();
+
+                bool isOn = batteryBehaviour.IsFlashlightOn();
+                animator.SetBool("On", isOn);
+            }
+            else
+            {
+                Debug.LogWarning("Item Switcher: Battery Behaviour does not exist.");
+            }
+
+           
 
             PlayFlashlightSFX(toggleDelay);
         }
+        
+
+    }
+
+    public void ToggleFlashlight()
+    {
 
     }
 

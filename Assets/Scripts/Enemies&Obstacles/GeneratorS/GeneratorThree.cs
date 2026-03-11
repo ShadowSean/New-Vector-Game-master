@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class GeneratorThree : MonoBehaviour
 {
@@ -34,6 +35,19 @@ public class GeneratorThree : MonoBehaviour
 
     private FPController movement;
 
+    private PlayerInput playerInput;
+    private InputAction clickAction;
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            clickAction = playerInput.actions["Weapon Use"];
+        }
+    }
+
 
     private void Start()
     {
@@ -57,7 +71,7 @@ public class GeneratorThree : MonoBehaviour
             UpdateRepairSpeedtext();
             if (CrateThreeUI.partsCollectedThree && !isThirdFixed)
             {
-                if (Input.GetMouseButton(0))
+                if (clickAction != null && clickAction.IsPressed())
                 {
                     if (movement != null)
                     {
@@ -132,7 +146,7 @@ public class GeneratorThree : MonoBehaviour
             }
             else if (!CrateThreeUI.partsCollectedThree)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (clickAction != null && clickAction.WasPressedThisFrame())
                 {
                     StartCoroutine(ShowPartsMessageThree());
                 }

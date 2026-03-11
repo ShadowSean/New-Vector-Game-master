@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class GeneratorSix : MonoBehaviour
 {
@@ -35,6 +36,18 @@ public class GeneratorSix : MonoBehaviour
 
     private FPController movement;
 
+    private PlayerInput playerInput;
+    private InputAction clickAction;
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            clickAction = playerInput.actions["Weapon Use"];
+        }
+    }
 
     private void Start()
     {
@@ -58,7 +71,7 @@ public class GeneratorSix : MonoBehaviour
             UpdateRepairSpeedtext();
             if (CrateSixUI.partsCollectedSix && !isSixthFixed)
             {
-                if (Input.GetMouseButton(0))
+                if (clickAction != null && clickAction.IsPressed())
                 {
                     if (movement != null)
                     {
@@ -134,7 +147,7 @@ public class GeneratorSix : MonoBehaviour
             }
             else if (!CrateSixUI.partsCollectedSix)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (clickAction != null && clickAction.WasPressedThisFrame())
                 {
                     StartCoroutine(ShowPartsMessageSix());
                 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
@@ -11,6 +12,24 @@ public class Stamina : MonoBehaviour
 
     [HideInInspector] public float currentStam;
     private FPController staminaMovement;
+
+    private PlayerInput playerInput;
+    private InputAction sprintAction;
+    private InputAction moveAction;
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+        if (playerInput != null)
+        {
+            sprintAction = playerInput.actions["Sprint"];
+            moveAction = playerInput.actions["Move"];
+        }
+        else
+        {
+            Debug.LogWarning("Stamina: No playerinput was detected.");
+        }
+    }
 
     private void Start()
     {
@@ -27,8 +46,9 @@ public class Stamina : MonoBehaviour
     {
         if (staminaMovement == null) return;
 
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        bool isMoving = Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
+        bool isRunning = sprintAction.IsPressed();
+        Vector2 moveInput = moveAction.ReadValue<Vector2>();
+        bool isMoving = moveInput.sqrMagnitude > 0.01f;
 
         if (isRunning && isMoving && currentStam > 0)
         {

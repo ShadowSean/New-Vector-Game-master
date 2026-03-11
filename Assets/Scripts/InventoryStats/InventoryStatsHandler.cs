@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InventoryStatsHandler : MonoBehaviour
 {
@@ -22,16 +23,29 @@ public class InventoryStatsHandler : MonoBehaviour
 
     FPController movement;
     bool isStatsOpen;
-    public KeyCode inventoryStats = KeyCode.Tab;
+    private PlayerInput playerInput;
+    private InputAction upgradeMenuAction;
     public GameObject playerscope;
 
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+        if (playerInput != null)
+        {
+            upgradeMenuAction = playerInput.actions["Upgrade Menu"];
+        }
+        else
+        {
+            Debug.LogWarning("InventoryStatsHandler: No player input was detected.");
+        }
+    }
     private void Start()
     {
         movement = GetComponent<FPController>();
     }
     private void Update()
     {
-        if (Input.GetKeyDown(inventoryStats))
+        if (upgradeMenuAction != null && upgradeMenuAction.WasPressedThisFrame())
         {
             isStatsOpen = !isStatsOpen;
             invCam.gameObject.SetActive(isStatsOpen);

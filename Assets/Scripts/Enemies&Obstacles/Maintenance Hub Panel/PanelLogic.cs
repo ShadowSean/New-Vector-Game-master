@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PanelLogic : MonoBehaviour
@@ -22,6 +23,19 @@ public class PanelLogic : MonoBehaviour
 
     private FPController movement;
 
+    private PlayerInput playerInput;
+    private InputAction clickAction;
+
+    private void Awake()
+    {
+        playerInput = FindFirstObjectByType<PlayerInput>();
+
+        if (playerInput != null)
+        {
+            clickAction = playerInput.actions["Weapon Use"];
+        }
+    }
+
 
     private void Start()
     {
@@ -39,7 +53,7 @@ public class PanelLogic : MonoBehaviour
     {
         if (inRange)
         {
-            if (Input.GetMouseButton(0))
+            if (clickAction != null && clickAction.IsPressed())
             {
                 if (movement != null)
                 {
