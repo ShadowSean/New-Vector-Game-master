@@ -11,6 +11,7 @@ public class FPController : MonoBehaviour
     [Header("Movement")]
     public float walkingSpeed = 5.0f;
     public float runningSpeed = 10.0f;
+    public float gravity = -20f;
 
 
     [Header("Camera")]
@@ -36,6 +37,7 @@ public class FPController : MonoBehaviour
     private InputAction sprintAction;
     Vector3 moveDir = Vector3.zero;
     float rotationX = 0;
+    private float verticalVelocity;
 
    
 
@@ -113,8 +115,16 @@ public class FPController : MonoBehaviour
 
         if (targetDir.magnitude > 1f)
             targetDir.Normalize();
+
+        if(controller.isGrounded && verticalVelocity < 0)
+        {
+            verticalVelocity = -2f;
+        }
         
         moveDir = targetDir * targetSpeed;
+
+        verticalVelocity += gravity * Time.deltaTime;
+        moveDir.y = verticalVelocity;
 
         controller.Move(moveDir * Time.deltaTime);
 

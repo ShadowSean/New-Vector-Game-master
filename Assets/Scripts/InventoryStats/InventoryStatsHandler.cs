@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class InventoryStatsHandler : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class InventoryStatsHandler : MonoBehaviour
     public GameObject flashlight;
     public GameObject taserrod;
     public GameObject flamethrower;
+
+
 
     FPController movement;
     bool isStatsOpen;
