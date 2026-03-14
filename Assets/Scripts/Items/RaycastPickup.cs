@@ -19,6 +19,8 @@ public class RaycastPickup : MonoBehaviour
     public GameObject intIcon;
     [SerializeField] Light flashlightSource;
 
+
+
     private FPController playerMovement;
     private Animator anim;
     private LightBehaviour lightBehaviour;
@@ -272,7 +274,7 @@ public class RaycastPickup : MonoBehaviour
             }
         }
         
-        currentPickup.gameObject.SetActive(false);
+        currentPickup.SetCollectedState(true);
     }
 
     

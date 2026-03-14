@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class ReloadOnDeath : MonoBehaviour
 {
     public static ReloadOnDeath instance;
-    bool pendinLoad;
+    bool pendingLoad;
 
     private void Awake()
     {
@@ -29,23 +30,31 @@ public class ReloadOnDeath : MonoBehaviour
 
     public void ReloadCurrentSceneCheckpoint()
     {
-        pendinLoad = true;
+        pendingLoad = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(!pendinLoad)
-        {
+        if (!pendingLoad)
             return;
-        }
 
-        pendinLoad = false;
+        pendingLoad = false;
+        StartCoroutine(LoadCheckpointNextFrame());
+    }
 
-        var handler = FindFirstObjectByType<GameHandler>(); 
-        if(handler != null)
+    private IEnumerator LoadCheckpointNextFrame()
+    {
+        yield return null; // wait 1 frame so Start() methods finish
+
+        var handler = FindFirstObjectByType<GameHandler>();
+        if (handler != null)
         {
             handler.Load();
+        }
+        else
+        {
+            Debug.LogWarning("GameHandler not found after scene reload.");
         }
     }
 }

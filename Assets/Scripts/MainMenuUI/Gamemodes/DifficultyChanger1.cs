@@ -8,35 +8,56 @@ public enum Difficulty
 }
 public class DifficultyChanger1 : MonoBehaviour
 {
+    
+
     public static Difficulty selectDiffculty = Difficulty.Normal;
+
+    private string GetSaveKey()
+    {
+        return "SaveSlot_" + selectDiffculty.ToString();
+    }
 
     public void NormalDifficulty()
     {
         selectDiffculty = Difficulty.Normal;
+        PlayerPrefs.SetInt("SelectedDifficulty", (int)selectDiffculty);
+        PlayerPrefs.Save();
+        DeleteSave();
     }
     
     public void HardDifficulty()
     {
         selectDiffculty = Difficulty.Hard;
+        PlayerPrefs.SetInt("SelectedDifficulty", (int)selectDiffculty);
+        PlayerPrefs.Save();
+        DeleteSave();
     }
 
     public void InsaneDifficulty()
     {
         selectDiffculty = Difficulty.Insane;
+        PlayerPrefs.SetInt("SelectedDifficulty", (int)selectDiffculty);
+        PlayerPrefs.Save();
+        DeleteSave();
     }
 
-    public void DeleteSave(string key)
+    public void DeleteSave()
     {
-        if (!PlayerPrefs.HasKey("SaveSlot"))
+        string saveKey = GetSaveKey();
+
+        if (PlayerPrefs.HasKey(saveKey))
         {
-            Debug.Log("Save Slot does not exist");
-            return;
+            PlayerPrefs.DeleteKey(saveKey);
+            PlayerPrefs.Save();
+            Debug.Log(saveKey + "save has been deleted");
         }
+    }
 
-        PlayerPrefs.DeleteKey("SaveSlot");
-        Debug.Log(key + "save has been deleted");
-
-
-
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey("SelectedDifficulty"))
+        {
+            selectDiffculty = (Difficulty)PlayerPrefs.GetInt("SelectedDifficulty");
+        }
     }
 }

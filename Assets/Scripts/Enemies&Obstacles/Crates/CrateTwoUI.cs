@@ -12,6 +12,13 @@ public class CrateTwoUI : MonoBehaviour
     
     public GameObject itemRotation;
 
+    [SerializeField] private GameObject crateObject;
+    public GameObject inventory;
+    public GameObject stamAndBattery;
+    public GameObject objectives;
+
+    public bool crateDisabledAfterClaim;
+
     private FPController cameraMovement;
     private PlayerInput playerInput;
     private InputAction clickAction;
@@ -26,66 +33,105 @@ public class CrateTwoUI : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (crateObject == null)
+        {
+            crateObject = gameObject;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
         {
-            cameraMovement = other.GetComponent<FPController>();
-            if (cameraMovement != null)
-            {
-                cameraMovement.DisableLook();
-            }
-            inRange = true;
-            playerCursor.SetActive(false);
-            itemRotation.SetActive(true);
-            crateui.SetActive(true);
-            equipIcon.SetActive(true);
-          
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            return;
         }
+
+        if (crateDisabledAfterClaim)
+        {
+            return;
+        }
+
+        cameraMovement = other.GetComponent<FPController>();
+
+        if (cameraMovement != null)
+        {
+            cameraMovement.DisableLook();
+        }
+        inRange = true;
+        playerCursor.SetActive(false);
+        objectives.SetActive(false);
+        stamAndBattery.SetActive(false);
+        inventory.SetActive(false);
+        itemRotation.SetActive(true);
+        crateui.SetActive(true);
+        equipIcon.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (inRange && other.CompareTag("Player"))
+        if (!inRange || !other.CompareTag("Player"))
         {
-            if (clickAction != null && clickAction.WasPressedThisFrame() && !itemEquipped)
-            {
-                if (cameraMovement != null)
-                {
-                    cameraMovement.RestoreLook();
-                }
-                playerCursor.SetActive(true);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                equipIcon.SetActive(false);
-                itemRotation.SetActive(false);
+            return;
+        }
 
-                itemEquipped = true;
-                partsCollectedTwo = true;
-                SparePartsCounter.Instance.AddPart();
-                
+        if (clickAction != null && clickAction.WasPressedThisFrame() && !itemEquipped)
+        {
+
+
+            itemEquipped = true;
+            partsCollectedTwo = true;
+            SparePartsCounter.Instance.AddPart();
+
+
+        }
+    }
+
+    public void ExitCrateUI()
+    {
+        if (cameraMovement != null)
+        {
+            cameraMovement.RestoreLook();
+        }
+
+        inRange = false;
+        crateui.SetActive(false);
+        equipIcon.SetActive(false);
+        itemRotation.SetActive(false);
+        objectives.SetActive(true);
+        stamAndBattery.SetActive(true);
+        inventory.SetActive(true);
+
+        playerCursor.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        if (itemEquipped)
+        {
+            crateDisabledAfterClaim = true;
+
+            if (crateObject != null)
+            {
+                crateObject.SetActive(false);
             }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void SetCrateDisabledState(bool disabled)
     {
-        if (other.CompareTag("Player"))
+        crateDisabledAfterClaim = disabled;
+        if (crateObject != null)
         {
-            if (cameraMovement != null)
-            {
-                cameraMovement.RestoreLook();
-            }
-            inRange = false;
-            crateui.SetActive(false);
-            equipIcon.SetActive(false);
-            itemRotation.SetActive(false);
-
-            playerCursor.SetActive(true);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            crateObject.SetActive(!disabled);
         }
+    }
+
+    public bool GetCrateDisabledState()
+    {
+        return crateDisabledAfterClaim;
     }
 }

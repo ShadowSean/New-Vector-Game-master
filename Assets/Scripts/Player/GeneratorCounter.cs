@@ -19,14 +19,34 @@ public class GeneratorCounter : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        RefreshUI();
+    }
+
     public void AddGenerator()
     {
         partCount++;
-        counterText.text = partCount.ToString();
+        RefreshUI();
+        
+
+        
+    }
+
+    public void RefreshUI()
+    {
+        if (counterText != null)
+        {
+           counterText.text = partCount.ToString();
+        }
 
         if (partCount >= totalGens)
         {
             TurnTextsGreen();
+        }
+        else
+        {
+            ResetTextsColor();
         }
     }
 
@@ -34,7 +54,22 @@ public class GeneratorCounter : MonoBehaviour
     {
         foreach (var text in greenTexts)
         {
-            text.color = Color.green;
+            if (text != null)
+            {
+               text.color = Color.green;
+            }
+            
+        }
+    }
+
+    void ResetTextsColor()
+    {
+        foreach (var text in greenTexts)
+        {
+            if (text != null)
+            {
+                text.color = Color.white;
+            }
         }
     }
 }

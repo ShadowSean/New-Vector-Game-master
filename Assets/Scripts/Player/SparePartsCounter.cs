@@ -15,14 +15,35 @@ public class SparePartsCounter : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        RefreshUI();
+    }
+
     public void AddPart()
     {
         partCount++;
-        counterText.text = partCount.ToString();
+
+        RefreshUI();
+        
+
+    
+    }
+
+    public void RefreshUI()
+    {
+        if (counterText != null)
+        {
+            counterText.text = partCount.ToString();
+        }
 
         if (partCount >= totalParts)
         {
             TurnTextsGreen();
+        }
+        else
+        {
+            ResetTextsColor();
         }
     }
 
@@ -31,6 +52,18 @@ public class SparePartsCounter : MonoBehaviour
         foreach (var text in greenTexts)
         {
             text.color = Color.green;
+        }
+    }
+
+
+    void ResetTextsColor()
+    {
+        foreach (var text in greenTexts)
+        {
+            if (text != null)
+            {
+                text.color = Color.white;
+            }
         }
     }
 }

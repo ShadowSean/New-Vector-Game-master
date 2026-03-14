@@ -2645,6 +2645,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 345080041}
@@ -2653,7 +2657,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 345080040}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 345080041}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
@@ -2665,6 +2677,10 @@ PrefabInstance:
       value: StartNewGame
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DeleteSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DifficultyChanger1, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -2673,11 +2689,19 @@ PrefabInstance:
       value: NewSceneLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: DifficultyChanger1, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
@@ -7900,6 +7924,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 345080040}
@@ -7908,7 +7936,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 345080041}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 345080041}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
@@ -7916,11 +7952,23 @@ PrefabInstance:
       value: HardDifficulty
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DeleteSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: DifficultyChanger1, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: DifficultyChanger1, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
@@ -8291,7 +8339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1146639488
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8419,13 +8467,13 @@ MonoBehaviour:
       - m_Target: {fileID: 345080041}
         m_TargetAssemblyTypeName: DifficultyChanger1, Assembly-CSharp
         m_MethodName: DeleteSave
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SaveSlot
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1146639492
@@ -12706,6 +12754,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 345080040}
@@ -12714,7 +12766,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 345080041}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 345080041}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
@@ -12722,11 +12782,23 @@ PrefabInstance:
       value: InsaneDifficulty
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DeleteSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: DifficultyChanger1, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: DifficultyChanger1, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}

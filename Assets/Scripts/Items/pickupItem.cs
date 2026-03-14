@@ -8,10 +8,21 @@ public class pickupItem : MonoBehaviour
 
     public ItemType itemType;
 
-   
+    [HideInInspector] public bool wasCollected;
 
     bool playerInRange;
 
+
+    public void SetCollectedState(bool collected)
+    {
+        wasCollected = collected;
+        gameObject.SetActive(!collected);
+    }
+
+    public bool GetCollectedState()
+    {
+        return wasCollected;
+    }
     
 
     private void OnTriggerStay(Collider other)

@@ -19,12 +19,35 @@ public class GameHandler : MonoBehaviour
     [Header("Store items")]
     [SerializeField] ItemSwitcher hasItems;
 
-    
+    [Header("Crate Scripts")]
+    [SerializeField] CrateUI crateOne;
+    [SerializeField] CrateTwoUI crateTwo;
+    [SerializeField] CrateThreeUI crateThree;
+    [SerializeField] CrateFourUI crateFour;
+    [SerializeField] CrateFiveUI crateFive;
+    [SerializeField] CrateSixUI crateSix;
 
+    [Header("Pickup Items")]
+    [SerializeField] private pickupItem[] pickups;
+
+
+    public string GetSaveKey()
+    {
+        return "SaveSlot_" + DifficultyChanger1.selectDiffculty.ToString();
+    }
 
     public void Save()
     {
-        
+        string saveKey = GetSaveKey();
+
+        bool[] pickupStates = new bool[pickups.Length];
+        for (int i = 0; i < pickups.Length; i++)
+        {
+            if (pickups[i] != null)
+            {
+                pickupStates[i] = pickups[i].GetCollectedState();
+            }
+        }
 
         Debug.Log("Save data function called.");
         SaveData saveData = new SaveData {
@@ -35,25 +58,35 @@ public class GameHandler : MonoBehaviour
             sparepartsCollected = partsCollected.partCount,
             isFlashlightCollected = hasItems.hasFlashlight,
             isTaserCollected = hasItems.hasTaser,
-            isFlameCollected = hasItems.hasFlamethrower
+            isFlameCollected = hasItems.hasFlamethrower,
+            crateDisabledAfterClaim =  crateOne != null && crateOne.GetCrateDisabledState(),
+            crateDisabledAfterClaimTwo = crateTwo != null && crateTwo.GetCrateDisabledState(),
+            crateDisabledAfterClaimThree = crateThree != null && crateThree.GetCrateDisabledState(),
+            crateDisabledAfterClaimFour = crateFour != null && crateFour.GetCrateDisabledState(),
+            crateDisabledAfterClaimFive = crateFive != null && crateFive.GetCrateDisabledState(),
+            crateDisabledAfterClaimSix = crateSix != null && crateSix.GetCrateDisabledState(),
+            pickupCollectedStates = pickupStates
         };
         string json = JsonUtility.ToJson(saveData);
-        PlayerPrefs.SetString("SaveSlot",json);
+        PlayerPrefs.SetString(saveKey,json);
         PlayerPrefs.Save();
         Debug.Log("Data has been saved!");
-        Debug.Log("Saved JSON = " + PlayerPrefs.GetString("SaveSlot", "NOT_FOUND"));
+        Debug.Log("Saved JSON for key " + saveKey + " = " + PlayerPrefs.GetString(saveKey, "NOT_FOUND"));
     }
 
     public void Load()
     {
-        if (!PlayerPrefs.HasKey("SaveSlot"))
+        string saveKey = GetSaveKey();
+
+        if (!PlayerPrefs.HasKey(saveKey))
         {
-            Debug.Log("Save Slot does not exist");
+            Debug.Log("Save Slot does not exist for current difficulty " + saveKey);
             //posAndRot.position = defaultPos.position;
+            LoadDefaultSpawn();
             return;
         }
 
-        string json = PlayerPrefs.GetString("SaveSlot");
+        string json = PlayerPrefs.GetString(saveKey);
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
         CharacterController controller = posAndRot.GetComponent<CharacterController>();
@@ -72,8 +105,12 @@ public class GameHandler : MonoBehaviour
         }
 
         generatorCounter.partCount = data.generatorsRepaired;
+        generatorCounter.RefreshUI();
+
         batteryCounter.batteryCount = data.batteriesCollected;
+
         partsCollected.partCount = data.sparepartsCollected;
+        partsCollected.RefreshUI();
 
 
         if (data.isFlashlightCollected)
@@ -91,10 +128,81 @@ public class GameHandler : MonoBehaviour
             hasItems.PickupFlamethrower();
         }
 
-        Debug.Log("Data is now loaded!");
+        if (crateOne != null)
+        {
+            crateOne.SetCrateDisabledState(data.crateDisabledAfterClaim);
+        }
+
+        if (crateTwo != null)
+        {
+            crateTwo.SetCrateDisabledState(data.crateDisabledAfterClaim);
+        }
+
+        if (crateThree != null)
+        {
+            crateThree.SetCrateDisabledState(data.crateDisabledAfterClaim);
+        }
+
+        if (crateFour != null)
+        {
+            crateFour.SetCrateDisabledState(data.crateDisabledAfterClaim);
+        }
+
+        if (crateFive != null)
+        {
+            crateFive.SetCrateDisabledState(data.crateDisabledAfterClaim);
+        }
+
+        if (crateSix != null)
+        {
+            crateSix.SetCrateDisabledState(data.crateDisabledAfterClaim);
+        }
+
+        if (data.pickupCollectedStates != null)
+        {
+            for (int i = 0; i < pickups.Length && i < data.pickupCollectedStates.Length; i++)
+            {
+                if (pickups[i] != null)
+                {
+                    pickups[i].SetCollectedState(data.pickupCollectedStates[i]);
+                }
+            }
+        }
+
+        Debug.Log("Data is now loaded for difficulty: " + DifficultyChanger1.selectDiffculty);
     }
 
     
+    void LoadDefaultSpawn()
+    {
+        CharacterController controller = posAndRot.GetComponent<CharacterController>();
+        if (controller != null)
+        {
+            controller.enabled = false;
+        }
+
+        generatorCounter.partCount = 0;
+        generatorCounter.RefreshUI();
+
+        partsCollected.partCount = 0;
+        partsCollected.RefreshUI();
+
+        posAndRot.position = defaultPos.position;
+        posAndRot.rotation = defaultPos.rotation;
+
+        if (controller != null)
+        {
+            controller.enabled = true;
+        }
+        if (crateOne != null) crateOne.SetCrateDisabledState(false);
+        if (crateTwo != null) crateTwo.SetCrateDisabledState(false);
+        if (crateThree != null) crateThree.SetCrateDisabledState(false);
+        if (crateFour != null) crateFour.SetCrateDisabledState(false);
+        if (crateFive != null) crateFive.SetCrateDisabledState(false);
+        if (crateSix != null) crateSix.SetCrateDisabledState(false);
+
+        Debug.Log("Spawned at defauly position since no save slot exists for this gamemode.");
+    }
 
 
 }
@@ -112,6 +220,13 @@ public class SaveData
     public bool isFlashlightCollected;
     public bool isTaserCollected;
     public bool isFlameCollected;
+    public bool crateDisabledAfterClaim;
+    public bool crateDisabledAfterClaimTwo;
+    public bool crateDisabledAfterClaimThree;
+    public bool crateDisabledAfterClaimFour;
+    public bool crateDisabledAfterClaimFive;
+    public bool crateDisabledAfterClaimSix;
+    public bool[] pickupCollectedStates;
 }
 
 
