@@ -17,6 +17,8 @@ public class SecondGeneratorLogic : MonoBehaviour
     public GameObject partsNeeded, playerCursor;
     public float repairDuration = 30f;
     public float textDuration = 5f;
+    private Material genOneMat;
+    [SerializeField] Renderer targetRenderer;
 
     [Header("Gen Sounds")]
     public AudioClip genFixing;
@@ -51,7 +53,9 @@ public class SecondGeneratorLogic : MonoBehaviour
     private void Start()
     {
         movement = FindFirstObjectByType<FPController>();
-        
+
+        genOneMat = targetRenderer.material;
+
 
         repairAndGenerator.SetActive(false);
         partsNeeded.SetActive(false);
@@ -60,6 +64,14 @@ public class SecondGeneratorLogic : MonoBehaviour
         if (genFixingSource != null)
         {
             genFixingSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (genOneMat != null)
+        {
+            genOneMat.DisableKeyword("_EMISSION");
         }
     }
 
@@ -72,10 +84,7 @@ public class SecondGeneratorLogic : MonoBehaviour
             {
                 if (clickAction != null && clickAction.IsPressed())
                 {
-                    if (movement != null)
-                    {
-                        movement.canMove = false;
-                    }
+                    
                     float duration = fastRepairSpeed.GetRepairDuration();
                     float rate = repairPercentage.maxValue / duration;
                     repairPercentage.value += rate * Time.deltaTime;
@@ -98,10 +107,8 @@ public class SecondGeneratorLogic : MonoBehaviour
                         flickeringLights.speed = 0;
 
                         repairAndGenerator.SetActive(false);
-                        if (movement != null)
-                        {
-                            movement.canMove = true;
-                        }
+
+                        genOneMat.EnableKeyword("_EMISSION");
 
                         playerCursor.SetActive(true);
 

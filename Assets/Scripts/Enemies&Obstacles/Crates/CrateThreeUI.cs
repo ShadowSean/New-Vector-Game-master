@@ -15,6 +15,7 @@ public class CrateThreeUI : MonoBehaviour
     public GameObject inventory;
     public GameObject stamAndBattery;
     public GameObject objectives;
+    [SerializeField] Light crateLight;
 
     public bool crateDisabledAfterClaim;
 
@@ -59,6 +60,7 @@ public class CrateThreeUI : MonoBehaviour
             cameraMovement.DisableLook();
         }
         inRange = true;
+        crateLight.enabled = true;
         playerCursor.SetActive(false);
         objectives.SetActive(false);
         stamAndBattery.SetActive(false);
@@ -98,6 +100,7 @@ public class CrateThreeUI : MonoBehaviour
         }
 
         inRange = false;
+        crateLight.enabled = false;
         crateui.SetActive(false);
         equipIcon.SetActive(false);
         itemRotation.SetActive(false);

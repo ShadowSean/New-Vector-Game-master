@@ -17,6 +17,7 @@ public class CrateFiveUI : MonoBehaviour
     public GameObject stamAndBattery;
     public GameObject objectives;
     public bool crateDisabledAfterClaim;
+    [SerializeField] Light crateLight;
 
     private FPController cameraMovement;
     private PlayerInput playerInput;
@@ -59,6 +60,7 @@ public class CrateFiveUI : MonoBehaviour
             cameraMovement.DisableLook();
         }
         inRange = true;
+        crateLight.enabled = true;
         playerCursor.SetActive(false);
         objectives.SetActive(false);
         stamAndBattery.SetActive(false);
@@ -98,6 +100,7 @@ public class CrateFiveUI : MonoBehaviour
         }
 
         inRange = false;
+        crateLight.enabled = false;
         crateui.SetActive(false);
         equipIcon.SetActive(false);
         itemRotation.SetActive(false);

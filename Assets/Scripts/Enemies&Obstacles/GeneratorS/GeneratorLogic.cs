@@ -16,6 +16,9 @@ public class GeneratorLogic : MonoBehaviour
     public GameObject partsNeeded, playerCursor;
     public float repairDuration = 30f;
     public float textDuration = 5f;
+    private Material genOneMat;
+    [SerializeField] Renderer targetRenderer;
+   
 
     [Header("Gen Sounds")]
     public AudioClip genFixing;
@@ -53,6 +56,9 @@ public class GeneratorLogic : MonoBehaviour
     {
         movement = FindFirstObjectByType<FPController>();
         
+        genOneMat = targetRenderer.material;
+
+
 
         repairAndGenerator.SetActive(false);
         partsNeeded.SetActive(false);
@@ -64,6 +70,16 @@ public class GeneratorLogic : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        if (genOneMat != null)
+        {
+            genOneMat.DisableKeyword("_EMISSION");
+        }
+    }
+
+
+
     private void Update()
     {
         if (inRange)
@@ -73,10 +89,7 @@ public class GeneratorLogic : MonoBehaviour
             {
                 if (clickAction != null && clickAction.IsPressed())
                 {
-                    if (movement != null)
-                    {
-                        movement.canMove = false;
-                    }
+                    
                     float duration = fastRepairSpeed.GetRepairDuration();
                     float rate = repairPercentage.maxValue / duration;
                     repairPercentage.value += rate * Time.deltaTime;
@@ -101,10 +114,9 @@ public class GeneratorLogic : MonoBehaviour
                         flickeringLight.speed = 0;
 
                         repairAndGenerator.SetActive(false);
-                        if (movement != null)
-                        {
-                            movement.canMove = true;
-                        }
+
+                        genOneMat.EnableKeyword("_EMISSION");
+                        
 
                         playerCursor.SetActive(true);
 

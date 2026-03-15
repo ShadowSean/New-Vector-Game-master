@@ -18,6 +18,7 @@ public class CrateSixUI : MonoBehaviour
     public GameObject stamAndBattery;
     public GameObject objectives;
     public bool crateDisabledAfterClaim;
+    [SerializeField] Light crateLight;
 
     private PlayerInput playerInput;
     private InputAction clickAction;
@@ -60,6 +61,7 @@ public class CrateSixUI : MonoBehaviour
             cameraMovement.DisableLook();
         }
         inRange = true;
+        crateLight.enabled = true;
         playerCursor.SetActive(false);
         objectives.SetActive(false);
         stamAndBattery.SetActive(false);
@@ -99,6 +101,7 @@ public class CrateSixUI : MonoBehaviour
         }
 
         inRange = false;
+        crateLight.enabled = false;
         crateui.SetActive(false);
         equipIcon.SetActive(false);
         itemRotation.SetActive(false);
