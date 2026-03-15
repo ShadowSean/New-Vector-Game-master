@@ -35,7 +35,8 @@ public class Vector9Movement : MonoBehaviour
     //[SerializeField] float attackRange = 1f;
     public bool isStunned;
     public bool isSlowed;
-    public float stunRange = 10f;
+    public float stunRange;
+    private TaserRodAttack taserRange;
     int currentPatrolIndex = 0;
     bool isPlayerInRange;
     bool waiting;
@@ -104,15 +105,16 @@ public class Vector9Movement : MonoBehaviour
         {
             EndFireZone();
         }
+        //stunRange = taserRange.stunRange;
         float dist = Vector3.Distance(transform.position, playerPosition.position);
-        if (scope != null)
-        {
-            if (dist <= stunRange)
-                scope.SetActive(false);   
-            else
-                scope.SetActive(true);    
-        }
-        stunIcon.SetActive(dist <= stunRange);
+        //if (scope != null)
+        //{
+        //    if (dist <= stunRange)
+        //        scope.SetActive(false);   
+        //    else
+        //        scope.SetActive(true);    
+        //}
+        //stunIcon.SetActive(dist <= stunRange);
 
 
 
