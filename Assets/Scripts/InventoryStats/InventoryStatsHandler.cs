@@ -22,9 +22,13 @@ public class InventoryStatsHandler : MonoBehaviour
     public GameObject taserrod;
     public GameObject flamethrower;
 
+    [Header("Pausing settings")]
+    private FPController movementAndRotation;
+
 
 
     FPController movement;
+    public bool gameisPaused;
     bool isStatsOpen;
     private PlayerInput playerInput;
     private InputAction upgradeMenuAction;
@@ -62,14 +66,15 @@ public class InventoryStatsHandler : MonoBehaviour
             {
                 if (isStatsOpen)
                 {
-                    movement.canMove = false;
+                    
+                    Pause();
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                     
                 }
                 else
                 {
-                    movement.canMove = true;
+                    Resume();
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
                 }
@@ -106,5 +111,34 @@ public class InventoryStatsHandler : MonoBehaviour
         flashlight.SetActive(false);
         taserStats.SetActive(false);
         flashStats.SetActive(false);
+    }
+
+    public void Resume()
+    {
+        if (movementAndRotation != null)
+        {
+            movementAndRotation.canMove = true;
+        }
+        playerscope.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        playerscope.SetActive(false);
+        Time.timeScale = 1f;
+        gameisPaused = false;
+    }
+
+    public void Pause()
+    {
+        if (movementAndRotation != null)
+        {
+
+            movementAndRotation.canMove = false;
+        }
+        playerscope.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        playerscope.SetActive(true);
+        Time.timeScale = 0f;
+        gameisPaused = true;
     }
 }
