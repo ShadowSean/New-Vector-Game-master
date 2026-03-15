@@ -13,6 +13,8 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     public GameObject MainCanvas;
 
+    
+
     public GameObject cameraObj;
 
 

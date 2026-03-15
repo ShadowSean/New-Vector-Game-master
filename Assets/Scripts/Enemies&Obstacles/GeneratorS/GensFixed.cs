@@ -2,18 +2,22 @@ using UnityEngine;
 
 public class GensFixed : MonoBehaviour
 {
-    public GameObject door;
-    private bool opened;
+    [SerializeField] Animator doorAnimation;
+    [SerializeField] AudioSource doorSource;
+    [SerializeField] AudioClip doorClip;
+    public bool opened;
 
     private void Update()
     {
         if (opened) return;
 
         if (GeneratorCounter.Instance != null &&
-            GeneratorCounter.Instance.FixedCount >= GeneratorCounter.Instance.totalGens)
+            GeneratorCounter.Instance.FixedCount >= 3)
         {
-            door.SetActive(false);
             opened = true;
+            doorSource.PlayOneShot(doorClip);
+            doorAnimation.SetBool("isOpen", true);
+            
         }
     }
 }
