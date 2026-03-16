@@ -25,16 +25,11 @@ public class NewSceneLoader : MonoBehaviour
     public string mainGameSceneName;
 
     [Header("Lore Loading")]
-    public GameObject firstText;
-    public GameObject secondText;
-    public GameObject thirdText;
-    public GameObject fourthText;
-    public GameObject fifthText;
-    public GameObject sixthText;
-    public GameObject seventhText;
+    public GameObject loretext;
     public GameObject continueText;
     public Camera gamemodeCamera;
     public Camera spaceCamera;
+    public Camera secondSpaceCam;
     public GameObject loreHandler;
 
     private void Update()
@@ -109,40 +104,23 @@ public class NewSceneLoader : MonoBehaviour
         finalLoadingScreen.SetActive(true);
         yield return StartCoroutine(Fade(1, 0));
 
-        firstText.SetActive(true);
-        loreHandler.SetActive(true);
-        yield return new WaitForSeconds(15f);
-        firstText.SetActive(false);
-
-        secondText.SetActive(true);
-        yield return new WaitForSeconds(15f);
-        secondText.SetActive(false);
-
-        thirdText.SetActive(true);
-        yield return new WaitForSeconds(15f);
-        thirdText.SetActive(false);
-
-        fourthText.SetActive(true);
-        yield return new WaitForSeconds(15f);
-        fourthText.SetActive(false);
-
-        fifthText.SetActive(true);
-        yield return new WaitForSeconds(15f);
-        fifthText.SetActive(false);
-
-        sixthText.SetActive(true);
-        yield return new WaitForSeconds(15f);
-        sixthText.SetActive(false);
-
-        seventhText.SetActive(true);
+        loretext.SetActive(true);
         yield return new WaitForSeconds(5f);
+        loreHandler.SetActive(true);
+
+        yield return new WaitForSeconds(20f);
+        yield return StartCoroutine(Fade(0, 1));
+        spaceCamera.gameObject.SetActive(false);
+        secondSpaceCam.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(Fade(1, 0));
+        yield return new WaitForSeconds(2f);
         
+        
+
         continueText.SetActive(true);
 
 
-      
-
-        
         
     }
 
