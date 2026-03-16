@@ -56,8 +56,9 @@ public class InventoryStatsHandler : MonoBehaviour
         {
             isStatsOpen = !isStatsOpen;
             invCam.gameObject.SetActive(isStatsOpen);
-            playerscope.gameObject.SetActive(isStatsOpen);
+            
             mainInvUI.gameObject.SetActive(isStatsOpen);
+            playerscope.SetActive(!isStatsOpen);
             objectives.SetActive(!isStatsOpen);
             stamina.SetActive(!isStatsOpen);
             inventory.SetActive(!isStatsOpen);
@@ -68,15 +69,13 @@ public class InventoryStatsHandler : MonoBehaviour
                 {
                     
                     Pause();
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
+                    
                     
                 }
                 else
                 {
                     Resume();
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
+                    
                 }
                 
             }
@@ -119,10 +118,10 @@ public class InventoryStatsHandler : MonoBehaviour
         {
             movementAndRotation.canMove = true;
         }
-        playerscope.SetActive(true);
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        playerscope.SetActive(false);
+        
         Time.timeScale = 1f;
         gameisPaused = false;
     }
@@ -134,7 +133,7 @@ public class InventoryStatsHandler : MonoBehaviour
 
             movementAndRotation.canMove = false;
         }
-        playerscope.SetActive(false);
+        
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         playerscope.SetActive(true);
