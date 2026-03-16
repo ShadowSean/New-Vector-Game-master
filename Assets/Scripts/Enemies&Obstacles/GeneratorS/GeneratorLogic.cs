@@ -64,19 +64,22 @@ public class GeneratorLogic : MonoBehaviour
         partsNeeded.SetActive(false);
         repairPercentage.gameObject.SetActive(false);
 
-        if(genFixingSource != null)
+        if(genFixingSource == null)
         {
             genFixingSource = gameObject.AddComponent<AudioSource>();
         }
-    }
 
-    private void OnDisable()
-    {
-        if (genOneMat != null)
+        if(isFixed)
         {
-            genOneMat.DisableKeyword("_EMISSION");
+            ApplyFixedState();
+        }
+        else
+        {
+            ApplyUnfixedState();
         }
     }
+
+    
 
 
 
@@ -111,11 +114,8 @@ public class GeneratorLogic : MonoBehaviour
 
                         repairPercentage.value = repairPercentage.maxValue;
                         isFixed = true;
-                        flickeringLight.speed = 0;
-
-                        repairAndGenerator.SetActive(false);
-
-                        genOneMat.EnableKeyword("_EMISSION");
+                        
+                        ApplyFixedState();
                         
 
                         playerCursor.SetActive(true);
@@ -246,8 +246,97 @@ public class GeneratorLogic : MonoBehaviour
         partsNeeded.SetActive(false);
     }
 
-    
 
+    void ApplyFixedState()
+    {
+        isFixed = true;
+
+        repairAndGenerator.SetActive(false);
+        partsNeeded.SetActive(false);
+
+        if (flickeringLight != null)
+        {
+            flickeringLight.speed = 0;
+        }
+
+        if (genOneMat != null)
+        {
+            genOneMat.EnableKeyword("_EMISSION");
+        }
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        if (genFixingSource != null)
+        {
+            genFixingSource.Stop();
+        }
+
+        
+        if (genFixingSource != null && genFixed != null)
+        {
+            genFixingSource.clip = genFixed;
+            genFixingSource.loop = true;
+            genFixingSource.spatialBlend = 1f;
+            genFixingSource.rolloffMode = AudioRolloffMode.Logarithmic;
+            genFixingSource.minDistance = 3f;
+            genFixingSource.maxDistance = 20f;
+            genFixingSource.dopplerLevel = 0f;
+            genFixingSource.Play();
+        }
+
+        isPlayingFixingSound = false;
+        inRange = false;
+    }
+    
+    void ApplyUnfixedState()
+    {
+        if (genOneMat != null)
+        {
+            genOneMat.DisableKeyword("_EMISSION");
+        }
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = true;
+        }
+
+        if (genFixingSource != null)
+        {
+            genFixingSource.Stop();
+        }
+
+        if (flickeringLight != null)
+        {
+            flickeringLight.speed = 1;
+        }
+
+        isPlayingFixingSound = false;
+    }
+
+    public bool GetFixedState()
+    {
+        return isFixed;
+    }
+
+    public void LoadGeneratorState(bool fixedState)
+    {
+        isFixed = fixedState;
+
+        if (fixedState)
+        {
+            ApplyFixedState();
+        }
+
+        else
+        {
+            ApplyUnfixedState();
+        }
+    }
     
 
 }

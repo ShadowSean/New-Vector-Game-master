@@ -66,19 +66,22 @@ public class GeneratorFive : MonoBehaviour
         partsNeeded.SetActive(false);
         repairPercentage.gameObject.SetActive(false);
 
-        if (genFixingSource != null)
+        if (genFixingSource == null)
         {
             genFixingSource = gameObject.AddComponent<AudioSource>();
         }
-    }
 
-    private void OnDisable()
-    {
-        if (genOneMat != null)
+        if (isFifthFixed)
         {
-            genOneMat.DisableKeyword("_EMISSION");
+            ApplyFixedState();
+        }
+        else
+        {
+            ApplyUnfixedState();
         }
     }
+
+    
 
     private void Update()
     {
@@ -109,12 +112,8 @@ public class GeneratorFive : MonoBehaviour
 
                         repairPercentage.value = repairPercentage.maxValue;
                         isFifthFixed = true;
-                        flickeringLights.speed = 0;
-                        NoiseSystem.PlayerNoise(transform.position, hearRadius, searchRadius);
 
-                        repairAndGenerator.SetActive(false);
-
-                        genOneMat.EnableKeyword("_EMISSION");
+                        ApplyFixedState();
 
                         playerCursor.SetActive(true);
 
@@ -232,5 +231,94 @@ public class GeneratorFive : MonoBehaviour
         partsNeeded.SetActive(false);
     }
 
-    
+    void ApplyFixedState()
+    {
+        isFifthFixed = true;
+
+        repairAndGenerator.SetActive(false);
+        partsNeeded.SetActive(false);
+
+        if (flickeringLights != null)
+        {
+            flickeringLights.speed = 0;
+        }
+
+        if (genOneMat != null)
+        {
+            genOneMat.EnableKeyword("_EMISSION");
+        }
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        if (genFixingSource != null)
+        {
+            genFixingSource.Stop();
+        }
+
+
+        if (genFixingSource != null && genFixed != null)
+        {
+            genFixingSource.clip = genFixed;
+            genFixingSource.loop = true;
+            genFixingSource.spatialBlend = 1f;
+            genFixingSource.rolloffMode = AudioRolloffMode.Logarithmic;
+            genFixingSource.minDistance = 3f;
+            genFixingSource.maxDistance = 20f;
+            genFixingSource.dopplerLevel = 0f;
+            genFixingSource.Play();
+        }
+
+        isPlayingFixingSound = false;
+        inRange = false;
+    }
+
+    void ApplyUnfixedState()
+    {
+        if (genOneMat != null)
+        {
+            genOneMat.DisableKeyword("_EMISSION");
+        }
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = true;
+        }
+
+        if (genFixingSource != null)
+        {
+            genFixingSource.Stop();
+        }
+
+        if (flickeringLights != null)
+        {
+            flickeringLights.speed = 1;
+        }
+
+        isPlayingFixingSound = false;
+    }
+
+    public bool GetFixedState()
+    {
+        return isFifthFixed;
+    }
+
+    public void LoadGeneratorState(bool fixedState)
+    {
+        isFifthFixed = fixedState;
+
+        if (fixedState)
+        {
+            ApplyFixedState();
+        }
+
+        else
+        {
+            ApplyUnfixedState();
+        }
+    }
 }

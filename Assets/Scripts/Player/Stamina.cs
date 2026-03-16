@@ -10,12 +10,17 @@ public class Stamina : MonoBehaviour
     public float staminaDrain = 10f;
     public float staminaRegen = 5f;
 
+    [Header("Sprint Recovery")]
+    public float sprintResumeCD = 20f;
+
     [HideInInspector] public float currentStam;
     private FPController staminaMovement;
 
     private PlayerInput playerInput;
     private InputAction sprintAction;
     private InputAction moveAction;
+
+    private bool exhausted;
 
     private void Awake()
     {
@@ -44,21 +49,41 @@ public class Stamina : MonoBehaviour
 
     private void Update()
     {
-        if (staminaMovement == null) return;
+        if (staminaMovement == null || sprintAction == null || moveAction == null) return;
 
         bool isRunning = sprintAction.IsPressed();
         Vector2 moveInput = moveAction.ReadValue<Vector2>();
         bool isMoving = moveInput.sqrMagnitude > 0.01f;
 
-        if (isRunning && isMoving && currentStam > 0)
+        bool canDrain = isRunning && isMoving && !exhausted && currentStam > 0;
+
+        if (canDrain)
         {
             currentStam -= staminaDrain * Time.deltaTime;
-            if (currentStam < 0) currentStam = 0;
+            if (currentStam <= 0)
+            {
+                currentStam = 0;
+                exhausted = true;
+            }
+
         }
         else
         {
             if (currentStam < maxStamina)
+            {
                 currentStam += staminaRegen * Time.deltaTime;
+
+                if (currentStam > maxStamina)
+                {
+                    currentStam = maxStamina;
+                }
+            }
+
+            if (exhausted && currentStam >= sprintResumeCD)
+            {
+                exhausted = false;
+            }
+                
         }
 
         // Update UI Image Fill
@@ -70,6 +95,6 @@ public class Stamina : MonoBehaviour
 
     public bool hasStamina()
     {
-        return currentStam > 0;
+        return !exhausted && currentStam > 0f;
     }
 }

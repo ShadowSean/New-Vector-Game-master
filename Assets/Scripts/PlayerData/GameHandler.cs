@@ -30,6 +30,14 @@ public class GameHandler : MonoBehaviour
     [Header("Pickup Items")]
     [SerializeField] private pickupItem[] pickups;
 
+    [Header("Generator Saves")]
+    [SerializeField] GeneratorLogic generatorOne;
+    [SerializeField] SecondGeneratorLogic generatorTwo;
+    [SerializeField] GeneratorThree generatorThree;
+    [SerializeField] GeneratorFour generatorFour;
+    [SerializeField] GeneratorFive generatorFive;
+    [SerializeField] GeneratorSix generatorSix;
+
 
     public string GetSaveKey()
     {
@@ -65,7 +73,13 @@ public class GameHandler : MonoBehaviour
             crateDisabledAfterClaimFour = crateFour != null && crateFour.GetCrateDisabledState(),
             crateDisabledAfterClaimFive = crateFive != null && crateFive.GetCrateDisabledState(),
             crateDisabledAfterClaimSix = crateSix != null && crateSix.GetCrateDisabledState(),
-            pickupCollectedStates = pickupStates
+            pickupCollectedStates = pickupStates,
+            genoneFixed = generatorOne != null && generatorOne.GetFixedState(),
+            gentwoFixed = generatorTwo != null && generatorTwo.GetFixedState(),
+            genthreeFixed = generatorThree != null && generatorThree.GetFixedState(),
+            genfourFixed = generatorFour != null && generatorFour.GetFixedState(),
+            genfiveFixed = generatorFive != null && generatorFive.GetFixedState(),
+            gensixFixed = generatorSix != null && generatorSix.GetFixedState(),
         };
         string json = JsonUtility.ToJson(saveData);
         PlayerPrefs.SetString(saveKey,json);
@@ -135,27 +149,57 @@ public class GameHandler : MonoBehaviour
 
         if (crateTwo != null)
         {
-            crateTwo.SetCrateDisabledState(data.crateDisabledAfterClaim);
+            crateTwo.SetCrateDisabledState(data.crateDisabledAfterClaimTwo);
         }
 
         if (crateThree != null)
         {
-            crateThree.SetCrateDisabledState(data.crateDisabledAfterClaim);
+            crateThree.SetCrateDisabledState(data.crateDisabledAfterClaimThree);
         }
 
         if (crateFour != null)
         {
-            crateFour.SetCrateDisabledState(data.crateDisabledAfterClaim);
+            crateFour.SetCrateDisabledState(data.crateDisabledAfterClaimFour);
         }
 
         if (crateFive != null)
         {
-            crateFive.SetCrateDisabledState(data.crateDisabledAfterClaim);
+            crateFive.SetCrateDisabledState(data.crateDisabledAfterClaimFive);
         }
 
         if (crateSix != null)
         {
-            crateSix.SetCrateDisabledState(data.crateDisabledAfterClaim);
+            crateSix.SetCrateDisabledState(data.crateDisabledAfterClaimSix);
+        }
+
+        if(generatorOne != null)
+        {
+            generatorOne.LoadGeneratorState(data.genoneFixed);
+        }
+
+        if (generatorTwo != null)
+        {
+            generatorTwo.LoadGeneratorState(data.gentwoFixed);
+        }
+
+        if (generatorThree != null)
+        {
+            generatorThree.LoadGeneratorState(data.genthreeFixed);
+        }
+
+        if (generatorFour != null)
+        {
+            generatorFour.LoadGeneratorState(data.genfourFixed);
+        }
+
+        if (generatorFive != null)
+        {
+            generatorFive.LoadGeneratorState(data.genfiveFixed);
+        }
+
+        if (generatorSix != null)
+        {
+            generatorSix.LoadGeneratorState(data.gensixFixed);
         }
 
         if (data.pickupCollectedStates != null)
@@ -227,6 +271,14 @@ public class SaveData
     public bool crateDisabledAfterClaimFive;
     public bool crateDisabledAfterClaimSix;
     public bool[] pickupCollectedStates;
+
+
+    public bool genoneFixed;
+    public bool gentwoFixed;
+    public bool genthreeFixed;
+    public bool genfourFixed;
+    public bool genfiveFixed;
+    public bool gensixFixed;
 }
 
 

@@ -18,6 +18,7 @@ public class ItemSwitcher : MonoBehaviour
     [Header("Audio Sources & Clips")]
     public AudioSource itemSounds;
     public AudioClip flashlightSound;
+    public AudioClip reloadSound;
 
     [Header("Flashlight Sound Timing")]
     public float equipDelay = 0.15f;
@@ -129,6 +130,7 @@ public class ItemSwitcher : MonoBehaviour
                 Debug.LogWarning("ItemSwitched: fastRepaidSpeed NOT assigned");
             }
             
+            itemSounds.PlayOneShot(reloadSound);
             animator.SetTrigger("Recharage");
             EquipItem(1);
 
