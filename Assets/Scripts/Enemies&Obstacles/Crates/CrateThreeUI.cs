@@ -5,7 +5,7 @@ public class CrateThreeUI : MonoBehaviour
 {
     public GameObject crateui, equipIcon, playerCursor;
 
-    public static bool partsCollectedThree;
+    public bool partsCollectedThree;
 
     bool inRange;
     bool itemEquipped;

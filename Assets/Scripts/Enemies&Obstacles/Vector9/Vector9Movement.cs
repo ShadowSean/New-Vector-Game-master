@@ -13,6 +13,10 @@ public class Vector9Movement : MonoBehaviour
     
 
     [SerializeField] Transform defaultSpawn;
+    [SerializeField] Light eyeOne;
+    [SerializeField] Light eyeTwo;
+
+    
 
     public float fadeDuration = 2f;
 
@@ -55,7 +59,7 @@ public class Vector9Movement : MonoBehaviour
     float fireFearUntil;
 
     // Save defaults of vector9's settings based on gamemode
-    float defaultChaseDistance;
+    public float defaultChaseDistance;
     float defaultChaseSpeed;
     float defaultAngularSpeed;
     float defaultAccel;
@@ -306,6 +310,8 @@ public class Vector9Movement : MonoBehaviour
     {
         
         isStunned = true;
+        eyeOne.color = Color.blue;
+        eyeTwo.color = Color.blue;
         animator.SetTrigger("Stun");
         
         agent.isStopped = true;
@@ -318,6 +324,8 @@ public class Vector9Movement : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         isStunned = false;
+        eyeOne.color = Color.red;
+        eyeTwo.color = Color.red;
         agent.isStopped = false;
         animator.ResetTrigger("Stun");
 

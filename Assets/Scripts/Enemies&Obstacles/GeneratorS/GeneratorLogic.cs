@@ -10,7 +10,15 @@ public class GeneratorLogic : MonoBehaviour
     public GameObject repairAndGenerator;
     public Slider repairPercentage;
     public TMP_Text repairSpeedText;
+    public GameObject skillCheck;
+    [SerializeField] SkillCheck canRepair;
+    public GameObject failedText;
+    public GameObject passedText;
+    private bool skillCheckRunning;
+    private bool waitingForSkillCheck;
     
+    
+
 
     [Header("Base Settings")]
     public GameObject partsNeeded, playerCursor;
@@ -18,6 +26,8 @@ public class GeneratorLogic : MonoBehaviour
     public float textDuration = 5f;
     private Material genOneMat;
     [SerializeField] Renderer targetRenderer;
+    [SerializeField] CrateUI sparePart;
+    
    
 
     [Header("Gen Sounds")]
@@ -88,20 +98,29 @@ public class GeneratorLogic : MonoBehaviour
         if (inRange)
         {
             UpdateRepairSpeedtext();
-            if (CrateUI.partsCollected && !isFixed)
+            if (sparePart.partsCollected && !isFixed)
             {
                 if (clickAction != null && clickAction.IsPressed())
                 {
                     
-                    float duration = fastRepairSpeed.GetRepairDuration();
-                    float rate = repairPercentage.maxValue / duration;
-                    repairPercentage.value += rate * Time.deltaTime;
-
-
-
+                    if (!waitingForSkillCheck)
+                    {
+                        float duration = fastRepairSpeed.GetRepairDuration();
+                        float rate = repairPercentage.maxValue / duration;
+                        repairPercentage.value += rate * Time.deltaTime;
+                    }
+                    
                     
 
-                    if(!isPlayingFixingSound && genFixing != null)
+                    if (!skillCheckRunning && repairPercentage.value > 0f)
+                    {
+                        
+                        StartCoroutine(SkillCheckRoutine());
+                    }
+
+
+
+                    if (!isPlayingFixingSound && genFixing != null)
                     {
                         genFixingSource.clip = genFixing;
                         genFixingSource.loop = true;
@@ -156,7 +175,7 @@ public class GeneratorLogic : MonoBehaviour
                     }
                 }
             }
-            else if (!CrateUI.partsCollected)
+            else if (!sparePart.partsCollected)
             {
                 if (clickAction != null && clickAction.WasPressedThisFrame())
                 {
@@ -336,6 +355,49 @@ public class GeneratorLogic : MonoBehaviour
         {
             ApplyUnfixedState();
         }
+    }
+
+    IEnumerator SkillCheckRoutine()
+    {
+
+        skillCheckRunning = true;
+        canRepair.hasSkill = false;
+
+        canRepair.failedSkill = false;
+
+        passedText.SetActive(false);
+        failedText.SetActive(false);
+        skillCheck.SetActive(false);
+        
+        yield return new WaitForSeconds(5f);
+
+        waitingForSkillCheck = true;
+        skillCheck.SetActive(true);
+        yield return new WaitUntil(() => canRepair.hasSkill || canRepair.failedSkill);
+
+        skillCheck.SetActive(false);
+        waitingForSkillCheck = false;
+
+        if (canRepair.hasSkill)
+        {
+            passedText.SetActive(true);
+            yield return new WaitForSeconds(4f);
+            passedText.SetActive(false);
+            
+        }
+        else if (canRepair.failedSkill)
+        {
+            
+            repairPercentage.value = 0;
+            failedText.SetActive(true);
+            yield return new WaitForSeconds(4f);
+            failedText.SetActive(false);
+
+
+        }
+
+        skillCheckRunning = false;
+        
     }
     
 

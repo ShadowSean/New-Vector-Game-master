@@ -122,6 +122,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Skill Check",
+                    "type": "Button",
+                    "id": "ca3d8a42-f274-4fdb-a969-04533329ff5e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -452,6 +461,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "MapToggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea4298d7-bcb4-4e80-9353-44f8f9022efd",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill Check",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf968cb6-934d-4b81-a086-aaf4edb2bd96",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill Check",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

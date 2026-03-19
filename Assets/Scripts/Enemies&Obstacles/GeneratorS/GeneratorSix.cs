@@ -10,6 +10,12 @@ public class GeneratorSix : MonoBehaviour
     public GameObject repairAndGenerator;
     public Slider repairPercentage;
     public TMP_Text repairSpeedText;
+    public GameObject skillCheck;
+    [SerializeField] SkillCheck canRepair;
+    public GameObject failedText;
+    public GameObject passedText;
+    private bool skillCheckRunning;
+    private bool waitingForSkillCheck;
 
 
     [Header("Base Settings")]
@@ -19,6 +25,7 @@ public class GeneratorSix : MonoBehaviour
     public float textDuration = 5f;
     private Material genOneMat;
     [SerializeField] Renderer targetRenderer;
+    [SerializeField] CrateSixUI sparePart;
 
     [Header("Gen Sounds")]
     public AudioClip genFixing;
@@ -83,14 +90,25 @@ public class GeneratorSix : MonoBehaviour
         if (inRange)
         {
             UpdateRepairSpeedtext();
-            if (CrateSixUI.partsCollectedSix && !isSixthFixed)
+            if (sparePart.partsCollectedSix && !isSixthFixed)
             {
                 if (clickAction != null && clickAction.IsPressed())
                 {
-                    
-                    float duration = fastRepairSpeed.GetRepairDuration();
-                    float rate = repairPercentage.maxValue / duration;
-                    repairPercentage.value += rate * Time.deltaTime;
+
+                    if (!waitingForSkillCheck)
+                    {
+                        float duration = fastRepairSpeed.GetRepairDuration();
+                        float rate = repairPercentage.maxValue / duration;
+                        repairPercentage.value += rate * Time.deltaTime;
+                    }
+
+
+
+                    if (!skillCheckRunning && repairPercentage.value > 0f)
+                    {
+
+                        StartCoroutine(SkillCheckRoutine());
+                    }
 
 
 
@@ -151,7 +169,7 @@ public class GeneratorSix : MonoBehaviour
                     }
                 }
             }
-            else if (!CrateSixUI.partsCollectedSix)
+            else if (!sparePart.partsCollectedSix)
             {
                 if (clickAction != null && clickAction.WasPressedThisFrame())
                 {
@@ -314,6 +332,49 @@ public class GeneratorSix : MonoBehaviour
         {
             ApplyUnfixedState();
         }
+    }
+
+    IEnumerator SkillCheckRoutine()
+    {
+
+        skillCheckRunning = true;
+        canRepair.hasSkill = false;
+
+        canRepair.failedSkill = false;
+
+        passedText.SetActive(false);
+        failedText.SetActive(false);
+        skillCheck.SetActive(false);
+
+        yield return new WaitForSeconds(5f);
+
+        waitingForSkillCheck = true;
+        skillCheck.SetActive(true);
+        yield return new WaitUntil(() => canRepair.hasSkill || canRepair.failedSkill);
+
+        skillCheck.SetActive(false);
+        waitingForSkillCheck = false;
+
+        if (canRepair.hasSkill)
+        {
+            passedText.SetActive(true);
+            yield return new WaitForSeconds(4f);
+            passedText.SetActive(false);
+
+        }
+        else if (canRepair.failedSkill)
+        {
+
+            repairPercentage.value = 0;
+            failedText.SetActive(true);
+            yield return new WaitForSeconds(4f);
+            failedText.SetActive(false);
+
+
+        }
+
+        skillCheckRunning = false;
+
     }
 
 }

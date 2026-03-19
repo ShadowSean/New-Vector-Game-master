@@ -8,7 +8,7 @@ public class CrateUI : MonoBehaviour
 
    
 
-    public static bool partsCollected;
+    public bool partsCollected;
     
     public GameObject itemRotation;
 
@@ -80,6 +80,7 @@ public class CrateUI : MonoBehaviour
         Cursor.visible = true;
 
     }
+
 
     private void OnTriggerStay(Collider other)
     {
