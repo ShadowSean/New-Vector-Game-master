@@ -9052,7 +9052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &146463385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11784,7 +11784,7 @@ MonoBehaviour:
   repairPercentage: {fileID: 1066230384}
   repairSpeedText: {fileID: 1739528826}
   skillCheck: {fileID: 1545541213}
-  canRepair: {fileID: 0}
+  canRepair: {fileID: 7218957522480666501}
   failedText: {fileID: 1635045026}
   passedText: {fileID: 146719727}
   partsNeeded: {fileID: 210498698}
@@ -11792,7 +11792,7 @@ MonoBehaviour:
   repairDuration: 30
   textDuration: 5
   targetRenderer: {fileID: 1723016173}
-  sparePart: {fileID: 0}
+  sparePart: {fileID: 1070512859}
   genFixing: {fileID: 8300000, guid: c1733c8f15284504fb0130faa6481045, type: 3}
   genFixed: {fileID: 8300000, guid: 47b5dc02651957f45a8fe69b86dd1186, type: 3}
   genFixingSource: {fileID: 205891790}
@@ -14968,8 +14968,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -324.6}
-  m_SizeDelta: {x: 900, y: 250}
+  m_AnchoredPosition: {x: -241.9, y: 403.92}
+  m_SizeDelta: {x: 1388.2, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &271369423
 MonoBehaviour:
@@ -14984,7 +14984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14993,7 +14993,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: feb5d33152d0cde4792a14125eaf1c7d, type: 3}
-    m_FontSize: 170
+    m_FontSize: 112
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -15004,7 +15004,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Died
+  m_Text: YOU DIED
 --- !u!222 &271369424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18203,7 +18203,7 @@ MonoBehaviour:
   repairPercentage: {fileID: 52415966}
   repairSpeedText: {fileID: 980702597}
   skillCheck: {fileID: 1545541213}
-  canRepair: {fileID: 0}
+  canRepair: {fileID: 7218957522480666501}
   failedText: {fileID: 1635045026}
   passedText: {fileID: 146719727}
   partsNeeded: {fileID: 48247709}
@@ -18211,7 +18211,7 @@ MonoBehaviour:
   repairDuration: 30
   textDuration: 5
   targetRenderer: {fileID: 1926391609}
-  sparePart: {fileID: 0}
+  sparePart: {fileID: 859863209}
   genFixing: {fileID: 8300000, guid: c1733c8f15284504fb0130faa6481045, type: 3}
   genFixed: {fileID: 8300000, guid: 47b5dc02651957f45a8fe69b86dd1186, type: 3}
   genFixingSource: {fileID: 1323137998}
@@ -29371,7 +29371,7 @@ MonoBehaviour:
   repairPercentage: {fileID: 1900705668}
   repairSpeedText: {fileID: 80532378}
   skillCheck: {fileID: 1545541213}
-  canRepair: {fileID: 0}
+  canRepair: {fileID: 7218957522480666501}
   failedText: {fileID: 1635045026}
   passedText: {fileID: 146719727}
   partsNeeded: {fileID: 764783527}
@@ -29379,7 +29379,7 @@ MonoBehaviour:
   repairDuration: 30
   textDuration: 5
   targetRenderer: {fileID: 1392292768}
-  sparePart: {fileID: 0}
+  sparePart: {fileID: 876131675}
   genFixing: {fileID: 8300000, guid: c1733c8f15284504fb0130faa6481045, type: 3}
   genFixed: {fileID: 8300000, guid: 47b5dc02651957f45a8fe69b86dd1186, type: 3}
   genFixingSource: {fileID: 542340624}
@@ -42974,6 +42974,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809976969}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &810868985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 810868986}
+  - component: {fileID: 810868988}
+  - component: {fileID: 810868987}
+  m_Layer: 5
+  m_Name: Text (Legacy) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &810868986
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810868985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 978200867}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -510.8, y: -444.2}
+  m_SizeDelta: {x: 810.6, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &810868987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810868985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: feb5d33152d0cde4792a14125eaf1c7d, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 190
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Hint: He emits a frequency sound, the closer you are the louder it gets'
+--- !u!222 &810868988
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810868985}
+  m_CullTransparentMesh: 1
 --- !u!1 &810875867
 GameObject:
   m_ObjectHideFlags: 0
@@ -47265,7 +47344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &883990210
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49892,7 +49971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &935086284
 RectTransform:
   m_ObjectHideFlags: 0
@@ -52739,6 +52818,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 271369422}
+  - {fileID: 1919884035}
+  - {fileID: 810868986}
   m_Father: {fileID: 356656293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -52766,7 +52847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f3df943c897a47a4d813bc615210f9ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9feabc4991904014eafbcbf6976f800e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -63572,7 +63653,7 @@ MonoBehaviour:
   repairPercentage: {fileID: 855109421}
   repairSpeedText: {fileID: 260610157}
   skillCheck: {fileID: 1545541213}
-  canRepair: {fileID: 0}
+  canRepair: {fileID: 7218957522480666501}
   failedText: {fileID: 1635045026}
   passedText: {fileID: 146719727}
   partsNeeded: {fileID: 391161155}
@@ -63580,7 +63661,7 @@ MonoBehaviour:
   repairDuration: 30
   textDuration: 5
   targetRenderer: {fileID: 109291045}
-  sparePart: {fileID: 0}
+  sparePart: {fileID: 807639919}
   genFixing: {fileID: 8300000, guid: c1733c8f15284504fb0130faa6481045, type: 3}
   genFixed: {fileID: 8300000, guid: 47b5dc02651957f45a8fe69b86dd1186, type: 3}
   genFixingSource: {fileID: 1180867420}
@@ -78853,7 +78934,7 @@ MonoBehaviour:
   repairPercentage: {fileID: 1823999833}
   repairSpeedText: {fileID: 1489376543}
   skillCheck: {fileID: 1545541213}
-  canRepair: {fileID: 0}
+  canRepair: {fileID: 7218957522480666501}
   failedText: {fileID: 1635045026}
   passedText: {fileID: 146719727}
   partsNeeded: {fileID: 732417229}
@@ -78861,7 +78942,7 @@ MonoBehaviour:
   repairDuration: 30
   textDuration: 5
   targetRenderer: {fileID: 1512070889}
-  sparePart: {fileID: 0}
+  sparePart: {fileID: 2039618880}
   genFixing: {fileID: 8300000, guid: c1733c8f15284504fb0130faa6481045, type: 3}
   genFixed: {fileID: 8300000, guid: 47b5dc02651957f45a8fe69b86dd1186, type: 3}
   genFixingSource: {fileID: 1481813723}
@@ -81721,7 +81802,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Equip
+  m_Text: Exit
 --- !u!222 &1551125379
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -99600,6 +99681,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918043025}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1919884034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919884035}
+  - component: {fileID: 1919884037}
+  - component: {fileID: 1919884036}
+  m_Layer: 5
+  m_Name: Text (Legacy) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1919884035
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919884034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 978200867}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -233.81, y: 297.9}
+  m_SizeDelta: {x: 1388.2, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1919884036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919884034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: feb5d33152d0cde4792a14125eaf1c7d, type: 3}
+    m_FontSize: 63
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 190
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'KILLED BY: VECTOR9'
+--- !u!222 &1919884037
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919884034}
+  m_CullTransparentMesh: 1
 --- !u!65 &1920933647
 BoxCollider:
   m_ObjectHideFlags: 0
