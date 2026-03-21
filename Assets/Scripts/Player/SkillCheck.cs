@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.TextCore.LowLevel;
 using UnityEngine.UI;
 
 public class SkillCheck : MonoBehaviour
@@ -11,17 +12,20 @@ public class SkillCheck : MonoBehaviour
     public GameObject skillCheckObject;
     public bool hasSkill;
     public bool failedSkill;
-    float x;
-    float y;
-    float z;
+
+
+    public float successZoneSize = 36;
+    public float greenAngleOffset = 39;
 
     private void Awake()
     {
-        x = skillCheckArea.transform.rotation.z;
-       
-        x = Random.Range(0, 360);
+        float randomRotation = Random.Range(0f, 360f);
 
-        skillCheckArea.transform.Rotate(0,0,x);
+        skillCheckArea.transform.rotation = Quaternion.Euler(0, 0, randomRotation);
+
+
+
+
         playerInput = FindFirstObjectByType<PlayerInput>();
 
         if (playerInput != null)
@@ -33,35 +37,55 @@ public class SkillCheck : MonoBehaviour
             Debug.LogWarning("Skill Check: Player input has not been found.");
         }
     }
-    
+
 
 
     private void Update()
     {
-        x = Mathf.Abs(skillCheckArea.transform.rotation.z * 100);
-        y = x + 36;
-        z = Mathf.Abs(greenPoint.transform.rotation.z * 100);
 
-        
 
-        if (spaceAction != null && spaceAction.WasPressedThisFrame() && z >= x && z <= y  )
+
+
+        if (spaceAction != null && spaceAction.WasPressedThisFrame())
         {
-            hasSkill = true;
-            Debug.Log("Success");
-            
-
-
-        }
-        else if(spaceAction != null && spaceAction.WasPressedThisFrame())
-        {
-            Debug.Log("You Failed");
-            failedSkill = true;
-            
-            
+            if (IsGreenPointInRedZone())
+            {
+                hasSkill = true;
+                Debug.Log("Success");
+            }
+            else
+            {
+                failedSkill = true;
+                Debug.Log("You Failed");
+            }
 
 
         }
 
 
     }
+
+    private bool IsGreenPointInRedZone()
+    {
+        float greenAngle = greenPoint.transform.parent.eulerAngles.z + greenAngleOffset;
+        float redStarAngle = skillCheckArea.transform.eulerAngles.z;
+        float redEndAngle = redStarAngle + successZoneSize;
+
+        greenAngle = (greenAngle % 360f + 360f) % 360f;
+        redStarAngle = (redStarAngle % 360f + 360f) % 360f;
+        redEndAngle = (redEndAngle % 360f + 360f) % 360f;
+
+        Debug.Log($"Green: {greenAngle:F1} Red: {redStarAngle:F1} -- {redEndAngle:F1}");
+
+        if (redStarAngle <= redEndAngle)
+        {
+            return greenAngle >= redStarAngle && greenAngle <= redEndAngle;
+        }
+        else
+        {
+            return greenAngle >= redStarAngle || greenAngle <= redEndAngle;
+        }
+    }
 }
+
+

@@ -14138,7 +14138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &262374388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30242,7 +30242,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 3
-  MaxDistance: 10
+  MaxDistance: 25
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -81627,7 +81627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1545541214
 RectTransform:
   m_ObjectHideFlags: 0
@@ -96748,7 +96748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1865971785
 Transform:
   m_ObjectHideFlags: 0
@@ -113560,7 +113560,6 @@ MonoBehaviour:
   hasSkill: 0
   failedSkill: 0
   successZoneSize: 36
-  greenAngleOffset: 39
 --- !u!1 &7283445176898193868
 GameObject:
   m_ObjectHideFlags: 0
