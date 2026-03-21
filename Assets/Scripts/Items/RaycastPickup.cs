@@ -210,14 +210,14 @@ public class RaycastPickup : MonoBehaviour
     IEnumerator FlashlightUpgradeRoutine()
     {
         flashlightUpgradeUI.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2.5f);
         flashlightUpgradeUI.SetActive(false);
     }
 
     IEnumerator TaserRodUpgradeRoutine()
     {
         taserrodUpgradeUI.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2.5f);
         taserrodUpgradeUI.SetActive(false);
     }
 
