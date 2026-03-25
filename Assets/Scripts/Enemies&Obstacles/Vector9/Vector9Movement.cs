@@ -23,20 +23,13 @@ public class Vector9Movement : MonoBehaviour
     public GameObject scope;
 
     public Animator animator;
-    //[SerializeField] private CanvasGroup gameOverCanvas;
-    //[SerializeField] private AudioSource jumpscareSource;
-    //[SerializeField] private AudioClip jumpscareClip;
-
-    //public GameObject inventory,staminaAndItem,scope;
 
    
 
     public float waitTime = 2f;
     public float vectorPatrolSpeed = 2f;
     public float vectorChaseSpeed = 10f;
-    //[SerializeField] float fadeDuration = 2f;
 
-    //[SerializeField] float attackRange = 1f;
     public bool isStunned;
     public bool isSlowed;
     public float stunRange;
@@ -44,7 +37,6 @@ public class Vector9Movement : MonoBehaviour
     int currentPatrolIndex = 0;
     bool isPlayerInRange;
     bool waiting;
-    //bool gameOverTriggered;
     
     public NavMeshAgent agent;
 
@@ -65,11 +57,6 @@ public class Vector9Movement : MonoBehaviour
     float defaultAccel;
 
     public bool gameOverRunning;
-
-    //[SerializeField]private Collider triggerCollider;
-    //[SerializeField]private Collider solidCollider;
-
-
 
     private void Awake()
     {
@@ -109,18 +96,7 @@ public class Vector9Movement : MonoBehaviour
         {
             EndFireZone();
         }
-        //stunRange = taserRange.stunRange;
         float dist = Vector3.Distance(transform.position, playerPosition.position);
-        //if (scope != null)
-        //{
-        //    if (dist <= stunRange)
-        //        scope.SetActive(false);   
-        //    else
-        //        scope.SetActive(true);    
-        //}
-        //stunIcon.SetActive(dist <= stunRange);
-
-
 
 
         if (isFireApplied)
@@ -224,9 +200,6 @@ public class Vector9Movement : MonoBehaviour
             agent.destination = patrolAreas[currentPatrolIndex].position;
         }
     }
-
-    
-
     void Patrol()
     {
         if (patrolAreas.Length == 0 || waiting)
@@ -249,15 +222,6 @@ public class Vector9Movement : MonoBehaviour
         agent.destination = patrolAreas[currentPatrolIndex].position;
         waiting = false;
     }
-    //void ChasePlayer()
-    //{
-    //    if (playerPosition)
-    //    {
-    //        agent.destination = playerPosition.position;
-    //    }
-    //}
-
-
 
     private IEnumerator GameOverSequence()
     {
@@ -280,20 +244,6 @@ public class Vector9Movement : MonoBehaviour
 
         yield break;
     }
-
-    
-
-    //public void ResetGameOverUI()
-    //{
-    //    gameOverRunning = false;
-    //    if (gameOverCanvas != null)
-    //    {
-    //        gameOverCanvas.alpha = 0f;
-    //        gameOverCanvas.blocksRaycasts = false;
-    //        gameOverCanvas.interactable = false;
-    //        gameOverCanvas.gameObject.SetActive(false);
-    //    }
-    //}
 
     public void StartFade()
     {
@@ -319,7 +269,6 @@ public class Vector9Movement : MonoBehaviour
         StartCoroutine(Recover());
     }
 
-    
     IEnumerator Recover()
     {
         yield return new WaitForSeconds(10f);
@@ -331,4 +280,7 @@ public class Vector9Movement : MonoBehaviour
 
         animator.Play("Walking", 0);
     }
+
+
+
 }

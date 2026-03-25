@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.XR;
 
@@ -13,6 +14,11 @@ public class EnemyFootStepController : MonoBehaviour
     public AudioSource footstepSource;
     public AudioClip walkClip;
     public AudioClip sprintClip;
+
+    public Transform vector9;
+    public Transform u67;
+
+    private WalkCamShake camShake;
 
     private NavMeshAgent enemyAgent;
 
@@ -33,6 +39,7 @@ public class EnemyFootStepController : MonoBehaviour
 
         bool isWalking = speed >= walkSpeedMin && speed < walkSpeedMax;
         bool isSprinting = speed >= sprintSpeedMin;
+        float dist = Vector3.Distance(vector9.position, u67.position);
 
         // Not moving → stop footsteps
         if (speed < walkSpeedMin || enemyAgent.isStopped)
@@ -70,4 +77,6 @@ public class EnemyFootStepController : MonoBehaviour
         if (footstepSource.isPlaying)
             footstepSource.Stop();
     }
+
+
 }

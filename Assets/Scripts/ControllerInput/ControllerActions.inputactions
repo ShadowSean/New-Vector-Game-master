@@ -131,6 +131,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CamZoom",
+                    "type": "Button",
+                    "id": "91eeb314-5ead-4151-acd1-b4df871e956f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -483,6 +492,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Skill Check",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c0c9019-f089-4a13-be7d-6d35a3785ffb",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CamZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "560ee674-4441-43f3-baf7-f13ce2e25ae0",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CamZoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

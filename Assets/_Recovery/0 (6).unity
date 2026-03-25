@@ -8489,99 +8489,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119678713}
   m_CullTransparentMesh: 1
---- !u!1 &127844953 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6465187606433662163, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
-  m_PrefabInstance: {fileID: 6281667238372929522}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &127844959 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1723578838248252896, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
-  m_PrefabInstance: {fileID: 6281667238372929522}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &127844960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127844953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e8ca1c6170ca04da1a9ed1fdcd48e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkCamShake
-  startShake: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.0014343262
-      value: -0.005554199
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.1548612
-      value: 0.29105735
-      inSlope: 0.5909473
-      outSlope: 0.5909473
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.26704088
-      value: 0.4241374
-      inSlope: 0.05759967
-      outSlope: 0.05759967
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.37661323
-      value: 0.47242066
-      inSlope: -0.23548304
-      outSlope: -0.23548304
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6700406
-      value: 0.30960158
-      inSlope: -0.16717353
-      outSlope: -0.16717353
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.8481403
-      value: 0.17966142
-      inSlope: -0.4906977
-      outSlope: -0.4906977
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.013053894
-      inSlope: -3.1164525
-      outSlope: -3.1164525
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.2647544
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  duration: 1
 --- !u!1 &134797804
 GameObject:
   m_ObjectHideFlags: 0
@@ -15134,7 +15041,6 @@ GameObject:
   - component: {fileID: 284469562}
   - component: {fileID: 284469564}
   - component: {fileID: 284469565}
-  - component: {fileID: 284469566}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -15396,25 +15302,6 @@ MonoBehaviour:
   generatorFour: {fileID: 1180867418}
   generatorFive: {fileID: 205891788}
   generatorSix: {fileID: 542340622}
---- !u!114 &284469566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284469556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1389c20690802eb4ebde460a1ec5759a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ViewBobbing
-  bobFrequency: 2
-  bobHorizontalAmplitude: 0.15
-  bobVerticalAmplitude: 0.15
-  bobSmoothing: 10
-  returnSmoothing: 6
-  cameraPivot: {fileID: 960169830}
-  playerCharControl: {fileID: 6281667238372929523}
 --- !u!1 &290085465
 GameObject:
   m_ObjectHideFlags: 0
@@ -38290,11 +38177,53 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &746546731 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7828894344801591161, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+--- !u!1 &746546730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5214688276749603615, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
   m_PrefabInstance: {fileID: 6281667238372929522}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &746546732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746546730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2d8be9c0c62ec4e86f31a3f6b1c965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotationFollower
+  target: {fileID: 960169830}
+--- !u!114 &746546733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746546730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1389c20690802eb4ebde460a1ec5759a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ViewBobbing
+  effectIntensity: 0.01
+  effectIntensityX: 1
+  effectSpeed: 4
+--- !u!114 &746546734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746546730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec537413b5129e46bfc4dcaec074359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PositionFollower
+  targetTransform: {fileID: 960169830}
+  offset: {x: 1, y: 0, z: 0}
 --- !u!1 &747789226
 GameObject:
   m_ObjectHideFlags: 0
@@ -69648,8 +69577,6 @@ MonoBehaviour:
   footstepSource: {fileID: 564139976}
   walkClip: {fileID: 8300000, guid: 978a685140ba70241bf7c38b2a3fcb73, type: 3}
   sprintClip: {fileID: 8300000, guid: bbc97f17e37fa634ba9f2a46b4be997f, type: 3}
-  vector9: {fileID: 0}
-  u67: {fileID: 0}
 --- !u!1 &1319144427
 GameObject:
   m_ObjectHideFlags: 0
@@ -107951,7 +107878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1717340478026610592, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -107968,10 +107895,6 @@ PrefabInstance:
     - target: {fileID: 1717340478026610592, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723578838248252896, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
-      propertyPath: field of view
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2076597541255536865, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -108061,10 +107984,6 @@ PrefabInstance:
       propertyPath: flamethrower
       value: 
       objectReference: {fileID: 266550520}
-    - target: {fileID: 2388910181483150132, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2671429752706888504, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: battery
       value: 
@@ -108169,21 +108088,16 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3675522838161619085, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5214688276749603615, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7218957522480666502}
-    - targetCorrespondingSourceObject: {fileID: 3675522838161619085, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      addedObject: {fileID: 746546734}
+    - targetCorrespondingSourceObject: {fileID: 5214688276749603615, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7218957522480666510}
-    - targetCorrespondingSourceObject: {fileID: 6465187606433662163, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      addedObject: {fileID: 746546733}
+    - targetCorrespondingSourceObject: {fileID: 5214688276749603615, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 127844960}
+      addedObject: {fileID: 746546732}
   m_SourcePrefab: {fileID: 100100000, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
---- !u!143 &6281667238372929523 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 70287818534881252, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
-  m_PrefabInstance: {fileID: 6281667238372929522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!33 &6287308758606573105
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -108219,41 +108133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1247510a15fa65e4298110814f437eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillCheck
---- !u!114 &7218957522480666502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7218957522480666495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1389c20690802eb4ebde460a1ec5759a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ViewBobbing
-  bobFrequency: 2
-  bobHorizontalAmplitude: 0.05
-  bobVerticalAmplitude: 0.05
-  bobSmoothing: 10
-  returnSmoothing: 6
-  cameraPivot: {fileID: 746546731}
-  playerCharControl: {fileID: 6281667238372929523}
---- !u!114 &7218957522480666510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7218957522480666495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3c548f18e107544b8f9aeff75c386be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraMiniZoom
-  cam: {fileID: 127844959}
-  normalFOV: 40
-  zoomFOV: 20
-  zoomSpeed: 5
 --- !u!23 &7563790492431257209
 MeshRenderer:
   m_ObjectHideFlags: 0
