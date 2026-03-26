@@ -7,6 +7,7 @@ public class WalkCamShake : MonoBehaviour
     public bool startShake;
     public AnimationCurve curve;
     public float duration = 1.0f;
+    private Vector3 shakeOffset = Vector3.zero;
 
     // Update is called once per frame
     void Update()
@@ -14,22 +15,25 @@ public class WalkCamShake : MonoBehaviour
         if (startShake)
         {
             startShake = false;
+            StopAllCoroutines();
             StartCoroutine(Shaking());
         }
     }
 
     IEnumerator Shaking()
     {
-        Vector3 startPosition = transform.position;
+        
         float elapsedtime = 0f;
 
         while (elapsedtime < duration)
         {
             elapsedtime += Time.deltaTime;
             float strength = curve.Evaluate(elapsedtime / duration);
-            transform.position = startPosition + Random.insideUnitSphere * strength;
+            shakeOffset = Random.insideUnitSphere * strength;
             yield return null;
         }
-        transform.position = startPosition;
+        shakeOffset = Vector3.zero;
     }
+
+    public Vector3 GetShakeOffset() => shakeOffset;
 }

@@ -15,12 +15,20 @@ public class EnemyFootStepController : MonoBehaviour
     public AudioClip walkClip;
     public AudioClip sprintClip;
 
+    [Header("Screen Shake Settings")]
     public Transform vector9;
     public Transform u67;
+    public WalkCamShake camShake;
+    public float shakeProximity;
+    public float minSpeedReference = 0.1f;
+    public float maxSpeedReference = 8.0f;
+    public float maxStepInterval = 0.7f;
+    public float minStepInterval = 0.2f;
 
-    private WalkCamShake camShake;
+
 
     private NavMeshAgent enemyAgent;
+    private float stepTimer = 0f;
 
     void Start()
     {
@@ -39,12 +47,13 @@ public class EnemyFootStepController : MonoBehaviour
 
         bool isWalking = speed >= walkSpeedMin && speed < walkSpeedMax;
         bool isSprinting = speed >= sprintSpeedMin;
-        float dist = Vector3.Distance(vector9.position, u67.position);
+        
 
         // Not moving → stop footsteps
         if (speed < walkSpeedMin || enemyAgent.isStopped)
         {
             StopFootsteps();
+            stepTimer = 0f;
             return;
         }
 
@@ -59,6 +68,23 @@ public class EnemyFootStepController : MonoBehaviour
         else
         {
             StopFootsteps();
+        }
+        TryTriggerShake(speed);
+    }
+
+    void TryTriggerShake(float speed)
+    {
+        if (camShake == null) return;
+        float dist = Vector3.Distance(vector9.position, u67.position);
+        if (dist > shakeProximity) return;
+        float t = Mathf.InverseLerp(minSpeedReference, maxSpeedReference, speed);
+        float interval = Mathf.Lerp(maxStepInterval,minStepInterval,t);
+        stepTimer -= Time.deltaTime;
+
+        if (stepTimer < 0f)
+        {
+            camShake.startShake = true;
+            stepTimer =interval;
         }
     }
 

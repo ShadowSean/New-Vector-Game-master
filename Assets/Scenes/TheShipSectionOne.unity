@@ -3511,7 +3511,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40870955}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 10
@@ -3563,7 +3563,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -4268,7 +4268,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57802443}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 50
@@ -4320,7 +4320,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -8528,7 +8528,7 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 1723578838248252896, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
   m_PrefabInstance: {fileID: 6281667238372929522}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &127844960
+--- !u!114 &127844966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8537,80 +8537,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 127844953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e8ca1c6170ca04da1a9ed1fdcd48e3, type: 3}
+  m_Script: {fileID: 11500000, guid: d497ea9a988d76944ad14fe6c1cedefc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkCamShake
-  startShake: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.0014343262
-      value: -0.005554199
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.1548612
-      value: 0.29105735
-      inSlope: 0.5909473
-      outSlope: 0.5909473
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.26704088
-      value: 0.4241374
-      inSlope: 0.05759967
-      outSlope: 0.05759967
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.37661323
-      value: 0.47242066
-      inSlope: -0.23548304
-      outSlope: -0.23548304
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6700406
-      value: 0.30960158
-      inSlope: -0.16717353
-      outSlope: -0.16717353
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.8481403
-      value: 0.17966142
-      inSlope: -0.4906977
-      outSlope: -0.4906977
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.013053894
-      inSlope: -3.1164525
-      outSlope: -3.1164525
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.2647544
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  duration: 1
+  m_EditorClassIdentifier: Assembly-CSharp::CamShakeApplier
+  shakeSource: {fileID: 1012594931}
 --- !u!1 &134797804
 GameObject:
   m_ObjectHideFlags: 0
@@ -14026,7 +13956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &262374388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15058,6 +14988,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -15198,6 +15129,7 @@ GameObject:
   - component: {fileID: 284469564}
   - component: {fileID: 284469565}
   - component: {fileID: 284469566}
+  - component: {fileID: 284469567}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -15478,6 +15410,23 @@ MonoBehaviour:
   returnSmoothing: 6
   cameraPivot: {fileID: 960169830}
   playerCharControl: {fileID: 6281667238372929523}
+--- !u!114 &284469567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284469556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b866f5d30edffb4bbce9dc5c23df43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraSway
+  canSway: 1
+  camPivot: {fileID: 1012594930}
+  zStart: 1
+  zEnd: -1
+  zMoveSpeed: 0.5
 --- !u!1 &290085465
 GameObject:
   m_ObjectHideFlags: 0
@@ -18418,6 +18367,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -53384,6 +53334,94 @@ Transform:
   m_Children: []
   m_Father: {fileID: 171574363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1012594930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5725510174005899060, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+  m_PrefabInstance: {fileID: 6281667238372929522}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1012594931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012594930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e8ca1c6170ca04da1a9ed1fdcd48e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkCamShake
+  startShake: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.14671408
+      value: 0.10038921
+      inSlope: 1.2594472
+      outSlope: 1.2594472
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2498479
+      value: 0.19755411
+      inSlope: 1.0440092
+      outSlope: 1.0440092
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.29929936
+      value: 0.23090033
+      inSlope: 0.009565625
+      outSlope: 0.009565625
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.32189828
+      outWeight: 0.6521446
+    - serializedVersion: 3
+      time: 0.50007737
+      value: 0.2099189
+      inSlope: -0.29480097
+      outSlope: -0.29480097
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38806295
+      outWeight: 0.34505492
+    - serializedVersion: 3
+      time: 0.64693916
+      value: 0.12786719
+      inSlope: -0.87817395
+      outSlope: -0.87817395
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.2241374
+    - serializedVersion: 3
+      time: 0.997549
+      value: 0.014285743
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 0.2
 --- !u!1 &1013140772
 GameObject:
   m_ObjectHideFlags: 0
@@ -64422,6 +64460,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -66456,7 +66495,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267948179}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 0.3
@@ -66508,7 +66547,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -69994,10 +70033,16 @@ MonoBehaviour:
   walkSpeedMax: 5
   sprintSpeedMin: 5.2
   footstepSource: {fileID: 564139976}
-  walkClip: {fileID: 8300000, guid: 978a685140ba70241bf7c38b2a3fcb73, type: 3}
-  sprintClip: {fileID: 8300000, guid: bbc97f17e37fa634ba9f2a46b4be997f, type: 3}
-  vector9: {fileID: 0}
-  u67: {fileID: 0}
+  walkClip: {fileID: 8300000, guid: f1ae16ec974cbd949aecf239f5f07b48, type: 3}
+  sprintClip: {fileID: 8300000, guid: f805726aabdcc2f4d8de09182a1c2d05, type: 3}
+  vector9: {fileID: 1318433628}
+  u67: {fileID: 5475666194362076947}
+  camShake: {fileID: 1012594931}
+  shakeProximity: 20
+  minSpeedReference: 0.1
+  maxSpeedReference: 8
+  maxStepInterval: 1.25
+  minStepInterval: 0.2
 --- !u!1 &1319144427
 GameObject:
   m_ObjectHideFlags: 0
@@ -72354,7 +72399,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361189310}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 10
@@ -72406,7 +72451,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -76609,7 +76654,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461029295}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 0.3
@@ -76661,7 +76706,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -78385,6 +78430,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -79979,7 +80025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1545541214
 RectTransform:
   m_ObjectHideFlags: 0
@@ -80345,6 +80391,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -93211,6 +93258,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -94052,7 +94100,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856254855}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.5
@@ -94104,7 +94152,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -99389,6 +99437,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -102871,6 +102920,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -108716,9 +108766,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3675522838161619085, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7218957522480666510}
+    - targetCorrespondingSourceObject: {fileID: 5725510174005899060, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1012594931}
     - targetCorrespondingSourceObject: {fileID: 6465187606433662163, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 127844960}
+      addedObject: {fileID: 127844966}
   m_SourcePrefab: {fileID: 100100000, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
 --- !u!143 &6281667238372929523 stripped
 CharacterController:
