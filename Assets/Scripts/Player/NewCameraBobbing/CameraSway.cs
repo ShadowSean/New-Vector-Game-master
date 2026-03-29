@@ -21,7 +21,7 @@ public class CameraSway : MonoBehaviour
         float sway = Mathf.Lerp(zStart, zEnd, t);
 
         Vector3 currentPivotEuler = camPivot.transform.localEulerAngles;
-        currentPivotEuler.z = sway;
+        currentPivotEuler.x = sway;
         camPivot.transform.localEulerAngles = currentPivotEuler;
         
     }
