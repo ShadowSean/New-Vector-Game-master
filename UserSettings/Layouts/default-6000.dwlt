@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.ContainerWindow
   m_PixelRect:
     serializedVersion: 2
-    x: 1196
-    y: 288.80002
+    x: 1183.2001
+    y: 297.6
     width: 320.80002
     height: 578.4
   m_ShowMode: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_MinSize: {x: 50, y: 76}
   m_MaxSize: {x: 4000, y: 4026}
   vertical: 0
-  controlID: 153
+  controlID: 18
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 73
+  controlID: 98
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 112}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 74
+  controlID: 99
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 63
+  controlID: 100
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -321,15 +321,15 @@ MonoBehaviour:
     y: 496
     width: 1172
     height: 316.8
-  m_MinSize: {x: 231, y: 276}
-  m_MaxSize: {x: 10001, y: 10026}
-  m_ActualView: {fileID: 21}
+  m_MinSize: {x: 101, y: 126}
+  m_MaxSize: {x: 4001, y: 4026}
+  m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 21}
   - {fileID: 22}
   - {fileID: 23}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -378,8 +378,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Wwise Browser\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1196
-    y: 288.80002
+    x: 1183.2001
+    y: 297.6
     width: 320.80002
     height: 552.4
   m_SerializedDataModeController:
@@ -397,8 +397,8 @@ MonoBehaviour:
     m_DynamicPanelBehavior: 0
   m_treeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
+    m_SelectedIDs: 01000000
+    m_LastClickedID: 1
     m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1363,9 +1363,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 926.9443, y: 511.03696, z: -301.3286}
+    m_Target: {x: 974.1438, y: 459.833, z: -307.95734}
     speed: 2
-    m_Value: {x: 926.9443, y: 511.03696, z: -301.3286}
+    m_Value: {x: 974.1438, y: 459.833, z: -307.95734}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1412,13 +1412,13 @@ MonoBehaviour:
     m_gridOpacity: 0.5
     m_NearestPlaneToHandleMode: 0
   m_Rotation:
-    m_Target: {x: 0.057575397, y: -0.022834336, z: 0.0011684591, w: 0.9983917}
+    m_Target: {x: 0.08751459, y: 0.0047116517, z: -0.0005636203, w: 0.99646574}
     speed: 2
-    m_Value: {x: 0.05875508, y: -0.022825796, z: 0.0011955203, w: 0.99801064}
+    m_Value: {x: 0.087486506, y: 0.005905543, z: -0.00066842686, w: 0.996148}
   m_Size:
     m_Target: 431.03207
     speed: 2
-    m_Value: 30.633736
+    m_Value: 431.03207
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1494,11 +1494,11 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: 57538
+      - m_Data: 63082
       m_LastClickedID:
-        m_Data: 0
+        m_Data: 63082
       m_ExpandedIDs:
-      - m_Data: -2140
+      - m_Data: -4744
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1804,13 +1804,12 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs:
-    - m_Data: 77412
+    - m_Data: 77904
     m_LastClickedID:
-      m_Data: 77412
+      m_Data: 77904
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 77412
-    - m_Data: 77560
+    - m_Data: 77904
     - m_Data: 1000000000
     - m_Data: 2147483647
     m_RenameOverlay:
@@ -1846,7 +1845,7 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 77412
+    - m_Data: 77904
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1875,9 +1874,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: 57538
+    - m_Data: 57984
     m_LastClickedEntityId:
-      m_Data: 57538
+      m_Data: 57984
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: []
     m_RenameOverlay:
