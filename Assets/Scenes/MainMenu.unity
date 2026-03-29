@@ -2756,6 +2756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal
       objectReference: {fileID: 0}
+    - target: {fileID: 7179646869120930166, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8178764044462935310, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Transition
       value: 3
@@ -4705,7 +4709,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5adadfb9cb263c4418fe29df471b64e6, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -10215,8 +10219,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -82.61987, y: 49.75}
-  m_SizeDelta: {x: 300, y: 60}
+  m_AnchoredPosition: {x: -71.900024, y: 49.75}
+  m_SizeDelta: {x: 310.72, y: 78.4742}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1521778930
 MonoBehaviour:
@@ -10359,7 +10363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5471698, g: 0.015485845, b: 0.015485845, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
