@@ -3,20 +3,21 @@ using System.Collections;
 
 public class ControlRoomZone : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    
-    [SerializeField] Transform controlRoomZone;
+    public Animator doorAnim;
 
-    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Enemy"))
         {
-            
-            player.position = controlRoomZone.position;
+
+            doorAnim.SetBool("isOpen", true);
         }
-        
+
     }
 
-    
+    private void OnTriggerExit(Collider other)
+    {
+        doorAnim.SetBool("isOpen", false);
+    }
+
 }

@@ -3,21 +3,25 @@ using UnityEngine;
 
 public class CrewTriggerArea : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    
-    [SerializeField] Transform crewquatersZone;
+    public Animator doorAnim;
+
 
     
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Enemy"))
         {
-            
-            player.position = crewquatersZone.position;
+
+            doorAnim.SetBool("isOpen", true);
         }
        
     }
 
-    
+    private void OnTriggerExit(Collider other)
+    {
+        doorAnim.SetBool("isOpen", false);
+    }
+
+
 }

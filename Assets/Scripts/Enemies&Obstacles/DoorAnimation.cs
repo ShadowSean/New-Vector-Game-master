@@ -9,19 +9,27 @@ public class DoorAnimation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
+        if (other.CompareTag("Player"))
         {
             doorSource.PlayOneShot(doorOpenClip);
             doorAnim.SetBool("isOpen", true);
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            doorSource.PlayOneShot(doorOpenClip);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
+        if (other.CompareTag("Player"))
         {
             doorSource.PlayOneShot(doorCloseClip);
             doorAnim.SetBool("isOpen",false);
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            doorSource.PlayOneShot(doorCloseClip);
         }
     }
 }
