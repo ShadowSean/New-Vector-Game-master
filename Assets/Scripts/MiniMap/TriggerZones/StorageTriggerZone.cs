@@ -3,21 +3,24 @@ using System.Collections;
 
 public class StorageTriggerZone : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    
-    [SerializeField] Transform storageZone;
-
+    public GameObject storagetext;
     
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-           
-            player.position = storageZone.position;
+            StartCoroutine(StorageText());
         }
         
     }
 
-    
+    IEnumerator StorageText()
+    {
+        storagetext.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        storagetext.SetActive(false);
+    }
+
+
 }

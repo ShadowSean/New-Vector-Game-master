@@ -5,6 +5,8 @@ public class ControlRoomZone : MonoBehaviour
 {
     public Animator doorAnim;
 
+    public GameObject controltext;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -13,6 +15,18 @@ public class ControlRoomZone : MonoBehaviour
             doorAnim.SetBool("isOpen", true);
         }
 
+        if (other.CompareTag("Player"))
+        {
+            StartCoroutine(ControlText());
+        }
+
+    }
+
+    IEnumerator ControlText()
+    {
+        controltext.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        controltext.SetActive(false);
     }
 
     private void OnTriggerExit(Collider other)

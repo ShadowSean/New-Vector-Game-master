@@ -4,7 +4,7 @@ using UnityEngine;
 public class CrewTriggerArea : MonoBehaviour
 {
     public Animator doorAnim;
-
+    public GameObject crewquatertext;
 
     
 
@@ -15,7 +15,19 @@ public class CrewTriggerArea : MonoBehaviour
 
             doorAnim.SetBool("isOpen", true);
         }
+
+        if (other.CompareTag("Player"))
+        {
+            StartCoroutine(CrewText());
+        }
        
+    }
+
+    IEnumerator CrewText()
+    {
+        crewquatertext.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        crewquatertext.SetActive(false);
     }
 
     private void OnTriggerExit(Collider other)

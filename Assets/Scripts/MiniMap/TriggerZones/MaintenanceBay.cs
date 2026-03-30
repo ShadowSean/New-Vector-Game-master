@@ -1,27 +1,22 @@
 using UnityEngine;
 using System.Collections;
-public class CargoBayZone : MonoBehaviour
+
+public class MaintenanceBay : MonoBehaviour
 {
-    public GameObject cargotext;
-
-
-
+    public GameObject maintenancetext;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-
             StartCoroutine(CrewText());
         }
-
     }
 
     IEnumerator CrewText()
     {
-        cargotext.SetActive(true);
+        maintenancetext.SetActive(true);
         yield return new WaitForSeconds(5f);
-        cargotext.SetActive(false);
+        maintenancetext.SetActive(false);
     }
-
 }
