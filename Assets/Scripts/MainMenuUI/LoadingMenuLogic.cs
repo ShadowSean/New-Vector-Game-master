@@ -9,6 +9,11 @@ public class LoadingMenuLogic : MonoBehaviour
     [Header("Screen Duration")]
     public float displayDuration = 3f;
 
+    [Header("Background Audio")]
+    public AudioSource lobbyAudio;
+
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +43,7 @@ public class LoadingMenuLogic : MonoBehaviour
 
         if (clickScreen != null)
         {
+            lobbyAudio.enabled = true;
             clickScreen.SetActive(true);
         }
     }

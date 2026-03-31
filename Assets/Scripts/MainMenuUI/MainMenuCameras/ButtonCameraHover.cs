@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonCameraHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonCameraHover : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
 {
     public MenuController cameraController;
     public Transform viewPoint;
 
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         cameraController.ChangeView(viewPoint);
     }

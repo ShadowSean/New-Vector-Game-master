@@ -1769,6 +1769,7 @@ GameObject:
   - component: {fileID: 15721456}
   - component: {fileID: 15721460}
   - component: {fileID: 15721459}
+  - component: {fileID: 15721461}
   m_Layer: 5
   m_Name: Equip
   m_TagString: Untagged
@@ -1950,6 +1951,19 @@ MonoBehaviour:
   soundSource: {fileID: 470106782}
   hoverSFX: {fileID: 8300000, guid: 7a4b1465731dc854ca92fa0c80f2eda0, type: 3}
   clickSFX: {fileID: 8300000, guid: 44d03c865663fc5448a953165f1182ed, type: 3}
+--- !u!114 &15721461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15721454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef609f9b23a8bf34b8c9f1bc33a13e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstSelectedButton
+  firstSelectedButton: {fileID: 15721454}
 --- !u!1 &16294814
 GameObject:
   m_ObjectHideFlags: 0
@@ -22533,6 +22547,7 @@ GameObject:
   - component: {fileID: 415613829}
   - component: {fileID: 415613833}
   - component: {fileID: 415613832}
+  - component: {fileID: 415613834}
   m_Layer: 5
   m_Name: Equip
   m_TagString: Untagged
@@ -22702,6 +22717,19 @@ MonoBehaviour:
   soundSource: {fileID: 470106782}
   hoverSFX: {fileID: 8300000, guid: 7a4b1465731dc854ca92fa0c80f2eda0, type: 3}
   clickSFX: {fileID: 8300000, guid: 44d03c865663fc5448a953165f1182ed, type: 3}
+--- !u!114 &415613834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415613827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef609f9b23a8bf34b8c9f1bc33a13e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstSelectedButton
+  firstSelectedButton: {fileID: 415613827}
 --- !u!1001 &416023976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28001,6 +28029,7 @@ GameObject:
   - component: {fileID: 508415037}
   - component: {fileID: 508415041}
   - component: {fileID: 508415040}
+  - component: {fileID: 508415042}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -28041,10 +28070,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1399744166}
+    m_SelectOnDown: {fileID: 682461563}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -28052,7 +28081,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.26666668}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5058824}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -28182,6 +28211,19 @@ MonoBehaviour:
   soundSource: {fileID: 470106782}
   hoverSFX: {fileID: 8300000, guid: 7a4b1465731dc854ca92fa0c80f2eda0, type: 3}
   clickSFX: {fileID: 8300000, guid: 44d03c865663fc5448a953165f1182ed, type: 3}
+--- !u!114 &508415042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508415035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef609f9b23a8bf34b8c9f1bc33a13e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstSelectedButton
+  firstSelectedButton: {fileID: 508415035}
 --- !u!1001 &509312972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35100,6 +35142,7 @@ GameObject:
   - component: {fileID: 653540909}
   - component: {fileID: 653540913}
   - component: {fileID: 653540912}
+  - component: {fileID: 653540914}
   m_Layer: 5
   m_Name: Equip
   m_TagString: Untagged
@@ -35269,6 +35312,19 @@ MonoBehaviour:
   soundSource: {fileID: 470106782}
   hoverSFX: {fileID: 8300000, guid: 7a4b1465731dc854ca92fa0c80f2eda0, type: 3}
   clickSFX: {fileID: 8300000, guid: 44d03c865663fc5448a953165f1182ed, type: 3}
+--- !u!114 &653540914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653540907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef609f9b23a8bf34b8c9f1bc33a13e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstSelectedButton
+  firstSelectedButton: {fileID: 653540907}
 --- !u!1 &653585623
 GameObject:
   m_ObjectHideFlags: 0
@@ -37022,10 +37078,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 508415037}
+    m_SelectOnDown: {fileID: 1399744166}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -37033,7 +37089,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.26666668}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5058824}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -42237,6 +42293,7 @@ GameObject:
   - component: {fileID: 794623304}
   - component: {fileID: 794623308}
   - component: {fileID: 794623307}
+  - component: {fileID: 794623309}
   m_Layer: 5
   m_Name: Equip
   m_TagString: Untagged
@@ -42406,6 +42463,19 @@ MonoBehaviour:
   soundSource: {fileID: 470106782}
   hoverSFX: {fileID: 8300000, guid: 7a4b1465731dc854ca92fa0c80f2eda0, type: 3}
   clickSFX: {fileID: 8300000, guid: 44d03c865663fc5448a953165f1182ed, type: 3}
+--- !u!114 &794623309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794623302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef609f9b23a8bf34b8c9f1bc33a13e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstSelectedButton
+  firstSelectedButton: {fileID: 794623302}
 --- !u!1001 &795107711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44673,6 +44743,7 @@ GameObject:
   - component: {fileID: 826966754}
   - component: {fileID: 826966758}
   - component: {fileID: 826966757}
+  - component: {fileID: 826966759}
   m_Layer: 5
   m_Name: close
   m_TagString: Untagged
@@ -44724,7 +44795,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.2901961}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.61960787}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -44866,6 +44937,19 @@ MonoBehaviour:
   soundSource: {fileID: 470106782}
   hoverSFX: {fileID: 8300000, guid: 7a4b1465731dc854ca92fa0c80f2eda0, type: 3}
   clickSFX: {fileID: 8300000, guid: 44d03c865663fc5448a953165f1182ed, type: 3}
+--- !u!114 &826966759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826966752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef609f9b23a8bf34b8c9f1bc33a13e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstSelectedButton
+  firstSelectedButton: {fileID: 826966752}
 --- !u!1 &832443675
 GameObject:
   m_ObjectHideFlags: 0
@@ -75962,10 +76046,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 682461563}
+    m_SelectOnDown: {fileID: 508415037}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -75973,7 +76057,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.26666668}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5058824}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -78396,6 +78480,7 @@ GameObject:
   - component: {fileID: 1450613210}
   - component: {fileID: 1450613209}
   - component: {fileID: 1450613208}
+  - component: {fileID: 1450613211}
   m_Layer: 5
   m_Name: FlashlightButton
   m_TagString: Untagged
@@ -78517,6 +78602,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450613206}
   m_CullTransparentMesh: 1
+--- !u!114 &1450613211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450613206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef609f9b23a8bf34b8c9f1bc33a13e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstSelectedButton
+  firstSelectedButton: {fileID: 1450613206}
 --- !u!1 &1450740182
 GameObject:
   m_ObjectHideFlags: 0
@@ -94540,6 +94638,7 @@ GameObject:
   - component: {fileID: 1817329002}
   - component: {fileID: 1817329006}
   - component: {fileID: 1817329005}
+  - component: {fileID: 1817329007}
   m_Layer: 5
   m_Name: Equip
   m_TagString: Untagged
@@ -94709,6 +94808,19 @@ MonoBehaviour:
   soundSource: {fileID: 470106782}
   hoverSFX: {fileID: 8300000, guid: 7a4b1465731dc854ca92fa0c80f2eda0, type: 3}
   clickSFX: {fileID: 8300000, guid: 44d03c865663fc5448a953165f1182ed, type: 3}
+--- !u!114 &1817329007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817329000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef609f9b23a8bf34b8c9f1bc33a13e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstSelectedButton
+  firstSelectedButton: {fileID: 1817329000}
 --- !u!1 &1819548804 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4520165721745311601, guid: 5fd64b285da8395459a3f16602d40a72, type: 3}
@@ -100751,7 +100863,7 @@ MonoBehaviour:
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 739c9e59154fbc848a72575a0531b8be, type: 3}
   m_PointAction: {fileID: 9213219891288351633, guid: 739c9e59154fbc848a72575a0531b8be, type: 3}
-  m_MoveAction: {fileID: 3043085454171061271, guid: 739c9e59154fbc848a72575a0531b8be, type: 3}
+  m_MoveAction: {fileID: 3710738434707379630, guid: 739c9e59154fbc848a72575a0531b8be, type: 3}
   m_SubmitAction: {fileID: 2597213140077618284, guid: 739c9e59154fbc848a72575a0531b8be, type: 3}
   m_CancelAction: {fileID: -5161429417312444866, guid: 739c9e59154fbc848a72575a0531b8be, type: 3}
   m_LeftClickAction: {fileID: -6761070630694975332, guid: 739c9e59154fbc848a72575a0531b8be, type: 3}
@@ -100776,7 +100888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 794623302}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!23 &1926391609 stripped
@@ -103190,6 +103302,7 @@ GameObject:
   - component: {fileID: 1983911447}
   - component: {fileID: 1983911451}
   - component: {fileID: 1983911450}
+  - component: {fileID: 1983911452}
   m_Layer: 5
   m_Name: Equip
   m_TagString: Untagged
@@ -103359,6 +103472,19 @@ MonoBehaviour:
   soundSource: {fileID: 470106782}
   hoverSFX: {fileID: 8300000, guid: 7a4b1465731dc854ca92fa0c80f2eda0, type: 3}
   clickSFX: {fileID: 8300000, guid: 44d03c865663fc5448a953165f1182ed, type: 3}
+--- !u!114 &1983911452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983911445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef609f9b23a8bf34b8c9f1bc33a13e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstSelectedButton
+  firstSelectedButton: {fileID: 1983911445}
 --- !u!1 &1984548524
 GameObject:
   m_ObjectHideFlags: 0
