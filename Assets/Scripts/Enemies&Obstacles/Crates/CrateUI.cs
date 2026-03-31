@@ -89,22 +89,14 @@ public class CrateUI : MonoBehaviour
             return;
         }
 
-        if (clickAction != null && clickAction.WasPressedThisFrame() && !itemEquipped)
-        {
-            
-
-            itemEquipped = true;
-            partsCollected = true;
-            SparePartsCounter.Instance.AddPart();
-
-
-        }
-
-
     }
+
 
     public void ExitCrateUI()
     {
+        itemEquipped = true;
+        partsCollected = true;
+        SparePartsCounter.Instance.AddPart();
         if (cameraMovement != null)
         {
             cameraMovement.RestoreLook();

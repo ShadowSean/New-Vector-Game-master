@@ -79,21 +79,13 @@ public class CrateThreeUI : MonoBehaviour
         {
             return;
         }
-
-        if (clickAction != null && clickAction.WasPressedThisFrame() && !itemEquipped)
-        {
-
-
-            itemEquipped = true;
-            partsCollectedThree = true;
-            SparePartsCounter.Instance.AddPart();
-
-
-        }
     }
 
     public void ExitCrateUI()
     {
+        itemEquipped = true;
+        partsCollectedThree = true;
+        SparePartsCounter.Instance.AddPart();
         if (cameraMovement != null)
         {
             cameraMovement.RestoreLook();

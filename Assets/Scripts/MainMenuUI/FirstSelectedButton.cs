@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class FirstSelectedButton : MonoBehaviour
 {
@@ -13,7 +14,23 @@ public class FirstSelectedButton : MonoBehaviour
     IEnumerator SelectButton()
     {
         yield return null;
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+        yield return null;
+
+        Button btn = firstSelectedButton.GetComponent<Button>();
+        if (btn != null && btn.interactable)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+        }
+       
+       
+    }
+
+    private void Update()
+    {
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+        }
     }
 }
