@@ -37640,7 +37640,7 @@ MonoBehaviour:
   genFixing: {fileID: 8300000, guid: 8346f234e73bdf64ea4fe86151c2f68c, type: 3}
   genFixed: {fileID: 8300000, guid: 47b5dc02651957f45a8fe69b86dd1186, type: 3}
   genFixingSource: {fileID: 710833294}
-  isFixed: 0
+  isFixed: 1
   flickeringLight: {fileID: 543047829}
   fastRepairSpeed: {fileID: 284469563}
 --- !u!65 &710833293
