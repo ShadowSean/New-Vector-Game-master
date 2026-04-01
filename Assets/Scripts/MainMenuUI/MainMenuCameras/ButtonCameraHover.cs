@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonCameraHover : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
+public class ButtonCameraHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,ISelectHandler,IDeselectHandler
 {
     public MenuController cameraController;
     public Transform viewPoint;
 
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
         cameraController.ChangeView(viewPoint);
     }
@@ -17,4 +17,13 @@ public class ButtonCameraHover : MonoBehaviour, IPointerDownHandler, IPointerExi
         cameraController.ResetView();
     }
 
+    public void OnSelect(BaseEventData eventData)
+    {
+        cameraController.ChangeView(viewPoint);
+    }
+ 
+    public void OnDeselect(BaseEventData eventData)
+    {
+        cameraController.ResetView();
+    }
 }

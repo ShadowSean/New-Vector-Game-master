@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class NewSceneLoader : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class NewSceneLoader : MonoBehaviour
     public Camera secondSpaceCam;
     public GameObject loreHandler;
 
+
+    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -51,6 +55,8 @@ public class NewSceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(mainGameSceneName);
     }
+
+    
 
     public void StartNewGame()
     {
