@@ -42,6 +42,11 @@ public class Vector9Movement : MonoBehaviour
 
     public GameObject stunIcon;
 
+    [Header("Generator Lock")]
+    [SerializeField] GeneratorLogic requiredGenerator;
+    [SerializeField] float checkInterval = 1f;
+    private bool isUnlocked = false;
+
     [Header("Fire Zone Settings")]
     public bool isFireApplied;
     public float fireFearMinDistance = 8f;
@@ -61,7 +66,7 @@ public class Vector9Movement : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        
+        agent.enabled = false;
     }
 
     private void Start()
@@ -77,7 +82,9 @@ public class Vector9Movement : MonoBehaviour
             agent.destination = patrolAreas[currentPatrolIndex].position;
 
         }
-        
+
+        StartCoroutine(WaitForGenerator());
+
     }
 
     private void Update()
@@ -245,6 +252,25 @@ public class Vector9Movement : MonoBehaviour
         yield break;
     }
 
+    private IEnumerator WaitForGenerator()
+    {
+        while (requiredGenerator != null && !requiredGenerator.GetFixedState())
+        {
+            yield return new WaitForSeconds(checkInterval);
+        }
+
+        isUnlocked = true;
+        agent.enabled = true;
+
+        defaultAngularSpeed = agent.angularSpeed;
+        defaultAccel = agent.acceleration;
+
+        if (patrolAreas.Length > 0)
+        {
+            agent.speed = vectorPatrolSpeed;
+            agent.destination = patrolAreas[currentPatrolIndex].position;
+        }
+    }
     public void StartFade()
     {
         if (gameOverRunning)

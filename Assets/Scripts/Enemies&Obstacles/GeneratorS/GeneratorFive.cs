@@ -150,9 +150,9 @@ public class GeneratorFive : MonoBehaviour
                             genFixingSource.clip = genFixed;
                             genFixingSource.loop = true;
                             genFixingSource.spatialBlend = 1f;
-                            genFixingSource.rolloffMode = AudioRolloffMode.Logarithmic;
+                            genFixingSource.rolloffMode = AudioRolloffMode.Linear;
                             genFixingSource.minDistance = 3f;
-                            genFixingSource.maxDistance = 25f;
+                            genFixingSource.maxDistance = 30f;
                             genFixingSource.dopplerLevel = 0f;
                             genFixingSource.Play();
                         }
@@ -283,9 +283,9 @@ public class GeneratorFive : MonoBehaviour
             genFixingSource.clip = genFixed;
             genFixingSource.loop = true;
             genFixingSource.spatialBlend = 1f;
-            genFixingSource.rolloffMode = AudioRolloffMode.Logarithmic;
+            genFixingSource.rolloffMode = AudioRolloffMode.Linear;
             genFixingSource.minDistance = 3f;
-            genFixingSource.maxDistance = 20f;
+            genFixingSource.maxDistance = 30f;
             genFixingSource.dopplerLevel = 0f;
             genFixingSource.Play();
         }

@@ -16,7 +16,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Rooms
   - itemLayer
   - PostProc
   - Beacon
@@ -54,3 +54,4 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
+  m_MigratedRenderPipelines: []

@@ -12012,9 +12012,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 38.66
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -12047,7 +12047,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -12898,9 +12898,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5770905598077694418, guid: 53474b90541318d4398f901d5a8ade0a, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 7ebc1fd5629e6694a973e241a1d13434, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4afbe27b002fa6b40b9e33aff43fb967, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.166
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -29618,9 +29618,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -29653,7 +29653,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -38070,7 +38070,7 @@ MonoBehaviour:
   genFixing: {fileID: 8300000, guid: 8346f234e73bdf64ea4fe86151c2f68c, type: 3}
   genFixed: {fileID: 8300000, guid: 47b5dc02651957f45a8fe69b86dd1186, type: 3}
   genFixingSource: {fileID: 710833294}
-  isFixed: 1
+  isFixed: 0
   flickeringLight: {fileID: 543047829}
   fastRepairSpeed: {fileID: 284469563}
 --- !u!65 &710833293
@@ -39217,7 +39217,7 @@ Transform:
   m_GameObject: {fileID: 736649060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.82, y: 1.003, z: -32.29}
+  m_LocalPosition: {x: 3.52, y: 1.003, z: -32.29}
   m_LocalScale: {x: 0.63956, y: 0.70743, z: 0.67398}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48894,7 +48894,7 @@ Transform:
   m_GameObject: {fileID: 900588720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.51, y: 1.003, z: -32.29}
+  m_LocalPosition: {x: 2.21, y: 1.003, z: -32.29}
   m_LocalScale: {x: 0.63956, y: 0.70743, z: 0.67398}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64430,9 +64430,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 25
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -64465,7 +64465,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -72580,8 +72580,10 @@ MonoBehaviour:
   isStunned: 0
   isSlowed: 0
   stunRange: 5
-  agent: {fileID: 0}
+  agent: {fileID: 1318433632}
   stunIcon: {fileID: 972619487}
+  requiredGenerator: {fileID: 710833292}
+  checkInterval: 1
   isFireApplied: 0
   fireFearMinDistance: 8
   fireFearRetreatSpeed: 6
@@ -72657,7 +72659,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 138
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 60
@@ -73257,9 +73259,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -73292,7 +73294,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -80535,9 +80537,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 35
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -80570,7 +80572,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -86821,7 +86823,7 @@ Transform:
   m_GameObject: {fileID: 1621854963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.23, y: 1.003, z: -32.29}
+  m_LocalPosition: {x: 0.93, y: 1.003, z: -32.29}
   m_LocalScale: {x: 0.63956, y: 0.70743, z: 0.67398}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112008,6 +112010,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -5732929161009262247, guid: 53474b90541318d4398f901d5a8ade0a, type: 2}
+    - target: {fileID: 1297605168645460249, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1717340478026610592, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.039
@@ -112072,10 +112078,18 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 3107141044896807899, guid: 53474b90541318d4398f901d5a8ade0a, type: 2}
+    - target: {fileID: 2083373135230296149, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2140680339480735989, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -5732929161009262247, guid: 53474b90541318d4398f901d5a8ade0a, type: 2}
+    - target: {fileID: 2140680339480735989, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2236664165454222858, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: invCam
       value: 
@@ -112184,10 +112198,18 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -2040271250046826408, guid: 53474b90541318d4398f901d5a8ade0a, type: 2}
+    - target: {fileID: 5578592257321160846, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8099156429583507809, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -5732929161009262247, guid: 53474b90541318d4398f901d5a8ade0a, type: 2}
+    - target: {fileID: 8099156429583507809, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8148489060943440797, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: mapUI
       value: 
