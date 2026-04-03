@@ -21878,7 +21878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8282120234010833291, guid: 7a73f1f0c48d9b8439597281f36d835a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.28
+      value: -35.16
       objectReference: {fileID: 0}
     - target: {fileID: 8282120234010833291, guid: 7a73f1f0c48d9b8439597281f36d835a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -103412,8 +103412,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.12355179, y: 0.09825397, z: 0.258841}
-  m_Center: {x: 0.053082004, y: 0.011550202, z: -0.23825508}
+  m_Size: {x: 0.12355179, y: 0.09825397, z: 0.07138021}
+  m_Center: {x: 0.053082004, y: 0.011550202, z: -0.3319855}
 --- !u!1 &1937492405
 GameObject:
   m_ObjectHideFlags: 0
@@ -114147,7 +114147,7 @@ Transform:
   m_GameObject: {fileID: 8771834309423292244}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.98, y: -0.21, z: 82.3}
+  m_LocalPosition: {x: -29.11, y: -0.21, z: 82.3}
   m_LocalScale: {x: 71.315636, y: 71.31563, z: 36.35037}
   m_ConstrainProportionsScale: 0
   m_Children: []
