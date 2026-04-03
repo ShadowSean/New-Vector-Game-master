@@ -44,6 +44,7 @@ public class TriggerZone : MonoBehaviour
             return;
         }
 
+        Debug.Log($"Firing '{animationTriggerName}' on {animator.gameObject.name}");
         animator.SetTrigger(animationTriggerName);
     }
 
