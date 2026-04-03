@@ -8,6 +8,7 @@ TagManager:
   - Battery
   - Ladder
   - Fire
+  - TriggerArea
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - lightlayer
   - MapOnly
   - MapCamera
-  - 
+  - TriggerArea
   - 
   - 
   - 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -10,14 +11,14 @@ public class TriggerZone : MonoBehaviour
     [Tooltip("AudioSource to play the sound from.")]
     public AudioSource audioSource;
 
-    [Header("Settings")]
-    [Tooltip("Exact name of the Animator trigger parameter to fire.")]
-    public string animationTriggerName = "Play";
 
-    [Tooltip("Tag that the entering collider must have to activate this trigger.")]
-    public string playerTag = "Player";
+    private void Start()
+    {
+        Debug.Log(gameObject);
+    }
 
-    private bool hasTriggered = false;
+
+    //public bool hasTriggered = false;
 
     private void Reset()
     {
@@ -25,28 +26,48 @@ public class TriggerZone : MonoBehaviour
         if (bc != null) bc.isTrigger = true;
     }
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
-        if (hasTriggered) return;
-        if (!other.CompareTag(playerTag)) return;
+        Debug.Log("Barel trigger entered");
+        if (other.CompareTag("Player"))
+        {
+            PlayAnimation();
+            PlaySound();
+            Debug.Log("Valid");
+        }
+       
+        //if (hasTriggered) return;
+        //if (!other.CompareTag("Player")) return;
 
-        hasTriggered = true;
+        
 
-        PlayAnimation();
-        PlaySound();
+
+        //hasTriggered = true;
+
+        
     }
 
-    private void PlayAnimation()
+    public void PlayAnimation()
     {
         if (animator == null)
         {
             Debug.LogWarning($"[TriggerZone] No Animator assigned on '{gameObject.name}'.");
             return;
         }
-
-        Debug.Log($"Firing '{animationTriggerName}' on {animator.gameObject.name}");
-        animator.SetTrigger(animationTriggerName);
+        animator.SetBool("Roll",true);
+        //StartCoroutine(ResetRoll());
     }
+
+
+    //IEnumerator ResetRoll()
+    //{
+    //    AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
+    //    yield return new WaitForSeconds(state.length);
+    //    animator.SetBool("Roll",false);
+    //}
+
 
     private void PlaySound()
     {
@@ -65,8 +86,9 @@ public class TriggerZone : MonoBehaviour
         audioSource.Play();
     }
 
-    public void ResetTrigger()
-    {
-        hasTriggered = false;
-    }
+    //public void ResetTrigger()
+    //{
+    //    hasTriggered = false;
+    //    animator.SetBool("Roll",false);
+    //}
 }

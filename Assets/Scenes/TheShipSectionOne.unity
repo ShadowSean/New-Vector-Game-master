@@ -60695,8 +60695,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TriggerZone
   animator: {fileID: 1117047749}
   audioSource: {fileID: 1773034458}
-  animationTriggerName: Play
-  playerTag: Player
 --- !u!65 &1117047754
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85239,7 +85237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1578604157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97583,7 +97581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1842252358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102857,7 +102855,7 @@ GameObject:
   - component: {fileID: 1935157533}
   m_Layer: 0
   m_Name: Barrel Trigger
-  m_TagString: Untagged
+  m_TagString: TriggerArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102891,8 +102889,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TriggerZone
   animator: {fileID: 876115048}
   audioSource: {fileID: 876115049}
-  animationTriggerName: Roll
-  playerTag: Player
 --- !u!65 &1935157534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -102912,8 +102908,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.12355179, y: 0.09825397, z: 0.039386272}
-  m_Center: {x: 0.053082004, y: 0.011550202, z: -0.32632327}
+  m_Size: {x: 0.12355179, y: 0.09825397, z: 0.258841}
+  m_Center: {x: 0.053082004, y: 0.011550202, z: -0.23825508}
 --- !u!1 &1937492405
 GameObject:
   m_ObjectHideFlags: 0
@@ -113604,7 +113600,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8828980057745979489
 Transform:

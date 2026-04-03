@@ -64,12 +64,16 @@ public class FPController : MonoBehaviour
         defaultLookXLimit = lookXLimit;
     }
 
+   
+
     private void Start()
     {
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    
 
     public void DisableLook()
     {
