@@ -40,6 +40,7 @@ public class VentLogic : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Trigger Detected");
             movement = other.GetComponent<FPController>();
             if (movement != null) movement.enabled = false;
             StartCoroutine(FadeTeleport());
