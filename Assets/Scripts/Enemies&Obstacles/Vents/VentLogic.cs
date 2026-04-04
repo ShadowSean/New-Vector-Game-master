@@ -17,18 +17,6 @@ public class VentLogic : MonoBehaviour
     bool isTeleporting;
     bool ventUnlocked;
 
-    public bool GetUnlockedState() => ventUnlocked;
-
-    public void LoadVentState(bool state)
-    {
-        ventUnlocked = state;
-        VentAnimatorBridge bridge = GetComponent<VentAnimatorBridge>();
-        if (state)
-            bridge?.SnapToEnd();
-        else
-            bridge?.EnableAnimator();
-    }
-
     public void UnlockVent()
     {
         ventUnlocked = true;
@@ -36,13 +24,18 @@ public class VentLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!ventUnlocked || isTeleporting) return;
+        if (!ventUnlocked || isTeleporting)
+        {
+            return;
+        }
 
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Trigger Detected");
             movement = other.GetComponent<FPController>();
-            if (movement != null) movement.enabled = false;
+            if (movement != null)
+            {
+                movement.enabled = false;
+            }
             StartCoroutine(FadeTeleport());
         }
     }
@@ -54,7 +47,10 @@ public class VentLogic : MonoBehaviour
         TeleportPlayer();
         yield return new WaitForSeconds(0.1f);
         yield return StartCoroutine(Fade(1, 0));
-        if (movement != null) movement.enabled = true;
+        if (movement != null)
+        {
+            movement.enabled = true;
+        }
         isTeleporting = false;
     }
 
@@ -64,7 +60,9 @@ public class VentLogic : MonoBehaviour
 
         CharacterController controller = player.GetComponent<CharacterController>();
         if (controller != null) controller.enabled = false;
+
         player.transform.SetPositionAndRotation(ventAreaOne.position, ventAreaOne.rotation);
+
         if (controller != null) controller.enabled = true;
     }
 

@@ -38,9 +38,6 @@ public class GameHandler : MonoBehaviour
     [SerializeField] GeneratorFive generatorFive;
     [SerializeField] GeneratorSix generatorSix;
 
-    [Header("Vent")]
-    [SerializeField] VentLogic ventLogic;
-
 
     public string GetSaveKey()
     {
@@ -83,7 +80,6 @@ public class GameHandler : MonoBehaviour
             genfourFixed = generatorFour != null && generatorFour.GetFixedState(),
             genfiveFixed = generatorFive != null && generatorFive.GetFixedState(),
             gensixFixed = generatorSix != null && generatorSix.GetFixedState(),
-            ventUnlocked = ventLogic != null && ventLogic.GetUnlockedState(),
         };
         string json = JsonUtility.ToJson(saveData);
         PlayerPrefs.SetString(saveKey,json);
@@ -217,11 +213,6 @@ public class GameHandler : MonoBehaviour
             }
         }
 
-        if (ventLogic != null)
-        {
-            ventLogic.LoadVentState(data.ventUnlocked);
-        }
-
         Debug.Log("Data is now loaded for difficulty: " + DifficultyChanger1.selectDiffculty);
     }
 
@@ -254,8 +245,6 @@ public class GameHandler : MonoBehaviour
         if (crateFive != null) crateFive.SetCrateDisabledState(false);
         if (crateSix != null) crateSix.SetCrateDisabledState(false);
 
-        if (ventLogic != null) ventLogic.LoadVentState(false);
-
         Debug.Log("Spawned at defauly position since no save slot exists for this gamemode.");
     }
 
@@ -282,7 +271,6 @@ public class SaveData
     public bool crateDisabledAfterClaimFive;
     public bool crateDisabledAfterClaimSix;
     public bool[] pickupCollectedStates;
-    public bool ventUnlocked;
 
 
     public bool genoneFixed;

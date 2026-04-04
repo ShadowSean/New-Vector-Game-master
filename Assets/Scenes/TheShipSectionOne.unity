@@ -14852,7 +14852,6 @@ MonoBehaviour:
   generatorFour: {fileID: 1180867418}
   generatorFive: {fileID: 205891788}
   generatorSix: {fileID: 542340622}
-  ventLogic: {fileID: 1430132532}
 --- !u!114 &284469566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30282,6 +30281,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8984343425765267387, guid: 43be2f361a4f94e48b70f512f1c88835, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1117047753}
+    - targetCorrespondingSourceObject: {fileID: 8984343425765267387, guid: 43be2f361a4f94e48b70f512f1c88835, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1117047759}
   m_SourcePrefab: {fileID: 100100000, guid: 43be2f361a4f94e48b70f512f1c88835, type: 3}
 --- !u!1 &618256189 stripped
 GameObject:
@@ -34432,7 +34434,7 @@ MonoBehaviour:
   genFixing: {fileID: 8300000, guid: 8346f234e73bdf64ea4fe86151c2f68c, type: 3}
   genFixed: {fileID: 8300000, guid: e98e6b0a704742649b5536d422e946a4, type: 3}
   genFixingSource: {fileID: 710833294}
-  isFixed: 1
+  isFixed: 0
   flickeringLight: {fileID: 543047829}
   fastRepairSpeed: {fileID: 284469563}
 --- !u!65 &710833293
@@ -55846,6 +55848,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08337016, y: 0.1333716, z: 0.14043869}
   m_Center: {x: -0.4550745, y: 0.017467586, z: 0.058686156}
+--- !u!114 &1117047759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117047748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfdc2c2e2f611245b4181846453fc54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VentAnimatorBridge
+  ventLogic: {fileID: 1430132532}
 --- !u!65 &1119413781
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71544,6 +71559,7 @@ GameObject:
   - component: {fileID: 1403370809}
   - component: {fileID: 1403370808}
   - component: {fileID: 1403370807}
+  - component: {fileID: 1403370812}
   m_Layer: 0
   m_Name: Vent (2)
   m_TagString: Untagged
@@ -71680,6 +71696,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403370805}
   m_Mesh: {fileID: 879393299063259478, guid: f2b3a0996bc82cf46a73e8b95be7c258, type: 3}
+--- !u!114 &1403370812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403370805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfdc2c2e2f611245b4181846453fc54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VentAnimatorBridge
+  ventLogic: {fileID: 1829054556}
 --- !u!1 &1404802754
 GameObject:
   m_ObjectHideFlags: 0
@@ -83793,6 +83822,7 @@ GameObject:
   - component: {fileID: 1665161562}
   - component: {fileID: 1665161561}
   - component: {fileID: 1665161560}
+  - component: {fileID: 1665161565}
   m_Layer: 0
   m_Name: Vent (4)
   m_TagString: Untagged
@@ -83929,6 +83959,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665161558}
   m_Mesh: {fileID: 879393299063259478, guid: f2b3a0996bc82cf46a73e8b95be7c258, type: 3}
+--- !u!114 &1665161565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665161558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfdc2c2e2f611245b4181846453fc54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VentAnimatorBridge
+  ventLogic: {fileID: 19706934}
 --- !u!1 &1668591127
 GameObject:
   m_ObjectHideFlags: 0
