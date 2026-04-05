@@ -10,6 +10,9 @@ public class RumbleManager : MonoBehaviour
     private Gamepad _gamepad;
     private Coroutine _rumbleCoroutine;
 
+    private bool _priorityActive = false;
+
+
 
     private void Awake()
     {
@@ -38,60 +41,60 @@ public class RumbleManager : MonoBehaviour
         StopRumble();
     }
 
-
-
-    /// <summary>
-    /// One-shot pulse — rumbles for <duration> seconds then stops automatically.
-    /// </summary>
-    /// <param name="lowFreq">Left motor intensity (0–1). Good for heavy impacts.</param>
-    /// <param name="highFreq">Right motor intensity (0–1). Good for sharp hits.</param>
-    /// <param name="duration">How long to rumble in seconds.</param>
     public void RumblePulse(float lowFreq, float highFreq, float duration)
     {
         StopActiveCoroutine();
         _gamepad = Gamepad.current;
-
         if (_gamepad == null) return;
 
+        _priorityActive = false;
         _rumbleCoroutine = StartCoroutine(RumblePulseRoutine(lowFreq, highFreq, duration));
     }
 
 
-    /// <param name="lowFreq">Left motor intensity (0–1).</param>
-    /// <param name="highFreq">Right motor intensity (0–1).</param>
     public void RumbleConstant(float lowFreq, float highFreq)
     {
-        StopActiveCoroutine();
-        _gamepad = Gamepad.current;
+        if (_priorityActive) return;
 
+        _gamepad = Gamepad.current;
         if (_gamepad == null) return;
 
         _gamepad.SetMotorSpeeds(lowFreq, highFreq);
     }
 
 
-    /// <param name="lowFreq">Starting left motor intensity (0–1).</param>
-    /// <param name="highFreq">Starting right motor intensity (0–1).</param>
-    /// <param name="duration">Fade-out duration in seconds.</param>
     public void RumbleFadeOut(float lowFreq, float highFreq, float duration)
     {
         StopActiveCoroutine();
         _gamepad = Gamepad.current;
-
         if (_gamepad == null) return;
 
+        _priorityActive = false;
         _rumbleCoroutine = StartCoroutine(RumbleFadeOutRoutine(lowFreq, highFreq, duration));
     }
+
+
+    public void RumbleSequence(float slideLow, float slideHigh, float slideDuration,
+                               float thumpLow, float thumpHigh, float thumpDuration)
+    {
+        StopActiveCoroutine();
+        _gamepad = Gamepad.current;
+        if (_gamepad == null) return;
+
+        _rumbleCoroutine = StartCoroutine(RumbleSequenceRoutine(
+            slideLow, slideHigh, slideDuration,
+            thumpLow, thumpHigh, thumpDuration));
+    }
+
 
     public void StopRumble()
     {
         StopActiveCoroutine();
+        _priorityActive = false;
 
         _gamepad = Gamepad.current;
         if (_gamepad != null)
-        {
             _gamepad.ResetHaptics();
-        }
     }
 
 
@@ -106,7 +109,6 @@ public class RumbleManager : MonoBehaviour
     private IEnumerator RumbleFadeOutRoutine(float lowFreq, float highFreq, float duration)
     {
         float elapsed = 0f;
-
         while (elapsed < duration)
         {
             elapsed += Time.unscaledDeltaTime;
@@ -114,10 +116,23 @@ public class RumbleManager : MonoBehaviour
             _gamepad.SetMotorSpeeds(lowFreq * t, highFreq * t);
             yield return null;
         }
-
         _gamepad.ResetHaptics();
     }
 
+    private IEnumerator RumbleSequenceRoutine(float slideLow, float slideHigh, float slideDuration,
+                                               float thumpLow, float thumpHigh, float thumpDuration)
+    {
+        _priorityActive = true;
+
+        _gamepad.SetMotorSpeeds(slideLow, slideHigh);
+        yield return new WaitForSecondsRealtime(slideDuration);
+
+        _gamepad.SetMotorSpeeds(thumpLow, thumpHigh);
+        yield return new WaitForSecondsRealtime(thumpDuration);
+
+        _gamepad.ResetHaptics();
+        _priorityActive = false;
+    }
 
     private void StopActiveCoroutine()
     {
@@ -133,6 +148,7 @@ public class RumbleManager : MonoBehaviour
         if (device is Gamepad && change == InputDeviceChange.Disconnected)
         {
             StopActiveCoroutine();
+            _priorityActive = false;
         }
     }
 }

@@ -49267,7 +49267,7 @@ MonoBehaviour:
   doorCloseClip: {fileID: 8300000, guid: 0552ba442efce2e4b8e6d26e5785198d, type: 3}
   requiredGenerator: {fileID: 710833292}
   lockedPrompt: {fileID: 840730174}
-  slideDuration: 2
+  slideDuration: 1.2
 --- !u!1 &987916165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8767476324811781014, guid: a93a572bc58d37b4d88017a086b850ae, type: 3}
@@ -103311,8 +103311,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.111304805, y: 0.07843901, z: 0.13749588}
-  m_Center: {x: -0.0492568, y: -0.003756944, z: -0.0063069174}
+  m_Size: {x: 0.111304805, y: 0.07843901, z: 0.14146608}
+  m_Center: {x: -0.0492568, y: -0.003756944, z: -0.11135799}
 --- !u!1 &2017846819
 GameObject:
   m_ObjectHideFlags: 0
@@ -109452,27 +109452,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5327503129795294541, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: walkRumbleLow
-      value: 0.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5327503129795294541, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: walkRumbleHigh
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5327503129795294541, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: sprintRumbleLow
-      value: 0.25
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5327503129795294541, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: sprintRumbleHigh
-      value: 0.3
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5327503129795294541, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: walkRumbleDuration
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5327503129795294541, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: walkRumbleInterval
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5578592257321160846, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: OutputAudioMixerGroup

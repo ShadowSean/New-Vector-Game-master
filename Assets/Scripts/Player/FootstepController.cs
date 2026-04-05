@@ -14,11 +14,6 @@ public class FootstepController : MonoBehaviour
     public AudioClip sprintClip;
 
     [Header("Footstep Rumble")]
-    [Range(0f, 1f)] public float walkRumbleLow = 0.1f;
-    [Range(0f, 1f)] public float walkRumbleHigh = 0.2f;
-    public float walkRumbleDuration = 0.12f;
-    public float walkRumbleInterval = 0.4f;
-
     [Range(0f, 1f)] public float sprintRumbleLow = 0.3f;
     [Range(0f, 1f)] public float sprintRumbleHigh = 0.4f;
     public float sprintRumbleDuration = 0.1f;
@@ -75,11 +70,7 @@ public class FootstepController : MonoBehaviour
                     RumbleManager.Instance.RumblePulse(sprintRumbleLow, sprintRumbleHigh, sprintRumbleDuration);
                     footstepRumbleTimer = sprintRumbleInterval;
                 }
-                else
-                {
-                    RumbleManager.Instance.RumblePulse(walkRumbleLow, walkRumbleHigh, walkRumbleDuration);
-                    footstepRumbleTimer = walkRumbleInterval;
-                }
+
             }
         }
         else
