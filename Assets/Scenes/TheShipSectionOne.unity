@@ -34917,7 +34917,7 @@ MonoBehaviour:
   genFixing: {fileID: 8300000, guid: 8346f234e73bdf64ea4fe86151c2f68c, type: 3}
   genFixed: {fileID: 8300000, guid: e98e6b0a704742649b5536d422e946a4, type: 3}
   genFixingSource: {fileID: 710833294}
-  isFixed: 0
+  isFixed: 1
   flickeringLight: {fileID: 543047829}
   fastRepairSpeed: {fileID: 284469563}
 --- !u!65 &710833293
@@ -66380,7 +66380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 425, y: 1.4}
+  m_AnchoredPosition: {x: -250, y: -33.7}
   m_SizeDelta: {x: 146.5335, y: 109.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313113259
