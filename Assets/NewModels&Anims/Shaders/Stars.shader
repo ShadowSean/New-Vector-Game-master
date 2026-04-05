@@ -2,6 +2,8 @@ Shader "Custom/ProceduralDoubleScrollingNoise"
 {
     Properties
     {
+        _Cube ("Base Cubemap", CUBE) = "" {}
+
         _ScrollA ("Noise Scroll A (X,Y)", Vector) = (0.1, 0.0, 0, 0)
         _ScrollB ("Noise Scroll B (X,Y)", Vector) = (0.0, 0.1, 0, 0)
         _NoiseScaleA ("Noise Scale A", Float) = 10.0
@@ -16,7 +18,7 @@ Shader "Custom/ProceduralDoubleScrollingNoise"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-
+            samplerCUBE _Cube;
             float4 _ScrollA;
             float4 _ScrollB;
             float _NoiseScaleA;
@@ -32,6 +34,7 @@ Shader "Custom/ProceduralDoubleScrollingNoise"
             {
                 float4 pos : SV_POSITION;
                 float2 uv  : TEXCOORD0;
+                float3 worldDir  : TEXCOORD1;
             };
 
             v2f vert (appdata v)
@@ -39,6 +42,11 @@ Shader "Custom/ProceduralDoubleScrollingNoise"
                 v2f o;
                 o.pos = UnityObjectToClipPos( v.vertex );
                 o.uv  = v.uv;
+
+                // World direction for cubemap lookup
+                float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+                o.worldDir = normalize(worldPos - _WorldSpaceCameraPos);
+
                 return o;
             }
 
@@ -70,6 +78,9 @@ Shader "Custom/ProceduralDoubleScrollingNoise"
             fixed4 frag(v2f i) : SV_Target
             {
                 float t = _Time.x;
+                
+                // BASE TEXTURE
+                fixed4 baseCol = texCUBE(_Cube, i.worldDir);
 
                 // FIRST NOISE (A)
                 float2 uvA = i.uv * _NoiseScaleA + _ScrollA.xy * t;
@@ -88,7 +99,7 @@ Shader "Custom/ProceduralDoubleScrollingNoise"
                 // Multiply AFTER thresholding
                 float result = noiseA * noiseB;
 
-                return fixed4(result, result, result, 1.0);
+                return baseCol + fixed4(result, result, result, 1.0);
             }
 
             ENDCG
