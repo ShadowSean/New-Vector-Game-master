@@ -28,6 +28,7 @@ public class GeneratorFour : MonoBehaviour
     [Header("Gen Sounds")]
     public AudioClip genFixing;
     public AudioClip genFixed;
+    public AudioClip skillCheckSound;
     public AudioSource genFixingSource;
 
     bool inRange;
@@ -296,6 +297,12 @@ public class GeneratorFour : MonoBehaviour
 
         waitingForSkillCheck = true;
         skillCheck.SetActive(true);
+
+        if (skillCheckSound != null && genFixingSource != null)
+        {
+            genFixingSource.PlayOneShot(skillCheckSound);
+        }
+
         yield return new WaitUntil(() => canRepair.hasSkill || canRepair.failedSkill);
 
         skillCheck.SetActive(false);

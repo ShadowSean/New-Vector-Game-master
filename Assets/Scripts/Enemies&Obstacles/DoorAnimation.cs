@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class DoorAnimation : MonoBehaviour
 {
@@ -12,7 +13,12 @@ public class DoorAnimation : MonoBehaviour
     [SerializeField] GeneratorLogic requiredGenerator;
     [SerializeField] GameObject lockedPrompt;
 
+    [Header("Door Rumble")]
+    public float slideDuration = 2f;
+
     private bool IsUnlocked => requiredGenerator == null || requiredGenerator.GetFixedState();
+
+    private Coroutine doorRumbleRoutine;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,9 +30,10 @@ public class DoorAnimation : MonoBehaviour
                 RumbleManager.Instance.RumblePulse(0.3f, 0.5f, 0.1f);
                 return;
             }
+
             doorSource.PlayOneShot(doorOpenClip);
             doorAnim.SetBool("isOpen", true);
-            RumbleManager.Instance.RumbleFadeOut(0.2f, 0.6f, 0.35f);
+            StartDoorRumble();
         }
 
         if (other.CompareTag("Enemy"))
@@ -41,14 +48,31 @@ public class DoorAnimation : MonoBehaviour
         {
             if (lockedPrompt != null) lockedPrompt.SetActive(false);
             if (!IsUnlocked) return;
+
             doorSource.PlayOneShot(doorCloseClip);
             doorAnim.SetBool("isOpen", false);
-            RumbleManager.Instance.RumblePulse(0.6f, 0.4f, 0.12f);
+            StartDoorRumble();
         }
 
         if (other.CompareTag("Enemy"))
         {
             doorSource.PlayOneShot(doorCloseClip);
         }
+    }
+
+    void StartDoorRumble()
+    {
+        if (doorRumbleRoutine != null)
+            StopCoroutine(doorRumbleRoutine);
+
+        doorRumbleRoutine = StartCoroutine(DoorRumbleRoutine());
+    }
+
+    IEnumerator DoorRumbleRoutine()
+    {
+        RumbleManager.Instance.RumbleConstant(0.2f, 0.6f);
+        yield return new WaitForSecondsRealtime(slideDuration);
+
+        RumbleManager.Instance.RumblePulse(0.8f, 0.3f, 0.12f);
     }
 }

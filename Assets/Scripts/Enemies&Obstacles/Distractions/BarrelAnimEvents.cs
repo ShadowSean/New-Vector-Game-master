@@ -4,7 +4,7 @@ public class BarrelAnimEvents : MonoBehaviour
 {
     public void OnBarrelLand()
     {
-        RumbleManager.Instance.RumblePulse(0.8f, 0.4f, 0.2f);
+        RumbleManager.Instance.RumblePulse(1f, 0.5f, 0.2f);
     }
 
     public void OnBarrelRoll()
