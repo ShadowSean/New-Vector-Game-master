@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 
 [RequireComponent(typeof(CharacterController))]
-[RequireComponent (typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerInput))]
 
 public class FPController : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class FPController : MonoBehaviour
 
     [Header("Camera")]
     public Camera playerCam;
-    
+
     public float lookXLimit = 45.0f;
     public float mouseLookSpeed = 0.15f;
     public float controllerLookSpeed = 120f;
@@ -24,10 +24,6 @@ public class FPController : MonoBehaviour
     private float defaultMouseLookSpeed;
     private float defaultLookXLimit;
     private float defaultControllerLookSpeed;
-    
-
-   
-
 
     CharacterController controller;
     private PlayerInput playerInput;
@@ -38,10 +34,6 @@ public class FPController : MonoBehaviour
     Vector3 moveDir = Vector3.zero;
     float rotationX = 0;
     private float verticalVelocity;
-
-   
-
-    
 
     [HideInInspector]
     public bool canMove = true;
@@ -56,7 +48,6 @@ public class FPController : MonoBehaviour
 
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Camera Look"];
-
         sprintAction = playerInput.actions["Sprint"];
 
         defaultMouseLookSpeed = mouseLookSpeed;
@@ -64,16 +55,11 @@ public class FPController : MonoBehaviour
         defaultLookXLimit = lookXLimit;
     }
 
-   
-
     private void Start()
     {
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
-    
 
     public void DisableLook()
     {
@@ -88,7 +74,7 @@ public class FPController : MonoBehaviour
         controllerLookSpeed = defaultControllerLookSpeed;
         lookXLimit = defaultLookXLimit;
     }
-    
+
     public void SetLookLimits(float newLimit)
     {
         lookXLimit = newLimit;
@@ -100,14 +86,13 @@ public class FPController : MonoBehaviour
         controllerLookSpeed = newControllerSpeed;
     }
 
-
     private void Update()
     {
-        Vector2 moveInput =  moveAction.ReadValue<Vector2>();
+        Vector2 moveInput = moveAction.ReadValue<Vector2>();
         Vector2 lookInput = lookAction.ReadValue<Vector2>();
 
         Vector3 forward = playerCam.transform.forward;
-        Vector3 right   = playerCam.transform.right;
+        Vector3 right = playerCam.transform.right;
         forward.y = 0f;
         right.y = 0f;
         forward.Normalize();
@@ -115,7 +100,6 @@ public class FPController : MonoBehaviour
 
         bool hasStamina = stamina != null && stamina.hasStamina();
         bool isRunningInput = sprintAction != null && sprintAction.IsPressed() && hasStamina;
-        
 
         float targetSpeed = isRunningInput ? runningSpeed : walkingSpeed;
 
@@ -124,13 +108,12 @@ public class FPController : MonoBehaviour
         if (targetDir.magnitude > 1f)
             targetDir.Normalize();
 
-        if(controller.isGrounded && verticalVelocity < 0)
+        if (controller.isGrounded && verticalVelocity < 0)
         {
             verticalVelocity = -2f;
         }
-        
-        moveDir = targetDir * targetSpeed;
 
+        moveDir = targetDir * targetSpeed;
         verticalVelocity += gravity * Time.deltaTime;
         moveDir.y = verticalVelocity;
 
@@ -142,7 +125,6 @@ public class FPController : MonoBehaviour
         float lookY = lookInput.y;
 
         bool usingGamepad = Gamepad.current != null && Gamepad.current.rightStick.ReadValue().sqrMagnitude > 0.001f;
-
 
         if (usingGamepad)
         {
@@ -158,9 +140,5 @@ public class FPController : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
         playerCam.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
 
-
-
-
     }
-
 }

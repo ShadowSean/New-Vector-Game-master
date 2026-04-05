@@ -99,7 +99,7 @@ public class CrateThreeUI : MonoBehaviour
         objectives.SetActive(true);
         stamAndBattery.SetActive(true);
         inventory.SetActive(true);
-
+        RumbleManager.Instance.RumblePulse(0.5f, 0.9f, 0.2f);
         playerCursor.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

@@ -8,6 +8,7 @@ public class CamShakeApplier : MonoBehaviour
     private void Start()
     {
         baseLocalPosition = transform.localPosition;
+        RumbleManager.Instance.RumblePulse(1f, 0.8f, 0.2f);
     }
 
     private void LateUpdate()

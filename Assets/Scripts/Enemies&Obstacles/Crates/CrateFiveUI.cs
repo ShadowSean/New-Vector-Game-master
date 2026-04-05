@@ -68,7 +68,7 @@ public class CrateFiveUI : MonoBehaviour
         itemRotation.SetActive(true);
         crateui.SetActive(true);
         equipIcon.SetActive(true);
-
+        RumbleManager.Instance.RumblePulse(0.5f, 0.9f, 0.2f);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

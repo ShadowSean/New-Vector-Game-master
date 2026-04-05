@@ -239,7 +239,6 @@ public class RaycastPickup : MonoBehaviour
 
     void PickUp(pickupItem currentPickup)
     {
-       
         if (audioSource != null && pickupSound != null)
         {
             audioSource.PlayOneShot(pickupSound);
@@ -249,33 +248,40 @@ public class RaycastPickup : MonoBehaviour
         {
             currentPickup.playerItems.SetActive(true);
         }
+
         if (itemSwitcher != null)
         {
             switch (currentPickup.itemType)
             {
                 case ItemType.Flashlight:
                     itemSwitcher.PickupFlashlight();
+                    RumbleManager.Instance.RumblePulse(0.1f, 0.5f, 0.15f);
                     break;
                 case ItemType.Taser:
                     itemSwitcher.PickupTaser();
+                    RumbleManager.Instance.RumblePulse(0.3f, 0.8f, 0.2f);
                     break;
                 case ItemType.Flamethrower:
                     itemSwitcher.PickupFlamethrower();
+                    RumbleManager.Instance.RumblePulse(0.5f, 0.9f, 0.2f);
                     break;
                 case ItemType.TaserUpg:
                     TaserRodUpgrade();
+                    RumbleManager.Instance.RumbleFadeOut(0.4f, 1f, 0.4f);
                     break;
                 case ItemType.FlashlightUpg:
                     FlashlightUpgrade();
+                    RumbleManager.Instance.RumbleFadeOut(0.2f, 0.8f, 0.4f);
                     break;
                 case ItemType.Map:
                     hasMinimap = true;
+                    RumbleManager.Instance.RumblePulse(0.1f, 0.4f, 0.12f);
                     break;
             }
         }
-        
+
         currentPickup.SetCollectedState(true);
     }
 
-    
+
 }

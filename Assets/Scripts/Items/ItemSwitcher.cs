@@ -27,11 +27,8 @@ public class ItemSwitcher : MonoBehaviour
     public float toggleDelay = 0f;
     public float soundCD = 0.08f;
 
-
     Coroutine soundRoutine;
     float nextSoundTime;
-    
-
 
     private TaserRodAttack attackController;
     LightBehaviour batteryBehaviour;
@@ -53,7 +50,6 @@ public class ItemSwitcher : MonoBehaviour
 
     private void Awake()
     {
-        
         playerInput = FindFirstObjectByType<PlayerInput>();
 
         if (playerInput != null)
@@ -73,41 +69,37 @@ public class ItemSwitcher : MonoBehaviour
             Debug.Log("reloadBatteryAction null? " + (reloadBatteryAction == null));
             Debug.Log("flashlightToggleAction null? " + (flashlightToggleAction == null));
         }
-
         else
         {
             Debug.LogWarning("Itemswitcher: Player input has not been found.");
         }
     }
+
     private void Start()
     {
         batteryBehaviour = flashlight_player.GetComponentInChildren<LightBehaviour>();
         attackController = taserRod_player.GetComponent<TaserRodAttack>();
-        
+
         if (itemSounds == null)
         {
             itemSounds = GetComponent<AudioSource>();
         }
-       
     }
+
     private void Update()
     {
         if (slot1Action != null && slot1Action.WasPressedThisFrame() && hasFlashlight)
         {
             flashlight_player.SetActive(true);
             flashlightanimator.SetTrigger("Take Out");
-           
             EquipItem(1);
         }
 
         if (slot2Action != null && slot2Action.WasPressedThisFrame() && hasTaser)
         {
-
             flashlightanimator.SetTrigger("Hide");
             taserRod_player.SetActive(true);
             taseranimator.SetBool("Hide", false);
-
-
             EquipItem(2);
         }
 
@@ -116,7 +108,6 @@ public class ItemSwitcher : MonoBehaviour
             flashlightanimator.SetTrigger("Hide");
             taseranimator.SetBool("Hide", true);
             flamethroweranimator.SetTrigger("Out");
-
             EquipItem(3);
         }
 
@@ -127,7 +118,6 @@ public class ItemSwitcher : MonoBehaviour
                 batteryBehaviour.ReplaceBatteryFull();
             }
 
-            //Counts this as collecting battery
             if (fastRepairSpeed != null)
             {
                 fastRepairSpeed.batteryCount++;
@@ -137,7 +127,7 @@ public class ItemSwitcher : MonoBehaviour
             {
                 Debug.LogWarning("ItemSwitched: fastRepaidSpeed NOT assigned");
             }
-            
+
             itemSounds.PlayOneShot(reloadSound);
             flashlightanimator.SetTrigger("Recharage");
             EquipItem(1);
@@ -153,7 +143,6 @@ public class ItemSwitcher : MonoBehaviour
 
         if (flashlightToggleAction != null && flashlightToggleAction.WasPressedThisFrame())
         {
-            //Only happens when flashlight is equipped
             if (currentItemIndex != 1) return;
 
             if (batteryBehaviour != null)
@@ -162,21 +151,24 @@ public class ItemSwitcher : MonoBehaviour
 
                 bool isOn = batteryBehaviour.IsFlashlightOn();
                 flashlightanimator.SetBool("On", isOn);
+
+                RumbleManager.Instance.RumblePulse(0f, isOn ? 0.35f : 0.2f, 0.08f);
             }
             else
             {
                 Debug.LogWarning("Item Switcher: Battery Behaviour does not exist.");
             }
 
-           
-
             PlayFlashlightSFX(toggleDelay);
         }
-        
-
     }
 
     public void ToggleFlashlight()
+    {
+
+    }
+
+    public void TriggerReloadRumble()
     {
 
     }
@@ -194,7 +186,7 @@ public class ItemSwitcher : MonoBehaviour
 
     IEnumerator PlayFlashlightSFXRoutine(float delay)
     {
-        if(delay > 0) yield return new WaitForSeconds(delay);
+        if (delay > 0) yield return new WaitForSeconds(delay);
         itemSounds.PlayOneShot(flashlightSound);
     }
 
@@ -211,21 +203,28 @@ public class ItemSwitcher : MonoBehaviour
             flashlightBar.SetActive(index == 1);
         }
 
+        // Light bump when swapping to any item
+        switch (index)
+        {
+            case 1: RumbleManager.Instance.RumblePulse(0.1f, 0.3f, 0.1f); break;
+            case 2: RumbleManager.Instance.RumblePulse(0.3f, 0.5f, 0.12f); break;
+            case 3: RumbleManager.Instance.RumblePulse(0.5f, 0.4f, 0.15f); break;
+        }
 
         UpdateIcons();
     }
 
     void CycleItems(int direction)
     {
-        int maxItems = (hasFlashlight ? 1 : 0) + (hasTaser ? 1 : 0) + (hasFlamethrower ? 1: 0);
+        int maxItems = (hasFlashlight ? 1 : 0) + (hasTaser ? 1 : 0) + (hasFlamethrower ? 1 : 0);
         if (maxItems <= 1) return;
 
         int[] availableItems = new int[maxItems];
         int count = 0;
         if (hasFlashlight) availableItems[count++] = 1;
-        if(hasTaser) availableItems[count++] = 2;
+        if (hasTaser) availableItems[count++] = 2;
         if (hasFlamethrower) availableItems[count++] = 3;
-        
+
         int currentIndex = System.Array.IndexOf(availableItems, currentItemIndex);
         currentIndex = (currentIndex + direction + count) % count;
         EquipItem(availableItems[currentIndex]);
