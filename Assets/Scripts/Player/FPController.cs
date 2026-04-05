@@ -106,8 +106,12 @@ public class FPController : MonoBehaviour
         Vector2 moveInput =  moveAction.ReadValue<Vector2>();
         Vector2 lookInput = lookAction.ReadValue<Vector2>();
 
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right   = transform.TransformDirection(Vector3.right);
+        Vector3 forward = playerCam.transform.forward;
+        Vector3 right   = playerCam.transform.right;
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
 
         bool hasStamina = stamina != null && stamina.hasStamina();
         bool isRunningInput = sprintAction != null && sprintAction.IsPressed() && hasStamina;

@@ -7,6 +7,7 @@ public class TaserRodAttack : MonoBehaviour
     public float stunRange = 3f;
     public float cooldown = 1.5f;      // seconds between stuns
     public LayerMask enemyLayer;
+    public Animator taserStunAnim;
 
     private bool canStun = true;
     private Camera playerCam;

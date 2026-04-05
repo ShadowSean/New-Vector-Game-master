@@ -9,7 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: f1254560334cec64ca2697649efc5b6e
   - enabled: 1
+    path: Assets/Scenes/CutScene/New Scene.unity
+    guid: 58f72d72921a3e24e9e04924ac50ff20
+  - enabled: 1
     path: Assets/Scenes/TheShipSectionOne.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/CutScene/Final Cutscene/Final Cutscene.unity
+    guid: 19236dbc623a1c84e92a6184434627b0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

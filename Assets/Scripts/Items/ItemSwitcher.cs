@@ -9,7 +9,9 @@ public class ItemSwitcher : MonoBehaviour
     public GameObject taserRod_player;
     public GameObject flamethrower_player;
     public GameObject flashlightBar;
-    public Animator animator;
+    public Animator flashlightanimator;
+    public Animator taseranimator;
+    public Animator flamethroweranimator;
 
     public GameObject flashlightIcon;
     public GameObject taserIcon;
@@ -93,7 +95,7 @@ public class ItemSwitcher : MonoBehaviour
         if (slot1Action != null && slot1Action.WasPressedThisFrame() && hasFlashlight)
         {
             flashlight_player.SetActive(true);
-            animator.SetTrigger("Take Out");
+            flashlightanimator.SetTrigger("Take Out");
            
             EquipItem(1);
         }
@@ -101,14 +103,20 @@ public class ItemSwitcher : MonoBehaviour
         if (slot2Action != null && slot2Action.WasPressedThisFrame() && hasTaser)
         {
 
-            animator.SetTrigger("Hide");
-            
+            flashlightanimator.SetTrigger("Hide");
+            taserRod_player.SetActive(true);
+            taseranimator.SetBool("Hide", false);
+
 
             EquipItem(2);
         }
 
         if (slot3Action != null && slot3Action.WasPressedThisFrame() && hasFlamethrower)
         {
+            flashlightanimator.SetTrigger("Hide");
+            taseranimator.SetBool("Hide", true);
+            flamethroweranimator.SetTrigger("Out");
+
             EquipItem(3);
         }
 
@@ -131,7 +139,7 @@ public class ItemSwitcher : MonoBehaviour
             }
             
             itemSounds.PlayOneShot(reloadSound);
-            animator.SetTrigger("Recharage");
+            flashlightanimator.SetTrigger("Recharage");
             EquipItem(1);
 
             if (batteryPrefab != null)
@@ -153,7 +161,7 @@ public class ItemSwitcher : MonoBehaviour
                 batteryBehaviour.ToggleFlashlight();
 
                 bool isOn = batteryBehaviour.IsFlashlightOn();
-                animator.SetBool("On", isOn);
+                flashlightanimator.SetBool("On", isOn);
             }
             else
             {
