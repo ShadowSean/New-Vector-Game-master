@@ -13,7 +13,7 @@ public class DoorAnimation : MonoBehaviour
     [SerializeField] GameObject lockedPrompt;
 
     [Header("Door Rumble")]
-    public float slideDuration = 2f;
+    public float slideDuration = 1.2f;
 
     private bool IsUnlocked => requiredGenerator == null || requiredGenerator.GetFixedState();
 
