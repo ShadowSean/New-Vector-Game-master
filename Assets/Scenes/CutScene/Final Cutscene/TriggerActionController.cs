@@ -128,7 +128,7 @@ public class MultiTriggerController : MonoBehaviour
 
     private IEnumerator BigDoorRumbleSequence()
     {
-        RumbleManager.Instance.RumbleSequence(bigDoorRumbleLow, bigDoorRumbleHigh, bigDoorRumbleDuration, bigDoorRumbleLow, bigDoorRumbleHigh, 0.1f);
+        RumbleManager.Instance.RumbleSequence(bigDoorRumbleLow, bigDoorRumbleHigh, bigDoorRumbleDuration, bigDoorThunkLow, bigDoorThunkHigh, bigDoorThunkDuration); 
         yield return new WaitForSeconds(bigDoorRumbleDuration);
         RumbleManager.Instance.RumblePulse(bigDoorThunkLow, bigDoorThunkHigh, bigDoorThunkDuration);
     }

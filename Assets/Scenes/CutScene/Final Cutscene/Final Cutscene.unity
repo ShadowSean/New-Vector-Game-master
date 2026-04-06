@@ -38917,6 +38917,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3675522838161619085, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2038955330}
+    - targetCorrespondingSourceObject: {fileID: 3675522838161619085, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2038955331}
   m_SourcePrefab: {fileID: 100100000, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
 --- !u!1 &2038955316 stripped
 GameObject:
@@ -38969,6 +38972,22 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038955316}
   m_Enabled: 1
+--- !u!114 &2038955331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038955316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c548f18e107544b8f9aeff75c386be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraMiniZoom
+  cam: {fileID: 0}
+  normalFOV: 40
+  zoomFOV: 20
+  zoomSpeed: 5
 --- !u!1 &2042877770
 GameObject:
   m_ObjectHideFlags: 0

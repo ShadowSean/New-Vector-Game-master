@@ -16,7 +16,6 @@ public class RumbleManager : MonoBehaviour
     private Coroutine _rumbleCoroutine;
     private bool _priorityActive = false;
 
-    // ?? Lifecycle ????????????????????????????????????????????????
 
     private void Awake()
     {
@@ -29,11 +28,11 @@ public class RumbleManager : MonoBehaviour
     private void OnDisable() { InputSystem.onDeviceChange -= OnDeviceChange; StopRumble(); }
     private void OnApplicationQuit() => StopRumble();
 
-    // ?? Existing API (unchanged) ??????????????????????????????????
 
     public void RumblePulse(float lowFreq, float highFreq, float duration)
     {
         if (!hapticsEnabled) return;
+        if (_priorityActive) return;
         StopActiveCoroutine();
         _gamepad = Gamepad.current;
         if (_gamepad == null) return;
@@ -82,25 +81,20 @@ public class RumbleManager : MonoBehaviour
             thumpLow * masterIntensity, thumpHigh * masterIntensity, thumpDuration));
     }
 
-
-    // ?? Profile API (called by Timeline clips + signal receiver) ????
-
-    /// Plays a RumbleProfile asset. Respects _priorityActive — a
-    /// RumbleSequence in progress will block profile playback.
-    public void Play(RumbleProfile profile)
+    public void Play(RumbleProfile profile, bool priority = false)
     {
         if (!hapticsEnabled || profile == null) return;
-        if (_priorityActive) return;
+        if (_priorityActive && !priority) return;
 
         StopActiveCoroutine();
         _gamepad = Gamepad.current;
         if (_gamepad == null) return;
 
+        _priorityActive = priority;
         _rumbleCoroutine = StartCoroutine(RunProfile(profile));
     }
 
-    /// Called by RumbleBehaviour.OnBehaviourPause and RumbleSignalReceiver
-    /// when a cutscene ends or is skipped.
+
     public void StopAll() => StopRumble();
 
 
@@ -111,9 +105,6 @@ public class RumbleManager : MonoBehaviour
         _gamepad = Gamepad.current;
         if (_gamepad != null) _gamepad.ResetHaptics();
     }
-
-    // ?? Coroutines ????????????????????????????????????????????????
-
     private IEnumerator RumblePulseRoutine(float low, float high, float duration)
     {
         _gamepad.SetMotorSpeeds(low, high);
@@ -166,11 +157,9 @@ public class RumbleManager : MonoBehaviour
             }
         }
         _gamepad.ResetHaptics();
+        _priorityActive = false;
         _rumbleCoroutine = null;
     }
-
-
-    // ?? Helpers ???????????????????????????????????????????????????
 
     private void StopActiveCoroutine()
     {

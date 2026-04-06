@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 8218a724e6dbd8742aacdabb84fd8633, type: 2}
+  priority: 0
 --- !u!114 &-8681421257086827313
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_Name: RumbleClip(Clone)
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 8505dae3275384d4a8da7338f651990b, type: 2}
+  priority: 0
 --- !u!74 &-7772451475394031003
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -668,6 +670,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 5018422ba7a15774da2d074f12fe7832, type: 2}
+  priority: 0
 --- !u!114 &-7299724370690166600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2426,6 +2429,7 @@ MonoBehaviour:
   m_Name: RumbleClip(Clone)
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 8505dae3275384d4a8da7338f651990b, type: 2}
+  priority: 0
 --- !u!114 &-4663539374759419278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3251,6 +3255,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 8505dae3275384d4a8da7338f651990b, type: 2}
+  priority: 0
 --- !u!114 &-4176920446564571652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4711,6 +4716,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 2a041c6d79ced7f458c925903f40df3a, type: 2}
+  priority: 0
 --- !u!114 &-2592670645150115121
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6231,6 +6237,7 @@ MonoBehaviour:
   m_Name: RumbleClip(Clone)(Clone)
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 5018422ba7a15774da2d074f12fe7832, type: 2}
+  priority: 0
 --- !u!114 &3147780844561681332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6266,6 +6273,7 @@ MonoBehaviour:
   m_Name: RumbleClip(Clone)(Clone)
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 7855e34b5e62c424b9463fc68547a929, type: 2}
+  priority: 0
 --- !u!114 &3431722986928950886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6393,6 +6401,23 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &3989428663317330520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
+  m_Name: AudioPlayableAsset
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.AudioPlayableAsset
+  m_Clip: {fileID: 8300000, guid: 478a5c6e64f62ce4f8b32525fee5cc48, type: 3}
+  m_Loop: 0
+  m_bufferingTime: 0.1
+  m_ClipProperties:
+    volume: 0.501
 --- !u!114 &4051699746098540595
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6428,6 +6453,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 56810234b5ec38e4781ad8ab4514eafe, type: 2}
+  priority: 0
 --- !u!114 &4487574194229558335
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6441,6 +6467,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 7855e34b5e62c424b9463fc68547a929, type: 2}
+  priority: 0
 --- !u!114 &4936945872174323441
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6547,6 +6574,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 5018422ba7a15774da2d074f12fe7832, type: 2}
+  priority: 0
 --- !u!74 &5031645037257060201
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -7317,7 +7345,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0.7166666666666667
     m_Asset: {fileID: 1808068813757493721}
-    m_Duration: 39.28333333333333
+    m_Duration: 35.25
     m_TimeScale: 1
     m_ParentTrack: {fileID: 5715974152749584172}
     m_EaseInDuration: 0
@@ -7382,6 +7410,75 @@ MonoBehaviour:
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: Endgame_Cutscene_Final (1)
+  - m_Version: 1
+    m_Start: 35.25
+    m_ClipIn: 0
+    m_Asset: {fileID: 3989428663317330520}
+    m_Duration: 22.116666666666667
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 5715974152749584172}
+    m_EaseInDuration: 1.14
+    m_EaseOutDuration: 0.86
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: start_menu_ambiance
   m_Markers:
     m_Objects: []
   m_TrackProperties:
@@ -7401,6 +7498,7 @@ MonoBehaviour:
   m_Name: RumbleClip(Clone)(Clone)
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 5018422ba7a15774da2d074f12fe7832, type: 2}
+  priority: 0
 --- !u!114 &5883166820270570371
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8293,6 +8391,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 93d42300d8c832d41a595ad85b2668a1, type: 2}
+  priority: 0
 --- !u!114 &6976819933566177345
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8322,6 +8421,7 @@ MonoBehaviour:
   m_Name: RumbleClip(Clone)(Clone)
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 8505dae3275384d4a8da7338f651990b, type: 2}
+  priority: 0
 --- !u!114 &7397357700253473641
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8375,6 +8475,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: fa140aa036daf9b4f9592ada3d041738, type: 2}
+  priority: 0
 --- !u!114 &7798712180056323174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8388,6 +8489,7 @@ MonoBehaviour:
   m_Name: RumbleClip
   m_EditorClassIdentifier: Assembly-CSharp::RumbleClip
   profile: {fileID: 11400000, guid: 7855e34b5e62c424b9463fc68547a929, type: 2}
+  priority: 0
 --- !u!114 &8046292575239172459
 MonoBehaviour:
   m_ObjectHideFlags: 1

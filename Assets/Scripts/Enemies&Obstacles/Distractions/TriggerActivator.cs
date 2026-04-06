@@ -38,7 +38,7 @@ public class TriggerActivator : MonoBehaviour
             audioStart.rolloffMode = AudioRolloffMode.Linear;
             audioStart.minDistance = 1f;
             audioStart.maxDistance = maxRumbleDistance;
-            audioStart.Play();
+            audioStart.PlayOneShot(audioStart.clip);
             
             RumbleManager.Instance.RumblePulse(1f, 0.8f, 0.2f);
         }
