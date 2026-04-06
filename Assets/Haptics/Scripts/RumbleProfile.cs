@@ -126,4 +126,69 @@ public class RumbleProfile : ScriptableObject
         }
         return new AnimationCurve(keys);
     }
+
+    public static RumbleProfile ControlYoke()
+    {
+        var p = CreateInstance<RumbleProfile>();
+        p.phases = new[]
+        {
+        new Phase
+        {
+            label     = "Mechanical hum",
+            duration  = 1.0f,
+            lowMotor  = Flat(0.05f),
+            highMotor = Oscillate(0.25f, 0.08f, 12f, 1.0f),
+        }
+    };
+        return p;
+    }
+
+    public static RumbleProfile ThrustersIgnite()
+    {
+        var p = CreateInstance<RumbleProfile>();
+        p.phases = new[]
+        {
+        new Phase { label = "Ignition spike", duration = 0.15f, lowMotor = Flat(0.9f),          highMotor = Flat(0.8f) },
+        new Phase { label = "Burn sustain",   duration = 1.8f,  lowMotor = Rise(0.5f, 0.75f),   highMotor = Oscillate(0.35f, 0.1f, 6f, 1.8f) },
+        new Phase { label = "Throttle off",   duration = 0.4f,  lowMotor = Decay(0.75f),         highMotor = Decay(0.35f) },
+    };
+        return p;
+    }
+
+    public static RumbleProfile YokeForward()
+    {
+        var p = CreateInstance<RumbleProfile>();
+        p.phases = new[]
+        {
+        new Phase { label = "Resistance build", duration = 0.6f, lowMotor = Rise(0.2f, 0.7f),  highMotor = Rise(0.1f, 0.3f) },
+        new Phase { label = "Held pressure",    duration = 0.5f, lowMotor = Flat(0.7f),         highMotor = Oscillate(0.3f, 0.05f, 8f, 0.5f) },
+        new Phase { label = "Release",          duration = 0.2f, lowMotor = Decay(0.7f),         highMotor = Decay(0.3f) },
+    };
+        return p;
+    }
+
+    public static RumbleProfile YokeBack()
+    {
+        var p = CreateInstance<RumbleProfile>();
+        p.phases = new[]
+        {
+        new Phase { label = "Strain jolt",    duration = 0.08f, lowMotor = Flat(1.0f),         highMotor = Flat(0.6f) },
+        new Phase { label = "Pull hold",      duration = 0.7f,  lowMotor = Rise(0.5f, 0.85f),  highMotor = Oscillate(0.25f, 0.07f, 10f, 0.7f) },
+        new Phase { label = "Ease off",       duration = 0.25f, lowMotor = Decay(0.85f),        highMotor = Decay(0.25f) },
+    };
+        return p;
+    }
+
+    public static RumbleProfile AsteroidHullImpact()
+    {
+        var p = CreateInstance<RumbleProfile>();
+        p.phases = new[]
+        {
+        new Phase { label = "Impact",           duration = 0.05f, lowMotor = Flat(1.0f),         highMotor = Flat(1.0f) },
+        new Phase { label = "Structural shock", duration = 0.3f,  lowMotor = Decay(1.0f),         highMotor = Oscillate(0.7f, 0.3f, 14f, 0.3f) },
+        new Phase { label = "Hull resonance",   duration = 1.2f,  lowMotor = Oscillate(0.3f, 0.2f, 4f, 1.2f), highMotor = Decay(0.4f) },
+        new Phase { label = "Settle",           duration = 0.5f,  lowMotor = Decay(0.2f),         highMotor = Flat(0.0f) },
+    };
+        return p;
+    }
 }

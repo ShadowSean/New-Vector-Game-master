@@ -22,6 +22,11 @@ public static class RumblePresetLoader
         Save(RumbleProfile.RobotStep(), folder, "RobotStep");
         Save(RumbleProfile.Jumpscare(), folder, "Jumpscare");
         Save(RumbleProfile.CryopodOpen(), folder, "CryopodOpen");
+        Save(RumbleProfile.ControlYoke(), folder, "ControlYoke");
+        Save(RumbleProfile.ThrustersIgnite(), folder, "ThrustersIgnite");
+        Save(RumbleProfile.YokeForward(), folder, "YokeForward");
+        Save(RumbleProfile.YokeBack(), folder, "YokeBack");
+        Save(RumbleProfile.AsteroidHullImpact(), folder, "AsteroidHullImpact");
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
