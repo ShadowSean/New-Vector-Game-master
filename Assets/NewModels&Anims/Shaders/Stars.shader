@@ -77,20 +77,31 @@ Shader "Custom/ProceduralDoubleScrollingNoise"
 
             fixed4 frag(v2f i) : SV_Target
             {
+                static const float PI = 3.14159265f;
                 float t = _Time.x;
                 
                 // BASE TEXTURE
                 fixed4 baseCol = texCUBE(_Cube, i.worldDir);
 
-                // FIRST NOISE (A)
-                float2 uvA = i.uv * _NoiseScaleA + _ScrollA.xy * t;
+                float3 dir = normalize(i.worldDir);
+                // Equirectangular Projection for Noise A
+                float thetaA = acos(dir.y);  // Latitude (from worldDir.y)
+                float phiA = atan2(dir.z, dir.x);  // Longitude (from worldDir.x and worldDir.z)
+
+                float2 uvA = float2((phiA + PI) / (2.0 * PI), thetaA / PI);
+                uvA = uvA * _NoiseScaleA + _ScrollA.xy * t;
                 float noiseA = valueNoise(uvA);
 
                 // Clamp noise A: anything < 0.9 becomes 0
                 noiseA *= step(0.9, noiseA);
 
-                // SECOND NOISE (B)
-                float2 uvB = i.uv * _NoiseScaleB + _ScrollB.xy * t;
+                // Equirectangular Projection for Noise B
+                float thetaB = acos(dir.y);  // Latitude (same as for noise A)
+                float phiB = atan2(dir.z, dir.x);  // Longitude (same as for noise A)
+
+                // Map latitude and longitude to [0, 1]
+                float2 uvB = float2((phiB + PI) / (2.0 * PI), thetaB / PI);
+                uvB = uvB * _NoiseScaleB + _ScrollB.xy * t;
                 float noiseB = valueNoise(uvB);
 
                 // Clamp noise B

@@ -29,10 +29,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _NoiseScaleA: 200
-    - _NoiseScaleB: -200
+    - _NoiseScaleA: 500
+    - _NoiseScaleB: -250
     m_Colors:
-    - _ScrollA: {r: 1.35, g: 4, b: 0, a: 2}
+    - _ScrollA: {r: 1.35, g: 2, b: 0, a: 2}
     - _ScrollB: {r: 4, g: 11, b: 0, a: 2}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
