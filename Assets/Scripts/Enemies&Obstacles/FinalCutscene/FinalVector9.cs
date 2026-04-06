@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class FinalVector9 : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class FinalVector9 : MonoBehaviour
 
 
     [SerializeField] Transform defaultSpawn;
+    public string reloadScene;
 
 
 
@@ -234,7 +237,7 @@ public class FinalVector9 : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        ReloadOnDeath.instance.ReloadCurrentSceneCheckpoint();
+        SceneManager.LoadScene(reloadScene);
 
 
 

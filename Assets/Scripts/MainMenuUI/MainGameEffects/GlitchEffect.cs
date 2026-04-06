@@ -8,15 +8,18 @@ public class GlitchEffect : MonoBehaviour
 
     private TextMeshProUGUI glitchText;
     private string defaultText;
+    public bool isGlitching;
     
     void Start()
     {
         glitchText = GetComponent<TextMeshProUGUI>();
         defaultText = glitchText.text;
+        StartCoroutine(StartGlitch());
     }
 
     IEnumerator StartGlitch()
     {
+        isGlitching = true;
         int letterIndex = 0;
         while (letterIndex <= defaultText.Length)
         {
@@ -29,6 +32,9 @@ public class GlitchEffect : MonoBehaviour
             }
             letterIndex++;
         }
+        glitchText.text = defaultText;
+        isGlitching = false;
+        
     }
 
     
@@ -36,22 +42,21 @@ public class GlitchEffect : MonoBehaviour
 
     private string RandomizeText(string text, int startIndex)
     {
+        
         string glitchCharacters = "#&*-+@$103284939`~%^ABCDEFGHIJKLMNOP";
+        StringBuilder sb = new StringBuilder(text);
         for (int i = startIndex; i < text.Length; i++)
         {
-            StringBuilder sb = new StringBuilder(text);
+            
             sb[i] = glitchCharacters[Random.Range(0,glitchCharacters.Length)];
-            text = sb.ToString();
+            
         }
-        return text;
+        return sb.ToString();
     }
 
     
 
-    private void Update()
-    {
-       StartCoroutine(StartGlitch());
-    }
+    
 
     
 }

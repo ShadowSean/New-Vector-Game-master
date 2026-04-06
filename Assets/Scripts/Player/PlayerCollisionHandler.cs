@@ -37,7 +37,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Vector9Movement stun = other.GetComponent<Vector9Movement>();
+            FinalVector9 stun = other.GetComponent<FinalVector9>();
             if(stun != null && stun.isStunned)
             {
                 return;
