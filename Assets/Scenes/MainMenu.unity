@@ -2708,7 +2708,7 @@ MonoBehaviour:
   - {fileID: 1004407211}
   fadePanel: {fileID: 1776965780}
   fadeSpeed: 1
-  mainGameSceneName: TheShipSectionOne
+  mainGameSceneName: New Scene
   loretext: {fileID: 854162346}
   continueText: {fileID: 440686260}
   gamemodeCamera: {fileID: 1654330988}
