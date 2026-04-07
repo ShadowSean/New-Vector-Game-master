@@ -30,7 +30,7 @@ public class EscapeShip : MonoBehaviour
 
         
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene(sceneName);

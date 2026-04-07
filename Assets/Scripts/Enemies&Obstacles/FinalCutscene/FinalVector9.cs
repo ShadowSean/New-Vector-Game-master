@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 
 public class FinalVector9 : MonoBehaviour
