@@ -48,8 +48,14 @@ public class ItemSwitcher : MonoBehaviour
     private InputAction reloadBatteryAction;
     private InputAction flashlightToggleAction;
 
+    private bool AllowSwap;
+    private bool FlameThrowerAcgive;
+    private bool FlashlightActive;
+    private bool TaserActive;
+
     private void Awake()
     {
+        
         playerInput = FindFirstObjectByType<PlayerInput>();
 
         if (playerInput != null)
@@ -84,32 +90,75 @@ public class ItemSwitcher : MonoBehaviour
         {
             itemSounds = GetComponent<AudioSource>();
         }
+        AllowSwap = true;
     }
 
     private void Update()
     {
         if (slot1Action != null && slot1Action.WasPressedThisFrame() && hasFlashlight)
         {
-            flashlight_player.SetActive(true);
-            flashlightanimator.SetTrigger("Take Out");
-            EquipItem(1);
+            flamethroweranimator.SetTrigger("Hide");
+            taseranimator.SetBool("Hide", true);
+            FlashlightActive = true;
+            FlameThrowerAcgive = false;
+            TaserActive = false;
+            print("Yeeette");
+            
+
+
         }
 
         if (slot2Action != null && slot2Action.WasPressedThisFrame() && hasTaser)
         {
             flashlightanimator.SetTrigger("Hide");
-            taserRod_player.SetActive(true);
-            taseranimator.SetBool("Hide", false);
-            EquipItem(2);
+            flamethroweranimator.SetTrigger("Hide");
+            FlashlightActive = false;
+            FlameThrowerAcgive = false;
+            TaserActive = true;
+           
+
         }
 
         if (slot3Action != null && slot3Action.WasPressedThisFrame() && hasFlamethrower)
         {
             flashlightanimator.SetTrigger("Hide");
             taseranimator.SetBool("Hide", true);
-            flamethroweranimator.SetTrigger("Out");
-            EquipItem(3);
+            FlameThrowerAcgive = true;
+            FlashlightActive = false;
+            TaserActive = false;
+          
+
         }
+        if (AllowSwap)
+        {
+            if (FlameThrowerAcgive)
+            {
+                flamethroweranimator.SetTrigger("Out");
+                EquipItem(3);
+               
+            }
+
+            if (TaserActive)
+            {
+                taserRod_player.SetActive(true);
+                taseranimator.SetBool("Hide", false);
+                EquipItem(2);
+                
+            }
+
+            if (FlashlightActive)
+            {
+                flashlight_player.SetActive(true);
+                flashlightanimator.SetTrigger("Take Out");
+                EquipItem(1);
+            }
+
+           
+
+
+        }
+        print(AllowSwap);
+
 
         if (reloadBatteryAction != null && reloadBatteryAction.WasPressedThisFrame() && hasFlashlight && hasBattery)
         {
@@ -147,11 +196,12 @@ public class ItemSwitcher : MonoBehaviour
 
             if (batteryBehaviour != null)
             {
+                
                 batteryBehaviour.ToggleFlashlight();
 
                 bool isOn = batteryBehaviour.IsFlashlightOn();
                 flashlightanimator.SetBool("On", isOn);
-
+                print(isOn);
                 RumbleManager.Instance.RumblePulse(0f, isOn ? 0.35f : 0.2f, 0.08f);
             }
             else
@@ -161,6 +211,12 @@ public class ItemSwitcher : MonoBehaviour
 
             PlayFlashlightSFX(toggleDelay);
         }
+    }
+
+    public void Swap(bool what)
+    {
+        AllowSwap = what;
+        
     }
 
     public void ToggleFlashlight()

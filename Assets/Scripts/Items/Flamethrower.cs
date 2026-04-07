@@ -21,6 +21,8 @@ public class Flamethrower : MonoBehaviour
     public ParticleSystem muzzleParticles;
     public ParticleSystem zoneParticles;
 
+    [SerializeField] ItemSwitcher swap;
+
 
     private PlayerInput playerInput;
     private InputAction clickAction;
@@ -71,6 +73,16 @@ public class Flamethrower : MonoBehaviour
         {
             ActivateFlamethrower();
         }
+    }
+    public void Swao()
+    {
+        swap.Swap(true);
+    }
+
+    public void SwaoFalse()
+    {
+        swap.Swap(false);
+
     }
 
     void ActivateFlamethrower()

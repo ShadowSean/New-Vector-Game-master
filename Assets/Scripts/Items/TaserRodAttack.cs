@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 
 public class TaserRodAttack : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class TaserRodAttack : MonoBehaviour
 
     private PlayerInput playerInput;
     private InputAction clickAction;
+    private bool PlayingAnim;
+    [SerializeField] ItemSwitcher swap;
 
     private void Awake()
     {
@@ -27,6 +30,7 @@ public class TaserRodAttack : MonoBehaviour
         {
             clickAction = playerInput.actions["Weapon Use"];
         }
+        PlayingAnim = false;
     }
 
 
@@ -43,6 +47,7 @@ public class TaserRodAttack : MonoBehaviour
         if (clickAction != null && clickAction.WasPressedThisFrame() && canStun)
         {
             TryStunEnemy();
+           
         }
     }
 
@@ -56,7 +61,8 @@ public class TaserRodAttack : MonoBehaviour
         Vector3 start = playerCam.transform.position - playerCam.transform.up * 0.5f;
         Vector3 end = playerCam.transform.position + playerCam.transform.up * 0.5f;
         taserStunAnim.SetBool("New Tase", true);
-        tasersound.PlayOneShot(taserclip);
+        
+       
         StartCoroutine(taserstopstun());
         
         if (Physics.CapsuleCast(start, end, capsuleRadius, playerCam.transform.forward, out RaycastHit hit, stunRange,enemyLayer))
@@ -73,16 +79,46 @@ public class TaserRodAttack : MonoBehaviour
         }
     }
 
+    public void PlaySound()
+    {
+        if (PlayingAnim)
+        {
+            return;
+        }
+        tasersound.PlayOneShot(taserclip);
+        PlayingAnim = true;
+    }
+
+    public void StopSound()
+    {
+        PlayingAnim = false;
+    }
+
+    public void Swao()
+    {
+        swap.Swap(true);
+    }
+
+    public void SwaoFalse()
+    {
+        swap.Swap(false);
+    }
+
     IEnumerator taserstopstun()
     {
-        yield return new WaitForSeconds(taserclip.length);
+        yield return new WaitForSeconds(taserclip.length + 0.13f);
         taserStunAnim.SetBool("New Tase", false);
+        
+
+
     }
     IEnumerator CooldownRoutine()
     {
         
         canStun = false;
+        
         yield return new WaitForSeconds(cooldown);
         canStun = true;
+        
     }
 }
