@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Runtime.CompilerServices;
 
 public class GeneratorFour : MonoBehaviour
 {
@@ -272,6 +273,12 @@ public class GeneratorFour : MonoBehaviour
         if (flickeringLights != null) flickeringLights.speed = 1;
 
         isPlayingFixingSound = false;
+        if (repairPercentage != null)
+        {
+            repairPercentage.value = 0f;
+        }
+        skillCheckRunning = false;
+        waitingForSkillCheck = false;
     }
 
     public bool GetFixedState() => isFourthFixed;
@@ -294,6 +301,14 @@ public class GeneratorFour : MonoBehaviour
         skillCheck.SetActive(false);
 
         yield return new WaitForSeconds(5f);
+
+        if (isFourthFixed)
+        {
+            skillCheck.SetActive(false);
+            waitingForSkillCheck = false;
+            skillCheckRunning = false;
+            yield break;
+        }
 
         waitingForSkillCheck = true;
         skillCheck.SetActive(true);

@@ -273,6 +273,12 @@ public class SecondGeneratorLogic : MonoBehaviour
         if (flickeringLights != null) flickeringLights.speed = 1;
 
         isPlayingFixingSound = false;
+        if (repairPercentage != null)
+        {
+            repairPercentage.value = 0f;
+        }
+        skillCheckRunning = false;
+        waitingForSkillCheck = false;
     }
 
     public bool GetFixedState() => isSecondFixed;

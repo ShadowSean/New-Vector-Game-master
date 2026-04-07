@@ -265,6 +265,12 @@ public class GeneratorFive : MonoBehaviour
         }
 
         isPlayingFixingSound = false;
+        if (repairPercentage != null)
+        {
+            repairPercentage.value = 0f;
+        }
+        skillCheckRunning = false;
+        waitingForSkillCheck = false;
         inRange = false;
     }
 
@@ -300,6 +306,14 @@ public class GeneratorFive : MonoBehaviour
         skillCheck.SetActive(false);
 
         yield return new WaitForSeconds(5f);
+
+        if (isFifthFixed)
+        {
+            skillCheck.SetActive(false);
+            waitingForSkillCheck = false;
+            skillCheckRunning = false;
+            yield break;
+        }
 
         waitingForSkillCheck = true;
         skillCheck.SetActive(true);

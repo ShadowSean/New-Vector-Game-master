@@ -67,12 +67,18 @@ public class GameHandler : MonoBehaviour
             isFlashlightCollected = hasItems.hasFlashlight,
             isTaserCollected = hasItems.hasTaser,
             isFlameCollected = hasItems.hasFlamethrower,
-            crateDisabledAfterClaim =  crateOne != null && crateOne.GetCrateDisabledState(),
+            crateDisabledAfterClaim = crateOne != null && crateOne.GetCrateDisabledState(),
             crateDisabledAfterClaimTwo = crateTwo != null && crateTwo.GetCrateDisabledState(),
             crateDisabledAfterClaimThree = crateThree != null && crateThree.GetCrateDisabledState(),
             crateDisabledAfterClaimFour = crateFour != null && crateFour.GetCrateDisabledState(),
             crateDisabledAfterClaimFive = crateFive != null && crateFive.GetCrateDisabledState(),
             crateDisabledAfterClaimSix = crateSix != null && crateSix.GetCrateDisabledState(),
+            cratepartsCollectedOne = crateOne != null && crateOne.partsCollected,
+            cratepartsCollectedTwo = crateTwo != null && crateTwo.partsCollectedTwo,
+            cratepartsCollectedThree = crateThree != null && crateThree.partsCollectedThree,
+            cratepartsCollectedFour = crateFour != null && crateFour.partsCollectedFour,
+            cratepartsCollectedFive = crateFive != null && crateFive.partsCollectedFive,
+            cratepartsCollectedSix = crateSix != null && crateSix.partsCollectedSix,
             pickupCollectedStates = pickupStates,
             genoneFixed = generatorOne != null && generatorOne.GetFixedState(),
             gentwoFixed = generatorTwo != null && generatorTwo.GetFixedState(),
@@ -145,32 +151,40 @@ public class GameHandler : MonoBehaviour
         if (crateOne != null)
         {
             crateOne.SetCrateDisabledState(data.crateDisabledAfterClaim);
+            crateOne.partsCollected = data.cratepartsCollectedOne;
         }
 
         if (crateTwo != null)
         {
             crateTwo.SetCrateDisabledState(data.crateDisabledAfterClaimTwo);
+            crateTwo.partsCollectedTwo =  data.cratepartsCollectedTwo;
         }
 
         if (crateThree != null)
         {
             crateThree.SetCrateDisabledState(data.crateDisabledAfterClaimThree);
+            crateThree.partsCollectedThree = data.cratepartsCollectedThree;
         }
 
         if (crateFour != null)
         {
             crateFour.SetCrateDisabledState(data.crateDisabledAfterClaimFour);
+            crateFour.partsCollectedFour = data.cratepartsCollectedFour;
         }
 
         if (crateFive != null)
         {
             crateFive.SetCrateDisabledState(data.crateDisabledAfterClaimFive);
+            crateFive.partsCollectedFive = data.cratepartsCollectedFive;
         }
 
         if (crateSix != null)
         {
             crateSix.SetCrateDisabledState(data.crateDisabledAfterClaimSix);
+            crateSix.partsCollectedSix = data.cratepartsCollectedSix;
         }
+
+      
 
         if(generatorOne != null)
         {
@@ -270,6 +284,12 @@ public class SaveData
     public bool crateDisabledAfterClaimFour;
     public bool crateDisabledAfterClaimFive;
     public bool crateDisabledAfterClaimSix;
+    public bool cratepartsCollectedSix;
+    public bool cratepartsCollectedFive;
+    public bool cratepartsCollectedFour;
+    public bool cratepartsCollectedThree;
+    public bool cratepartsCollectedTwo;
+    public bool cratepartsCollectedOne;
     public bool[] pickupCollectedStates;
 
 

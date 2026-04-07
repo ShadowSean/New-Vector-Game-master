@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Runtime.CompilerServices;
 
 public class GeneratorSix : MonoBehaviour
 {
@@ -259,6 +260,12 @@ public class GeneratorSix : MonoBehaviour
         }
 
         isPlayingFixingSound = false;
+        if (repairPercentage != null)
+        {
+            repairPercentage.value = 0f;
+        }
+        skillCheckRunning = false;
+        waitingForSkillCheck = false;
         inRange = false;
     }
 
@@ -294,6 +301,13 @@ public class GeneratorSix : MonoBehaviour
         skillCheck.SetActive(false);
 
         yield return new WaitForSeconds(5f);
+        if (isSixthFixed)
+        {
+            skillCheck.SetActive(false);
+            waitingForSkillCheck = false;
+            skillCheckRunning = false;
+            yield break;
+        }
 
         waitingForSkillCheck = true;
         skillCheck.SetActive(true);

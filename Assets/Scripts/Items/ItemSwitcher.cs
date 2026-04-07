@@ -15,6 +15,7 @@ public class ItemSwitcher : MonoBehaviour
 
     public GameObject flashlightIcon;
     public GameObject taserIcon;
+    public GameObject flamethrowerIcon;
     public GameObject batteryInt;
 
     [Header("Audio Sources & Clips")]
@@ -303,6 +304,7 @@ public class ItemSwitcher : MonoBehaviour
     public void PickupFlamethrower()
     {
         hasFlamethrower = true;
+        UpdateIcons();
         EquipItem(3);
     }
 
@@ -316,6 +318,11 @@ public class ItemSwitcher : MonoBehaviour
         if (taserIcon != null)
         {
             taserIcon.SetActive(hasTaser);
+        }
+
+        if (flamethrowerIcon != null)
+        {
+            flamethrowerIcon.SetActive(hasFlamethrower);
         }
     }
 

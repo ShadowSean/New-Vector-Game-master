@@ -6399,7 +6399,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: ff5e72b82b05a864eb71c0441b8dadee, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6443,7 +6443,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -12963,7 +12963,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 88a4634acecb3a341b5ffb641ca4235b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13007,7 +13007,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -13168,8 +13168,6 @@ PlayableDirector:
     value: {fileID: 1404359854}
   - key: {fileID: -4077086955526652876, guid: 0c569d458cbb0ea438b6efd7f2d76a3a, type: 2}
     value: {fileID: 623996152}
-  - key: {fileID: -3550170518517146745, guid: 0c569d458cbb0ea438b6efd7f2d76a3a, type: 2}
-    value: {fileID: 1889395013}
   - key: {fileID: -4176920446564571652, guid: 0c569d458cbb0ea438b6efd7f2d76a3a, type: 2}
     value: {fileID: 1730548030}
   - key: {fileID: -2536194017109048383, guid: 0c569d458cbb0ea438b6efd7f2d76a3a, type: 2}
@@ -16170,7 +16168,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: a4c292d54e0fc5144aa40f387b8ea9a3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -16214,7 +16212,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -38890,6 +38888,10 @@ PrefabInstance:
     - target: {fileID: 3675522838161619085, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: m_Name
       value: FPplayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675522838161619085, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5432223362921209038, guid: dc638c4a4a796574c8591b60721411c3, type: 3}
       propertyPath: m_ShowCustomSorter

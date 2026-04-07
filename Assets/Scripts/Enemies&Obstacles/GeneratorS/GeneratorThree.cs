@@ -273,6 +273,12 @@ public class GeneratorThree : MonoBehaviour
         if (flickeringLights != null) flickeringLights.speed = 1;
 
         isPlayingFixingSound = false;
+        if (repairPercentage != null)
+        {
+            repairPercentage.value = 0f;
+        }
+        skillCheckRunning = false;
+        waitingForSkillCheck = false;
     }
 
     public bool GetFixedState() => isThirdFixed;
@@ -295,6 +301,14 @@ public class GeneratorThree : MonoBehaviour
         skillCheck.SetActive(false);
 
         yield return new WaitForSeconds(5f);
+
+        if (isThirdFixed)
+        {
+            skillCheck.SetActive(false);
+            waitingForSkillCheck = false;
+            skillCheckRunning = false;
+            yield break;
+        }
 
         waitingForSkillCheck = true;
         skillCheck.SetActive(true);

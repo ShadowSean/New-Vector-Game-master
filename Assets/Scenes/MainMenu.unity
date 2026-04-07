@@ -3239,15 +3239,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4c404e6ce38eb1742b5c565fb087b562, type: 3}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.7254902
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2772714035285229874, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
@@ -5124,7 +5124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5451,15 +5451,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4c404e6ce38eb1742b5c565fb087b562, type: 3}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.7254902
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2772714035285229874, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
@@ -6166,7 +6166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7041,9 +7041,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.089635246, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.5529412, g: 0.05882353, b: 0.05882353, a: 1}
+    m_SelectedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -7525,15 +7525,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4c404e6ce38eb1742b5c565fb087b562, type: 3}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.37254903
       objectReference: {fileID: 0}
     - target: {fileID: 8314438589352571855, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.7254902
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2772714035285229874, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
@@ -8845,12 +8845,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     overrideTagEffects: 0
-  - triggerWhen: 0
-    effect: {fileID: 11400000, guid: b35e91f2ba42c4508990bb116bf016ee, type: 2}
-    onEffectCompleted:
-      m_PersistentCalls:
-        m_Calls: []
-    overrideTagEffects: 0
   updatesPerSecond: 30
 --- !u!114 &1163671984
 MonoBehaviour:
@@ -9708,9 +9702,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.49411765, g: 0.06666667, b: 0.06666667, a: 1}
+    m_SelectedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -10257,7 +10251,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -10916,12 +10910,6 @@ MonoBehaviour:
   globalEffects:
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: f2cfdcb823bdb4a0abb8bdc101944a9e, type: 2}
-    onEffectCompleted:
-      m_PersistentCalls:
-        m_Calls: []
-    overrideTagEffects: 0
-  - triggerWhen: 0
-    effect: {fileID: 11400000, guid: b35e91f2ba42c4508990bb116bf016ee, type: 2}
     onEffectCompleted:
       m_PersistentCalls:
         m_Calls: []
@@ -11604,9 +11592,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 1, b: 0.14873219, a: 1}
+    m_HighlightedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.5529412, g: 0.05882353, b: 0.05882353, a: 1}
+    m_SelectedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -12146,9 +12134,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -13154,9 +13142,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 1, b: 0.14873219, a: 1}
+    m_HighlightedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.5529412, g: 0.05882353, b: 0.05882353, a: 1}
+    m_SelectedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -14075,9 +14063,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.41568628, g: 0.41568628, b: 0.41568628, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -14539,6 +14527,10 @@ PrefabInstance:
     - target: {fileID: 5757722470647335951, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666561160059624917, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
+      propertyPath: globalEffects.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7179646869120930166, guid: 46e0d372f51627940b60c876eb7912b3, type: 3}
       propertyPath: m_Name
