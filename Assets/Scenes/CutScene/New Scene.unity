@@ -1246,6 +1246,50 @@ MonoBehaviour:
   AmplitudeGain: 0.5
   FrequencyGain: 0.5
   m_NoiseOffsets: {x: 922.14465, y: -258.56628, z: 195.35193}
+--- !u!1 &1127406706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1127406708}
+  - component: {fileID: 1127406707}
+  m_Layer: 0
+  m_Name: DEBUGGER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1127406707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127406706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4217f45413041d54a833d7aa0fa01601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::deubg
+--- !u!4 &1127406708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127406706}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.27349, y: 0, z: 108.45154}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1259344819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,6 +1864,10 @@ PrefabInstance:
     - target: {fileID: 3401807308203615184, guid: 43be2f361a4f94e48b70f512f1c88835, type: 3}
       propertyPath: m_Name
       value: 'Prefab CryoPod Room '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401807308203615184, guid: 43be2f361a4f94e48b70f512f1c88835, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7302625563452343555, guid: 43be2f361a4f94e48b70f512f1c88835, type: 3}
       propertyPath: m_Name
@@ -10382,7 +10430,7 @@ GameObject:
   - component: {fileID: 4492349983994936166}
   - component: {fileID: 8819901588517923162}
   m_Layer: 11
-  m_Name: Main Camera
+  m_Name: Cutscene Cam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15032,7 +15080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7632093569908658117}
   m_Layer: 11
-  m_Name: FPplayer
+  m_Name: CutscenePlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20054,7 +20102,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 23
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -28983,8 +29031,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3207652567798276987}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.12656918, y: -0.8803213, z: -0.32981217, w: 0.31660482}
-  m_LocalPosition: {x: -6.914006, y: 2.9270113, z: 127.96445}
+  m_LocalRotation: {x: 0.010806916, y: -0.36972487, z: -0.004295639, w: -0.92906857}
+  m_LocalPosition: {x: 860.418, y: 2.8330789, z: -512.76196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30944,3 +30992,4 @@ SceneRoots:
   - {fileID: 676348137}
   - {fileID: 330341993}
   - {fileID: 904201961}
+  - {fileID: 1127406708}
