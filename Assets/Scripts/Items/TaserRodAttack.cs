@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+using Unity.VisualScripting;
+using TMPro;
 
 public class TaserRodAttack : MonoBehaviour
 {
@@ -16,6 +19,16 @@ public class TaserRodAttack : MonoBehaviour
     [Header("Audio Settings")]
     public AudioSource tasersound;
     public AudioClip taserclip;
+
+    [Header("Cooldown Settings")]
+    public Image tasercooldownImage;
+    public GameObject taserIcon;
+    public TMP_Text cooldownText;
+    private float currentCD;
+    public bool inCooldown;
+    
+
+    
 
     private PlayerInput playerInput;
     private InputAction clickAction;
@@ -43,9 +56,10 @@ public class TaserRodAttack : MonoBehaviour
 
     void Update()
     {
-        // Only stun when pressing LMB AND cooldown ready
+        // Only stun when pressing clickaction AND cooldown ready
         if (clickAction != null && clickAction.WasPressedThisFrame() && canStun)
         {
+            
             TryStunEnemy();
            
         }
@@ -62,12 +76,18 @@ public class TaserRodAttack : MonoBehaviour
         Vector3 end = playerCam.transform.position + playerCam.transform.up * 0.5f;
         taserStunAnim.SetBool("New Tase", true);
         
-       
+    
+
+        
+
+
         StartCoroutine(taserstopstun());
         
         if (Physics.CapsuleCast(start, end, capsuleRadius, playerCam.transform.forward, out RaycastHit hit, stunRange,enemyLayer))
         {
             Vector9Movement enemy = hit.collider.GetComponent<Vector9Movement>();
+
+
 
             if (enemy != null && enemy.isStunned == false)
             {
@@ -114,11 +134,39 @@ public class TaserRodAttack : MonoBehaviour
     }
     IEnumerator CooldownRoutine()
     {
-        
+        currentCD = cooldown;
         canStun = false;
+        inCooldown = true;
+
+        tasercooldownImage.fillAmount = 0f;
+
+        taserIcon.SetActive(false);
+        cooldownText.gameObject.SetActive(true);
+        while (currentCD > 0)
+        {
+            currentCD -= Time.deltaTime;
+            if (currentCD < 0)
+            {
+                currentCD = 0;
+                cooldownText.gameObject.SetActive(false);
+            }
+            cooldownText.text = Mathf.Round(currentCD).ToString();
+            tasercooldownImage.fillAmount = 1f - (currentCD / cooldown);
+            yield return null;
+        }
+            
+        tasercooldownImage.fillAmount = 0f;
+        taserIcon.SetActive(true);
+            
         
+
+
         yield return new WaitForSeconds(cooldown);
+        
         canStun = true;
+        inCooldown = false;
         
     }
+
+    
 }

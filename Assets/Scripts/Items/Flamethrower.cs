@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class Flamethrower : MonoBehaviour
 {
@@ -20,6 +22,13 @@ public class Flamethrower : MonoBehaviour
     [Header("Particles")]
     public ParticleSystem muzzleParticles;
     public ParticleSystem zoneParticles;
+
+    [Header("Cooldown Settings")]
+    public Image flamecooldownIcon;
+    public GameObject flamethrowerIcon;
+    public TMP_Text cooldownText;
+    private float currentCD;
+    public bool inFlameCD;
 
     [SerializeField] ItemSwitcher swap;
 
@@ -151,8 +160,36 @@ public class Flamethrower : MonoBehaviour
 
     IEnumerator CooldownRoutine()
     {
+        currentCD = cooldown;
+        inFlameCD = true;
+
+        flamethrowerIcon.SetActive(false);
+        cooldownText.gameObject.SetActive(true);
+
+        while (currentCD > 0)
+        {
+            
+            currentCD -= Time.deltaTime;
+            if (currentCD < 0)
+            {
+                currentCD = 0;
+                cooldownText.gameObject.SetActive(false);
+            }
+            cooldownText.text = Mathf.Round(currentCD).ToString();
+            flamecooldownIcon.fillAmount = 1f - (currentCD / cooldown);
+            yield return null;
+        }
+
+        
+        
+
+        flamecooldownIcon.fillAmount = 0f;
+
+        flamethrowerIcon.SetActive(true);
+
         yield return new WaitForSeconds(cooldown);
         canSlow = true;
+        inFlameCD = false;
     }
 
     void StopAndClear(ParticleSystem particleSystem)
