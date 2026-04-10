@@ -104,7 +104,7 @@ public class CrateTwoUI : MonoBehaviour
         inventory.SetActive(true);
         RumbleManager.Instance.RumblePulse(0.5f, 0.9f, 0.2f);
         playerCursor.SetActive(true);
-        iam.Disable();
+        iam.Enable();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
