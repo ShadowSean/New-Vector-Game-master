@@ -61,7 +61,7 @@ public class GeneratorFive : MonoBehaviour
     {
         playerInput = FindFirstObjectByType<PlayerInput>();
         if (playerInput != null)
-            clickAction = playerInput.actions["Weapon Use"];
+            clickAction = playerInput.actions["GenAction"];
     }
 
     private void Start()

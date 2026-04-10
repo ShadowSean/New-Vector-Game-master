@@ -226,6 +226,15 @@ public partial class @ControllerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GenAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f5f6d72-4dad-4d14-a4aa-a3f3dfe5cb60"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -602,6 +611,28 @@ public partial class @ControllerActions: IInputActionCollection2, IDisposable
                     ""action"": ""CamZoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0fe9ca34-3b61-4d2e-8331-03d315121bc3"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GenAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1d64e24-aa09-4100-9486-c19eeb8c292e"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GenAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -898,6 +929,7 @@ public partial class @ControllerActions: IInputActionCollection2, IDisposable
         m_Player_MapToggle = m_Player.FindAction("MapToggle", throwIfNotFound: true);
         m_Player_SkillCheck = m_Player.FindAction("Skill Check", throwIfNotFound: true);
         m_Player_CamZoom = m_Player.FindAction("CamZoom", throwIfNotFound: true);
+        m_Player_GenAction = m_Player.FindAction("GenAction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
@@ -1001,6 +1033,7 @@ public partial class @ControllerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MapToggle;
     private readonly InputAction m_Player_SkillCheck;
     private readonly InputAction m_Player_CamZoom;
+    private readonly InputAction m_Player_GenAction;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1073,6 +1106,10 @@ public partial class @ControllerActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @CamZoom => m_Wrapper.m_Player_CamZoom;
         /// <summary>
+        /// Provides access to the underlying input action "Player/GenAction".
+        /// </summary>
+        public InputAction @GenAction => m_Wrapper.m_Player_GenAction;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1143,6 +1180,9 @@ public partial class @ControllerActions: IInputActionCollection2, IDisposable
             @CamZoom.started += instance.OnCamZoom;
             @CamZoom.performed += instance.OnCamZoom;
             @CamZoom.canceled += instance.OnCamZoom;
+            @GenAction.started += instance.OnGenAction;
+            @GenAction.performed += instance.OnGenAction;
+            @GenAction.canceled += instance.OnGenAction;
         }
 
         /// <summary>
@@ -1199,6 +1239,9 @@ public partial class @ControllerActions: IInputActionCollection2, IDisposable
             @CamZoom.started -= instance.OnCamZoom;
             @CamZoom.performed -= instance.OnCamZoom;
             @CamZoom.canceled -= instance.OnCamZoom;
+            @GenAction.started -= instance.OnGenAction;
+            @GenAction.performed -= instance.OnGenAction;
+            @GenAction.canceled -= instance.OnGenAction;
         }
 
         /// <summary>
@@ -1484,6 +1527,13 @@ public partial class @ControllerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCamZoom(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "GenAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGenAction(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

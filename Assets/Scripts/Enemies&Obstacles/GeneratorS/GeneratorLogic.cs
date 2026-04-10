@@ -63,7 +63,7 @@ public class GeneratorLogic : MonoBehaviour
 
         if (playerInput != null)
         {
-            clickAction = playerInput.actions["Weapon Use"];
+            clickAction = playerInput.actions["GenAction"];
         }
     }
 

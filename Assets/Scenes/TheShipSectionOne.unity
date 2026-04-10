@@ -12913,14 +12913,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5873f3e56a7d74d94af3297391c5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputPromptSwitcher
-  promptText: {fileID: 1876954807}
+  promptText: {fileID: 1245083247}
   gamepadPrompts:
-  - action: RT
-    text: '[HOLD RT]'
+  - action: LT
+    text: '[HOLD LT]'
   keyboardPrompts:
-  - action: LMB
-    text: '[HOLD LMB]'
-  defaultAction: LMB
+  - action: MMB
+    text: '[HOLD MMB]'
+  defaultAction: MMB
   switchCooldown: 1
   gamepadDeadzone: 0.2
 --- !u!1 &217677965
@@ -46251,14 +46251,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5873f3e56a7d74d94af3297391c5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputPromptSwitcher
-  promptText: {fileID: 1573706494}
+  promptText: {fileID: 1245083247}
   gamepadPrompts:
-  - action: RT
-    text: '[HOLD RT]'
+  - action: LT
+    text: '[HOLD LT]'
   keyboardPrompts:
-  - action: LMB
-    text: '[HOLD LMB]'
-  defaultAction: LMB
+  - action: MMB
+    text: '[HOLD MMB]'
+  defaultAction: MMB
   switchCooldown: 1
   gamepadDeadzone: 0.2
 --- !u!65 &879663723
@@ -49509,12 +49509,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InputPromptSwitcher
   promptText: {fileID: 1245083247}
   gamepadPrompts:
-  - action: RT
-    text: '[HOLD RT]'
+  - action: LT
+    text: '[HOLD LT]'
   keyboardPrompts:
-  - action: LMB
-    text: '[HOLD LMB]'
-  defaultAction: LMB
+  - action: MMB
+    text: '[HOLD MMB]'
+  defaultAction: MMB
   switchCooldown: 1
   gamepadDeadzone: 0.2
 --- !u!1 &936753091
@@ -67393,7 +67393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[HOLD LMB]'
+  m_text: '[HOLD MMB]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b75ed1ebc13d555468b4ec01e11bed64, type: 2}
   m_sharedMaterial: {fileID: -5117862700631840672, guid: b75ed1ebc13d555468b4ec01e11bed64, type: 2}
@@ -80931,14 +80931,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5873f3e56a7d74d94af3297391c5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputPromptSwitcher
-  promptText: {fileID: 8981770}
+  promptText: {fileID: 1245083247}
   gamepadPrompts:
-  - action: RT
-    text: '[HOLD RT]'
+  - action: LT
+    text: '[HOLD LT]'
   keyboardPrompts:
-  - action: LMB
-    text: '[HOLD LMB]'
-  defaultAction: LMB
+  - action: MMB
+    text: '[HOLD MMB]'
+  defaultAction: MMB
   switchCooldown: 1
   gamepadDeadzone: 0.2
 --- !u!65 &1478076605
@@ -90064,14 +90064,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5873f3e56a7d74d94af3297391c5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputPromptSwitcher
-  promptText: {fileID: 1759430350}
+  promptText: {fileID: 1245083247}
   gamepadPrompts:
-  - action: RT
-    text: '[HOLD RT]'
+  - action: LT
+    text: '[HOLD LT]'
   keyboardPrompts:
-  - action: LMB
-    text: '[HOLD LMB]'
-  defaultAction: LMB
+  - action: MMB
+    text: '[HOLD MMB]'
+  defaultAction: MMB
   switchCooldown: 1
   gamepadDeadzone: 0.2
 --- !u!65 &1664439031
@@ -113973,14 +113973,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5873f3e56a7d74d94af3297391c5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputPromptSwitcher
-  promptText: {fileID: 1413483188}
+  promptText: {fileID: 1245083247}
   gamepadPrompts:
-  - action: RT
-    text: '[HOLD RT]'
+  - action: LT
+    text: '[HOLD LT]'
   keyboardPrompts:
-  - action: LMB
-    text: '[HOLD LMB]'
-  defaultAction: LMB
+  - action: MMB
+    text: '[HOLD MMB]'
+  defaultAction: MMB
   switchCooldown: 1
   gamepadDeadzone: 0.2
 --- !u!1 &2098576162
