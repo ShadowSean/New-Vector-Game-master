@@ -3,10 +3,10 @@
     Properties
     {
         // Base color of the surface
-        _BaseColor ("Base Color", Color) = (1, 1, 1, 1)
+        [HDR] _BaseColor ("Base Color", Color) = (1, 1, 1, 1)
 
         // Color of the rim (edge highlight)
-        _RimColor ("Rim Color", Color) = (0, 0.5, 0.5, 1)
+        [HDR] _RimColor ("Rim Color", Color) = (0, 0.5, 0.5, 1)
 
         // Controls the sharpness/intensity of the rim glow
         _RimPower ("Rim Power", Range(0.5, 8.0)) = 3.0

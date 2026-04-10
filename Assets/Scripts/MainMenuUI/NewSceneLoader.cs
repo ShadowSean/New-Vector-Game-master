@@ -25,6 +25,8 @@ public class NewSceneLoader : MonoBehaviour
     [Header("MainGame")]
     public string mainGameSceneName;
 
+
+
     [Header("Lore Loading")]
     public GameObject loretext;
     public GameObject continueText;
@@ -50,6 +52,8 @@ public class NewSceneLoader : MonoBehaviour
 
         SceneManager.LoadScene(mainGameSceneName);
     }
+
+
 
     public void SkipLoreScene()
     {

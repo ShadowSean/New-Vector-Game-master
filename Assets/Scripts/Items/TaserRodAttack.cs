@@ -59,22 +59,23 @@ public class TaserRodAttack : MonoBehaviour
         // Only stun when pressing clickaction AND cooldown ready
         if (clickAction != null && clickAction.WasPressedThisFrame() && canStun)
         {
+            taserStunAnim.SetBool("New Tase", true);
+
             
-            TryStunEnemy();
            
         }
     }
 
 
 
-    void TryStunEnemy()
+    public void TryStunEnemy()
     {
         float capsuleRadius = 0.5f;
         float capsuleHeight = 1.0f;
 
         Vector3 start = playerCam.transform.position - playerCam.transform.up * 0.5f;
         Vector3 end = playerCam.transform.position + playerCam.transform.up * 0.5f;
-        taserStunAnim.SetBool("New Tase", true);
+        
         
     
 
@@ -158,10 +159,6 @@ public class TaserRodAttack : MonoBehaviour
         tasercooldownImage.fillAmount = 0f;
         taserIcon.SetActive(true);
             
-        
-
-
-        yield return new WaitForSeconds(cooldown);
         
         canStun = true;
         inCooldown = false;

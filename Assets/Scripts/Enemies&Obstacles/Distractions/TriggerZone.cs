@@ -6,6 +6,7 @@ public class TriggerZone : MonoBehaviour
     [Header("References")]
     [Tooltip("Animator on the target GameObject to animate.")]
     public Animator animator;
+    public GameObject ventlight;
     [Tooltip("AudioSource to play the sound from.")]
     public AudioSource audioSource;
 
@@ -31,6 +32,7 @@ public class TriggerZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             hasTriggered = true;
+            ventlight.SetActive(true);
             PlayAnimation();
             PlaySound();
             Debug.Log("Valid");

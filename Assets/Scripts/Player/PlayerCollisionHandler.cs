@@ -66,6 +66,7 @@ public class PlayerCollisionHandler : MonoBehaviour
             if(stun != null)
             {
                 stun.StartFade();
+
             }
         }
     }

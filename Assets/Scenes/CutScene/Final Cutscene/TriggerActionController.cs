@@ -28,6 +28,7 @@ public class MultiTriggerController : MonoBehaviour
     public string cutsceneTriggerTag = "CutsceneTrigger";
     public PlayableDirector cutsceneTimeline;
     public GameObject canvas;
+    public GameObject skipCanvas;
     [Tooltip("This is the already existing cutscene parent object in the scene. It will be turned ON.")]
     public GameObject cutsceneParentToActivate;
     [Tooltip("Optional. If left empty, the script will deactivate this object's parent.")]
@@ -107,6 +108,7 @@ public class MultiTriggerController : MonoBehaviour
             if (cutsceneParentToActivate != null)
             {
                 cutsceneParentToActivate.SetActive(true);
+                skipCanvas.SetActive(true);
                 canvas.SetActive(false);
             }
 

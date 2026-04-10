@@ -36,7 +36,9 @@ public class GeneratorLogic : MonoBehaviour
     private bool isPlayingFixingSound;
 
     [Header("Flickering Lights")]
-    public Animator flickeringLight;
+    public GameObject flickeringLight;
+    public GameObject ventLight;
+    public Collider storagedoorcol;
 
     [Header("Gen Upgrade Speed")]
     public FasterGen fastRepairSpeed;
@@ -52,6 +54,8 @@ public class GeneratorLogic : MonoBehaviour
 
     private PlayerInput playerInput;
     private InputAction clickAction;
+
+    
 
     private void Awake()
     {
@@ -128,6 +132,9 @@ public class GeneratorLogic : MonoBehaviour
                     {
                         repairPercentage.value = repairPercentage.maxValue;
                         isFixed = true;
+                        flickeringLight.SetActive(true);
+                        storagedoorcol.enabled = false;
+                        ventLight.SetActive(false);
 
                         RumbleManager.Instance.RumbleFadeOut(0.8f, 0.5f, 1f);
                         isRepairing = false;
@@ -277,7 +284,7 @@ public class GeneratorLogic : MonoBehaviour
         repairAndGenerator.SetActive(false);
         partsNeeded.SetActive(false);
 
-        if (flickeringLight != null) flickeringLight.speed = 0;
+       
 
         if (genOneMat != null) genOneMat.EnableKeyword("_EMISSION");
 
@@ -317,7 +324,7 @@ public class GeneratorLogic : MonoBehaviour
 
         if (genFixingSource != null) genFixingSource.Stop();
 
-        if (flickeringLight != null) flickeringLight.speed = 1;
+       
 
         isPlayingFixingSound = false;
     }

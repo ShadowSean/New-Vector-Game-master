@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class PopupTrigger : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PopupTrigger : MonoBehaviour
     [SerializeField] string message = "It's Locked";
     [SerializeField] GameObject popupPrompt;
     [SerializeField] TMP_Text popupText;
+    public Animator lightanimation;
 
     [Header("Sound Settings")]
     [SerializeField] AudioClip triggerSound;
@@ -24,10 +26,13 @@ public class PopupTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+
+
         if (GeneratorCounter.Instance != null &&
             GeneratorCounter.Instance.FixedCount >= GeneratorCounter.Instance.totalGens) return;
 
         if (popupText != null)
+            lightanimation.gameObject.SetActive(true);
             popupText.text = message.Replace("\\n", "\n");
 
         if (popupPrompt != null) popupPrompt.SetActive(true);
@@ -48,4 +53,6 @@ public class PopupTrigger : MonoBehaviour
         else
             AudioSource.PlayClipAtPoint(triggerSound, transform.position, volume);
     }
+
+    
 }

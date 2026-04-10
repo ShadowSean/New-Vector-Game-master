@@ -168,7 +168,6 @@ public class Flamethrower : MonoBehaviour
 
         while (currentCD > 0)
         {
-            
             currentCD -= Time.deltaTime;
             if (currentCD < 0)
             {
@@ -187,7 +186,6 @@ public class Flamethrower : MonoBehaviour
 
         flamethrowerIcon.SetActive(true);
 
-        yield return new WaitForSeconds(cooldown);
         canSlow = true;
         inFlameCD = false;
     }

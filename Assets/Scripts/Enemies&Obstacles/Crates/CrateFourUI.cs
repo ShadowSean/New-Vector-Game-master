@@ -24,10 +24,12 @@ public class CrateFourUI : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction clickAction;
 
+    InputActionMap iam;
+
     private void Awake()
     {
         playerInput = FindFirstObjectByType<PlayerInput>();
-
+        iam = playerInput.currentActionMap;
         if (playerInput != null)
         {
             clickAction = playerInput.actions["Weapon Use"];
@@ -70,7 +72,7 @@ public class CrateFourUI : MonoBehaviour
         itemRotation.SetActive(true);
         crateui.SetActive(true);
         equipIcon.SetActive(true);
-
+        iam.Disable();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -103,6 +105,8 @@ public class CrateFourUI : MonoBehaviour
         inventory.SetActive(true);
         RumbleManager.Instance.RumblePulse(0.5f, 0.9f, 0.2f);
         playerCursor.SetActive(true);
+
+        iam.Enable();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 

@@ -271,6 +271,7 @@ public class FinalVector9 : MonoBehaviour
 
         gameOverRunning = true;
         StartCoroutine(GameOverSequence());
+        Debug.Log("Death Screen Active.");
     }
 
     public void Stun()
