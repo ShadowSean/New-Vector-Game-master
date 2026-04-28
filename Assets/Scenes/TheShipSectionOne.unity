@@ -116959,6 +116959,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1726630266}
     - target: {fileID: 3253783913416900789, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: toggleDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253783913416900789, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
       propertyPath: flashlightBar
       value: 
       objectReference: {fileID: 158241576}
