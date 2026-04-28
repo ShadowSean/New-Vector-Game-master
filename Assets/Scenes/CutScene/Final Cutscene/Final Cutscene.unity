@@ -8651,13 +8651,33 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3253783913416900789, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: taserIcon
+      value: 
+      objectReference: {fileID: 983732248}
+    - target: {fileID: 3253783913416900789, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: batteryInt
+      value: 
+      objectReference: {fileID: 1924949018}
+    - target: {fileID: 3253783913416900789, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: flashlightBar
+      value: 
+      objectReference: {fileID: 771913639}
+    - target: {fileID: 3253783913416900789, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
       propertyPath: hasFlashlight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3253783913416900789, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: flashlightIcon
+      value: 
+      objectReference: {fileID: 627401952}
+    - target: {fileID: 3253783913416900789, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
       propertyPath: hasFlamethrower
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3253783913416900789, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: flamethrowerIcon
+      value: 
+      objectReference: {fileID: 301300699}
     - target: {fileID: 4519080677530530035, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8718,10 +8738,38 @@ PrefabInstance:
       propertyPath: runningSpeed
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6982973374071106646, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: scope
+      value: 
+      objectReference: {fileID: 1182288815}
     - target: {fileID: 8317308547580928105, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
       propertyPath: stamina
       value: 
-      objectReference: {fileID: 331081442}
+      objectReference: {fileID: 820693451}
+    - target: {fileID: 8317308547580928105, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 191435268}
+    - target: {fileID: 8317308547580928105, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: mainInvUI
+      value: 
+      objectReference: {fileID: 191435268}
+    - target: {fileID: 8317308547580928105, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: flameStats
+      value: 
+      objectReference: {fileID: 66742256}
+    - target: {fileID: 8317308547580928105, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: flashStats
+      value: 
+      objectReference: {fileID: 1265211405}
+    - target: {fileID: 8317308547580928105, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: objectives
+      value: 
+      objectReference: {fileID: 1929081931}
+    - target: {fileID: 8317308547580928105, guid: d710fd51a0dd19a41ac35e1e6ebb8f60, type: 3}
+      propertyPath: taserStats
+      value: 
+      objectReference: {fileID: 2138072786}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
