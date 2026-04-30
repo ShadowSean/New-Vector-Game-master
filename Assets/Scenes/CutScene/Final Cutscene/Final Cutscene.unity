@@ -11952,7 +11952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89136b5240e7b3a40b99e8292823425d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stamina
-  staminaImage: {fileID: 0}
+  staminaImage: {fileID: 331081444}
   maxStamina: 100
   staminaDrain: 20
   staminaRegen: 5
